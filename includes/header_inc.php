@@ -28,11 +28,38 @@
     <link rel="stylesheet" href="/../css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="/../css/style.css" type="text/css">
     
+    
     <style>
        .break-line {
         border-top:1px solid #ccc;
-}
+        }
     </style>
+    
+    <?php if($title == "About") : ?>
+
+        <link rel="stylesheet" href="/../css/info.css" />
+
+    <?php endif; ?>
+
+
+    <?php if($title == "Pricing") : ?>
+
+        <link rel="stylesheet" href="/../css/pricing.css" />
+
+    <?php endif; ?>
+
+    <?php if($title == "Blog") : ?>
+
+        <link rel="stylesheet" href="/../css/blog.css" />
+
+    <?php endif; ?>
+
+    <?php if($title == "Account") : ?>
+
+        <link rel="stylesheet" href="/../css/account.css" />
+
+    <?php endif; ?>
+
     <!--[if LT IE 9]>
 
       <script src="old_ie.js"></script>
@@ -57,11 +84,11 @@
         <nav class="main-nav">
             <img src="images/logo.png" alt="logo">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="info.html">About</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="account.html">Account</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="info.php">About</a></li>
+                <li><a href="pricing.php">Pricing</a></li>
+                <li><a href="blog.php">Blog</a></li>
+                <li><a href="account.php">Account</a></li>
             </ul>
         </nav>
         
@@ -81,11 +108,11 @@
            
             <ul>
              
-              <li><a href="index.html">Home</a></li>
-              <li><a href="info.html">About</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="account.html">Account</a></li>
+              <li><a href="index.php">Home</a></li>
+              <li><a href="info.php">About</a></li>
+              <li><a href="pricing.php">Pricing</a></li>
+              <li><a href="blog.php">Blog</a></li>
+              <li><a href="account.php">Account</a></li>
             </ul>
           
         </div>
