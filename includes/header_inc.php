@@ -84,11 +84,11 @@
         <nav class="main-nav">
             <img src="images/logo.png" alt="logo">
             <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="info.php">About</a></li>
-                <li><a href="pricing.php">Pricing</a></li>
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="account.php">Account</a></li>
+                <li><a <?php if($title == "Welcome To Sound Comet") {echo 'class="active"';} ?> href="index.php">Home</a></li>
+                <li><a <?php if($title == "About") {echo 'class="active"';} ?> href="info.php">About</a></li>
+                <li><a <?php if($title == "Pricing") {echo 'class="active"';} ?> href="pricing.php">Pricing</a></li>
+                <li><a <?php if($title == "Blog") {echo 'class="active"';} ?> href="blog.php">Blog</a></li>
+                <li><a <?php if($title == "Account") {echo 'class="active"';} ?> href="account.php">Account</a></li>
             </ul>
         </nav>
         

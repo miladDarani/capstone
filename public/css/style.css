@@ -220,6 +220,14 @@ nav ul li:hover a {
   border-radius: 90px;
 }
 
+.active {
+  background-color: #FF9B6B;
+  color: #fff;
+  -webkit-box-shadow: 8px 5px .2px rgb(123, 226, 248,.6);
+  box-shadow: 8px 5px .2px rgb(123, 226, 248,.6);
+  border-radius: 90px;
+}
+
 nav ul li:active a {
   background-color: #B3E3B5;
   color: #555;
