@@ -1,93 +1,12 @@
-<!doctype html>
-<!--
-    ──────▄▀▄─────▄▀▄              W W W !!
-    ─────▄█░░▀▀▀▀▀░░█▄         E O  
-    ─▄▄──█░░░░░░░░░░░█──▄▄   M
-    █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
-||||||||||||||||||||||||||||||
-|||                        |||
-|||       Milad Darani     |||
-|||    WDD - Capstone      |||
-|||          2019          |||
-|||  Instructor: B. Scott  |||
-|||                        |||
-||||||||||||||||||||||||||||||
 
---> 
-<html lang="en">
+<?php 
 
-<head>
-    <title>Home</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--  Desktop   -->
+$title = "Welcome To Sound Comet";
 
-    <!--    Mobile  -->
-    <link href="https://fonts.googleapis.com/css?family=Quicksand:100,300,400,500,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="style.css" type="text/css">
-    
-    <style>
-       .break-line {
-        border-top:1px solid #ccc;
-}
-    </style>
-    <!--[if LT IE 9]>
 
-      <script src="old_ie.js"></script>
-      <style type="text/css">
-        header,
-        nav,
-        section,
-        footer{
-          display:block;
-        }
-      </style>
-    <![endif]-->
-</head>
+require __DIR__ . "/../includes/header_inc.php";
 
-<body>
-  <!--[if LTE IE 9]>
-     <div id="ie_warning">This page will not display properly in IE8, Please update to a newer version!</div>
-  <![endif]-->
-    <section id="wrapper">
-
-        <nav class="main-nav">
-            <img src="images/logo.png" alt="logo">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="info.html">About</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="account.html">Account</a></li>
-            </ul>
-        </nav>
-        
-       
-        
-        <div class="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        
-        
-        <div id="mobile-nav">
-            <div class="dropdown">
-        
-      </div> 
-           
-            <ul>
-             
-              <li><a href="index.html">Home</a></li>
-              <li><a href="info.html">About</a></li>
-              <li><a href="pricing.html">Pricing</a></li>
-              <li><a href="blog.html">Blog</a></li>
-              <li><a href="account.html">Account</a></li>
-            </ul>
-          
-        </div>
+?>
 
         <div id="row1">
 
@@ -572,74 +491,10 @@
             </div>
             <!-- End Row 5 -->
 
-<div id="footer">
 
-                <div id="footer-wrapper">
-                    <div class="footer-item footer-item1">
-                       
-                        <img src="images/logo-white.png" alt="logo">
+<?php 
 
-                       
-                    </div>
 
-  <div class="footer-item footer-item2">
-      <div class="first-date-wrapper">
+require __DIR__ . "/../includes/footer_inc.php";
 
-          <div class="date-title">
-              <h4>Latest posts</h4>
-              <p><a href="#">Mastering</a></p>
-              <p><a href="#">Distribution</a></p>
-              <p><a href="#">Plugns</a></p>
-              <p><a href="#">Samples</a></p>
-              <p><a href="#">Promotions</a></p>
-              <p><a href="#">Desktop App</a></p>
-          </div>
-
-          <div class="date-title">
-              <h4>Resources</h4>
-              <p><a href="#">What is mixing?</a></p>
-              <p><a href="#">What is mastering?</a></p>
-              <p><a href="#">How to promote yourself</a></p>
-              <p><a href="#">Thing's you need to know</a></p>
-              <p><a href="#">Terms</a></p>
-              <p><a href="#">Privacy</a></p>
-          </div>
-      </div>
-  </div>
-
-  <div class="footer-item footer-item4">
-      <h3>CONNECT WITH US</h3>
-
-      <form action="http://www.scott-media.com/test/form_display.php" onsubmit="return newsletter_check(this)" method="post" class="tb-newsletter tb-style7">
-
-          <div class="tb-form-field" id="form-footer">
-              <input type="text" name="email" required="" placeholder="Email Address" class="footer-email">
-              <input type="submit" class="footer-submit" value="&check;">
-          </div>
-
-      </form>
-      <div class="sm-icons">
-          <p><img src="images/svgs/brands/facebook-f.svg" alt="facebook"></p>
-          <p id="twitter-icon"><img src="images/svgs/brands/twitter.svg" alt="facebook"></p>
-          <p id="youtube-icon"><img src="images/svgs/brands/youtube.svg" alt="facebook"></p>
-      </div>
-      <div class="privacy">
-
-          <a class="copyright" href="#">SOUNDCOMET &copy; 2019 All rights reserved </a>
-      </div>
-    </div>
-
-                </div>
-
-            </div>
-            <!-- FOOTER -->
-
-        </div>
-        <!-- WRAPPER -->
-    </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<script src="js.js"></script>
-</body>
-
-</html>
+?>
