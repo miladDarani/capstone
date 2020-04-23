@@ -404,6 +404,7 @@ require __DIR__ . "/../includes/header_inc.php";
                 </div>
 
             </div>
+        </div>
             <!-- END ROW 4 -->
             <div class="break5"></div>
             <div id="row5">
