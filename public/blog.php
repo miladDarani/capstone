@@ -103,7 +103,7 @@ require __DIR__ . "/../includes/header_inc.php";
         <a href="#">1</a>
         <a href="#">2</a>
       </div>
-    </section> <!-- WRAPPER END -->
+
  <?php 
 
 
