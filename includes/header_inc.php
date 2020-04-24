@@ -25,8 +25,8 @@
 
     <!--    Mobile  -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:100,300,400,500,600,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/print.css" type="text/css" media="print" />
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     
     
     <style>
@@ -37,26 +37,26 @@
     
     <?php if($title == "About") : ?>
 
-        <link rel="stylesheet" href="/css/info.css" />
+        <link rel="stylesheet" href="css/info.css" type="text/css" />
 
     <?php endif; ?>
 
 
     <?php if($title == "Pricing") : ?>
 
-        <link rel="stylesheet" href="/css/pricing.css" />
+        <link rel="stylesheet" href="css/pricing.css" type="text/css" />
 
     <?php endif; ?>
 
     <?php if($title == "Blog") : ?>
 
-        <link rel="stylesheet" href="/css/blog.css" />
+        <link rel="stylesheet" href="css/blog.css" type="text/css"/>
 
     <?php endif; ?>
 
     <?php if($title == "Account") : ?>
 
-        <link rel="stylesheet" href="/css/account.css" />
+        <link rel="stylesheet" href="css/account.css" type="text/css"/>
 
     <?php endif; ?>
 
