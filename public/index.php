@@ -1,7 +1,8 @@
 
 <?php 
-
+// require __DIR__ . "/../config.php";
 $title = "Welcome To Sound Comet";
+
 
 
 require __DIR__ . "/../includes/header_inc.php";
