@@ -1,7 +1,6 @@
 <?php
 
 $title = "About";
-
 require __DIR__ . "/../includes/header_inc.php";
 
 
