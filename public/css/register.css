@@ -1,7 +1,6 @@
         #wrapper1 {
             display: flex;
             flex-direction: column;
-            width: 60%;
 
         }
 
@@ -16,7 +15,7 @@
         body{
             font-family: 'Oswald' ;
             display: flex;
-            background: linear-gradient(270deg, #1ea780, #dff0ed, #3a444d);
+            /*background: linear-gradient(270deg, #1ea780, #dff0ed, #3a444d);
             background-size: 600% 600%;
             -webkit-animation: AnimationName 24s ease infinite;
             -moz-animation: AnimationName 24s ease infinite;
@@ -36,34 +35,40 @@
         0%{background-position:0% 50%}
         50%{background-position:100% 50%}
         100%{background-position:0% 50%}
+        */
         }
 
         label{
             font-family: 'Oswald' ;
         }
 
-        form{
+        #form1{
             
             flex-direction: row;
             background-color:#212a34;
             color:white;
+            
+            display: flex;
+            padding: 60px;
+        }
+
+        #form2 {
             display: flex;
             flex-direction: column;
-            margin: 80px;
-            padding: 60px;
         }
 
        
 
         button{
             padding:15px;
-            width:85%;
+            width: 84%;
             font-family: 'Oswald';
             font-size:30px;
             color:white;
             background-color: #1ea780;
             border:none;
             letter-spacing: 4px;
+            margin-top: 40px;
         }
 
         input{
@@ -75,6 +80,7 @@
             font-size:15px;
         }
 
+       
         .fl_name{
             width: 89%;
             padding-top: 30px;
@@ -113,7 +119,12 @@
         }
 
         #box {
+            text-align: center;
 
+        }
+
+        .box1, .box2 {
+            width: 100%;
         }
         .header{
             letter-spacing: 4px;
