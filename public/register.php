@@ -25,31 +25,31 @@ require __DIR__ . "/../includes/header_inc.php";
         <div class="fl_name">
 
             <div class="f_name">
-            <input name="first_name" type="text" placeholder="First Name *" required/>
+            <input name="first_name" type="text" placeholder="First Name *" required value="" />
           </div>
 
             <div class="l_name">
-                <input name="last_name" type="text" placeholder="Last Name *" required/>
+                <input name="last_name" type="text" placeholder="Last Name *" required value="" />
             </div>
         
         </div>
         
         <p>
-          <input name="email" id="email" type="text" placeholder="Type your e-mail address *" required/>
+          <input name="email" id="email" type="text" placeholder="Type your e-mail address *" required value="" />
         </p>
 
         <p>
-            <input name="phone" type="text" placeholder="Phone Number *" required/>
+            <input name="phone" type="text" placeholder="Phone Number *" required value="" />
         </p>
 
         <p>
-            <input name="postal_code" type="text" placeholder="Postal Code i.e R2J1L5 or 90210 *" required/>
+            <input name="postal_code" type="text" placeholder="Postal Code i.e R2J1L5 or 90210 *" required value="" />
         </p>
 
        
 
         <p>
-            <input name="age" type="text" placeholder="Your Age" />
+            <input name="age" type="text" placeholder="Your Age"  value="" />
         </p>
 
         <div class="buttons">
