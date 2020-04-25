@@ -7,17 +7,16 @@ require __DIR__ . "/../includes/header_inc.php";
 
 <div id="wrapper1">
 
-    <h1>Milad Darani - Assignment 1 - Form Validation</h1>
 
     <div id="error-div">
-        <p id =error onclick="startTime()"></p>
+        
         <div id="txt"></div>
     </div>
 
     <form name="form1" action="handle.php" method="post" novalidate>
 
         <div id="box">
-            <h1 class="header">Sign-up Form Example</h1>
+            <h1 class="header"><?=$title?></h1>
         </div>
 
 
@@ -26,38 +25,36 @@ require __DIR__ . "/../includes/header_inc.php";
         <div class="fl_name">
 
             <div class="f_name">
-            <input onchange="checkForNumbers(this)" name="First-Name" type="text" placeholder="First Name *" required/>
+            <input name="first_name" type="text" placeholder="First Name *" required/>
           </div>
 
             <div class="l_name">
-                <input onchange="checkForNumbers(this)" name="Last-Name" type="text" placeholder="Last Name *" required/>
+                <input name="last_name" type="text" placeholder="Last Name *" required/>
             </div>
         
         </div>
         
         <p>
-          <input onchange="checkEmail(this)" name="E-Mail" id="email" type="text" placeholder="Type your e-mail address *" required/>
+          <input name="email" id="email" type="text" placeholder="Type your e-mail address *" required/>
         </p>
 
         <p>
-            <input onchange="checkPhone(this)" name="Phone#" type="text" placeholder="Phone Number *" required/>
+            <input name="phone" type="text" placeholder="Phone Number *" required/>
         </p>
 
         <p>
-            <input  onchange="checkPostal(this)"  name="Postal-Code" type="text" placeholder="Postal Code i.e R2J1L5 *" required/>
+            <input name="postal_code" type="text" placeholder="Postal Code i.e R2J1L5 or 90210 *" required/>
         </p>
 
-        <p>
-         <input onchange="checkURL(this)"  id="url" name="URL" type="text" placeholder="Enter Website | example: http://john.com"/>
-        </p>
+       
 
         <p>
-            <input onchange="checkAge(this)" name="Age" type="text" placeholder="Your Age" />
+            <input name="age" type="text" placeholder="Your Age" />
         </p>
 
         <div class="buttons">
             <p><button type="submit">GET STARTED</button></p>
-            <p><button onclick="resetForm(this)">RESET</button></p>
+            <p><button>RESET</button></p>
         </div>
 
     </form> <!-- end form -->
