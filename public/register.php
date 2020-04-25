@@ -99,7 +99,7 @@ require __DIR__ . "/../includes/header_inc.php";
             </p>
 
             <p>
-              <label for="email">Confirm Password</label><br />
+              <label for="password2">Confirm Password</label><br />
               <input name="password2" id="password2" type="text" placeholder="Type your Password again *" required value="" />
             </p>
 
