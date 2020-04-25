@@ -63,6 +63,8 @@ if(empty($_POST['email'])) {
     $errors['email'] = "You must provide your E-Mail";
 } elseif ($_POST['email'] !== $_POST['email2']) {
     $errors['email'] = " E-mails entered did not match";
+} elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    $errors['email']= "Please enter a valid email address";
 }
 
 //---- Email2 ----\\
@@ -73,7 +75,7 @@ if(empty($_POST['email2']) && !empty($_POST['email'])) {
 //---- Password1 ----\\
 if(empty($_POST['password'])) {
     $errors['password'] = "You must provide a password 0-12 characrters long";
-} elseif ($_POST['password'] !== $_POST['[password2']) {
+} elseif ($_POST['password'] !== $_POST['password2']) {
     $errors['password'] = "Passwords did not match";
 }
 
