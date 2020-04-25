@@ -60,6 +60,13 @@
 
     <?php endif; ?>
 
+    <?php if($title == "Register") : ?>
+
+        <link rel="stylesheet" href="css/register.css" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
+    <?php endif; ?>
+
     <!--[if LT IE 9]>
 
       <script src="old_ie.js"></script>
