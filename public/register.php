@@ -34,8 +34,26 @@ require __DIR__ . "/../includes/header_inc.php";
         
         </div>
         
+        
+         <p>
+          <input name="street" id="street" type="text" placeholder="Type your street address *" required value="" />
+        </p>
+
+
+         <p>
+          <input name="city" id="city" type="text" placeholder="City *" required value="" />
+        </p>
+
         <p>
-          <input name="email" id="email" type="text" placeholder="Type your e-mail address *" required value="" />
+            <input name="postal_code" type="text" placeholder="Postal Code i.e R2J1L5 or 90210 *" required value="" />
+        </p>
+
+        <p>
+          <input name="province" id="province" type="text" placeholder="Province or State i.e ON or NY *" required value="" />
+        </p>
+
+         <p>
+          <input name="country" id="country" type="text" placeholder="Country *" required value="" />
         </p>
 
         <p>
@@ -43,8 +61,24 @@ require __DIR__ . "/../includes/header_inc.php";
         </p>
 
         <p>
-            <input name="postal_code" type="text" placeholder="Postal Code i.e R2J1L5 or 90210 *" required value="" />
+          <input name="email" id="email" type="text" placeholder="Type your e-mail address *" required value="" />
         </p>
+
+         <p>
+          <input name="email2" id="email2" type="text" placeholder="Type your e-mail address again *" required value="" />
+        </p>
+
+          <p>
+          <input name="password" id="password" type="text" placeholder="Type your Password *" required value="" />
+        </p>
+
+         <p>
+          <input name="password2" id="password2" type="text" placeholder="Type your Password again *" required value="" />
+        </p>
+
+        
+
+        
 
        
 
