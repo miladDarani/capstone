@@ -25,7 +25,7 @@ if(empty($_POST['last_name'])) {
 
 //---- Nick Name ----\\
 if(empty($_POST['nick_name'])) {
-    // $errors['nick_name'] = "Nick Name is a required field";
+    $errors['nick_name'] = "Nick Name is a required field";
 }
 
 //---- Street ----\\
@@ -46,6 +46,8 @@ if(empty($_POST['postal_code'])) {
 //---- Province ----\\
 if(empty($_POST['province'])) {
     $errors['province'] = "You must provide your Province or State";
+}elseif (mb_strlen($_POST['province']) > 2) {
+    $errors['province'] = 'Enter 2 Character abbreviation, i.e NY or ON';
 }
 
 //---- Country ----\\
@@ -105,9 +107,41 @@ if(count($errors) > 0) {
 //12. the SQL query
 //12. escape it in SQL to make it safe like so :name
 
-$query = 'INSERT INTO blog_post
-          (first_name, last_name, nick_name, street, city, postal_code, province, country, phone, email, password, username)
+$query = 'INSERT INTO users
+          (first_name, last_name, nick_name, street, city, postal_code, province, country, phone, email, password)
           VALUES
-          (:first_name, :last_name, :nick_name, :street, :city, :postal_code, :province, :country, :phone, :email, :password, :username)
+          (:first_name, :last_name, :nick_name, :street, :city, :postal_code, :province, :country, :phone, :email, :password)';
 
-'
+//13. create stmt to prepare query 
+$stmt = $dbh->prepare($query);
+
+
+//14. set params
+$params = array (
+':first_name' => $_POST['first_name'],
+':last_name' => $_POST['last_name'],
+':nick_name' => $_POST['nick_name'],
+':street' => $_POST['street'],
+':city' => $_POST['city'],
+':postal_code' => $_POST['postal_code'],
+':province' => $_POST['province'],
+':country' => $_POST['country'],
+':phone' => $_POST['phone'],
+':email' => $_POST['email'],
+':password' => $_POST['password']
+
+);
+
+//15 execute query
+$stmt->execute($params);
+
+
+
+
+
+
+
+
+
+
+

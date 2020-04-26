@@ -48,8 +48,8 @@ require __DIR__ . "/../includes/header_inc.php";
                 </p>
 
                  <p>  
-                    <label for="last_name">Nick Name</label><br />
-                    <input name="last_name" type="text" placeholder="Optional: Nick Name *"  value="<?=old('nick_name', $post)?>" />
+                    <label for="nick_name">Nick Name</label><br />
+                    <input name="nick_name" type="text" placeholder="Nick Name *"  value="<?=old('nick_name', $post)?>" />
                 </p>
             
             
@@ -109,12 +109,12 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
               <label for="password">Password</label><br />
-              <input name="password" id="password" type="text" placeholder="Type your Password *"  value="<?=old('password', $post)?>" />
+              <input name="password" id="password" type="text" placeholder="Type your Password *"  value="" />
             </p>
 
             <p>
               <label for="password2">Confirm Password</label><br />
-              <input name="password2" id="password2" type="text" placeholder="Type your Password again *"  value="<?=old('password2', $post)?>" />
+              <input name="password2" id="password2" type="text" placeholder="Type your Password again *"  value="" />
             </p>
 
 
@@ -126,7 +126,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
                 <label for="age">Age</label><br />
-                <input name="age" type="text" placeholder="Your Age"  value="" />
+                <input name="age" type="text" placeholder="Your Age"  value="<?=old('age', $post)?>" />
             </p>
 
             <p><button>RESET</button></p>
