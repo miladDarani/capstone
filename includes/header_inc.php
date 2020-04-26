@@ -96,6 +96,7 @@
                 <li><a <?php if($title == "Pricing") {echo 'class="active"';} ?> href="pricing.php">Pricing</a></li>
                 <li><a <?php if($title == "Blog") {echo 'class="active"';} ?> href="blog.php">Blog</a></li>
                 <li><a <?php if($title == "Account") {echo 'class="active"';} ?> href="account.php">Account</a></li>
+                <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>
             </ul>
         </nav>
         

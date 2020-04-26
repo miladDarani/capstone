@@ -46,8 +46,6 @@ if(empty($_POST['postal_code'])) {
 //---- Province ----\\
 if(empty($_POST['province'])) {
     $errors['province'] = "You must provide your Province or State";
-}elseif (mb_strlen($_POST['province']) > 2) {
-    $errors['province'] = 'Enter 2 Character abbreviation, i.e NY or ON';
 }
 
 //---- Country ----\\

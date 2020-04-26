@@ -144,3 +144,10 @@
             text-align: center;
             font-size:16px;
         }
+
+
+
+        .custom-select {
+            width: 84%;
+            margin-bottom: 16px;
+        }

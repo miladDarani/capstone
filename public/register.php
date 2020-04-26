@@ -86,7 +86,11 @@ require __DIR__ . "/../includes/header_inc.php";
        
              <p>
               <label for="country">Country</label><br />
-              <input name="country" id="country" type="text" placeholder="Country *"  value="<?=old('country', $post)?>" />
+              <select id="country" name="country" class="custom-select">
+                  <option value="Canada">Canada</option>
+                  <option value="USA">USA</option>
+                  
+                </select>
             </p>
 
             <p>
