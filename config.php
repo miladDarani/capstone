@@ -12,7 +12,8 @@ define('ENV', 'DEVELOPMENT');
 // if that page has loaded this config file.
 session_start();
 
-// If there are errors, get them out so we can use them easily
+//6. Take errors out of SESSION and put in variable
+//6. Delete SESSION errors so its only for this one instance;
 if(isset($_SESSION['errors'])) {
     $errors =  $_SESSION['errors'];
     $_SESSION['errors'] = []; // clear old errors from session
@@ -56,4 +57,4 @@ if(ENV === 'PRODUCTION') {
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASS);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-require 'functions.php';
+require __DIR__ . '/functions.php';

@@ -87,6 +87,19 @@ if(empty($_POST['password'])) {
 //---- Age ----\\
 if(empty($_POST['age'])) {
     $errors['age'] = "You must provide your Age";
+} elseif (!is_numeric($_POST['age'])) {
+    $errors['age'] = ' Age has to be numeric';
 }
 
-dd($errors);
+
+//5.Assign errors to session
+if(count($errors) > 0) {
+    $_SESSION['errors'] = $errors;
+  //9A. Make post sticky
+    $_SESSION['post'] = $_POST;
+    
+    header('Location: register.php');
+    die;
+}
+
+
