@@ -135,6 +135,15 @@ $params = array (
 //15 execute query
 $stmt->execute($params);
 
+//16.value of the primary key of the last record on this session
+$user_id = $dbh->lastInsertId();
+
+dd($user_id);
+if ($user_id > 0 ) {
+    header('Location: success.php?user_id=' . $user_id);
+    die;
+}
+
 
 
 
