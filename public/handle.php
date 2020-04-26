@@ -108,9 +108,9 @@ if(count($errors) > 0) {
 //12. escape it in SQL to make it safe like so :name
 
 $query = 'INSERT INTO users
-          (first_name, last_name, nick_name, street, city, postal_code, province, country, phone, email, password)
+          (first_name, last_name, nick_name, street, city, postal_code, province, country, phone, email, password, age)
           VALUES
-          (:first_name, :last_name, :nick_name, :street, :city, :postal_code, :province, :country, :phone, :email, :password)';
+          (:first_name, :last_name, :nick_name, :street, :city, :postal_code, :province, :country, :phone, :email, :password, :age)';
 
 //13. create stmt to prepare query 
 $stmt = $dbh->prepare($query);
@@ -128,7 +128,8 @@ $params = array (
 ':country' => $_POST['country'],
 ':phone' => $_POST['phone'],
 ':email' => $_POST['email'],
-':password' => $_POST['password']
+':password' => $_POST['password'],
+':age' => $_POST['age']
 
 );
 
@@ -138,7 +139,6 @@ $stmt->execute($params);
 //16.value of the primary key of the last record on this session
 $user_id = $dbh->lastInsertId();
 
-dd($user_id);
 if ($user_id > 0 ) {
     header('Location: success.php?user_id=' . $user_id);
     die;
