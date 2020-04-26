@@ -6,9 +6,7 @@ $title = "Register";
 require __DIR__ . "/../includes/header_inc.php";
 ?>
 
-<div id="box">
-    <h1 class="header"><?=$title?></h1>
-</div>
+
 
 <div id="error-div">
     <div id="txt">
@@ -29,8 +27,11 @@ require __DIR__ . "/../includes/header_inc.php";
        
     </div>
 </div>
+<!-- 11. Add the value to values field to make them sticky -->
 <div class="container">
-
+    <div id="box">
+    <h1 class="header"><?=$title?></h1>
+</div>
     <form name="form1" id="form1" action="handle.php" method="post" novalidate>
 
 
@@ -48,7 +49,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
                  <p>  
                     <label for="last_name">Nick Name</label><br />
-                    <input name="last_name" type="text" placeholder="Last Name *"  value="<?=old('nick_name', $post)?>" />
+                    <input name="last_name" type="text" placeholder="Optional: Nick Name *"  value="<?=old('nick_name', $post)?>" />
                 </p>
             
             

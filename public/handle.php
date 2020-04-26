@@ -102,4 +102,12 @@ if(count($errors) > 0) {
     die;
 }
 
+//12. the SQL query
+//12. escape it in SQL to make it safe like so :name
 
+$query = 'INSERT INTO blog_post
+          (first_name, last_name, nick_name, street, city, postal_code, province, country, phone, email, password, username)
+          VALUES
+          (:first_name, :last_name, :nick_name, :street, :city, :postal_code, :province, :country, :phone, :email, :password, :username)
+
+'

@@ -40,7 +40,7 @@ define('GST', 0.5);
 // Define DB connection parameters
 if(ENV === 'DEVELOPMENT') {
 
-    define('DB_DSN', 'mysql:host=localhost;dbname=books' );
+    define('DB_DSN', 'mysql:host=localhost;dbname=blog_post' );
     define('DB_USER', 'root');
     define('DB_PASS', 'root');
 
