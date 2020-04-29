@@ -4,9 +4,9 @@
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 
-
+require __DIR__ . '/env.php';
 // define('ENV', 'PRODUCTION'); 
-define('ENV', 'DEVELOPMENT'); 
+// define('ENV', 'DEVELOPMENT'); 
 // start a session
 // this allows us to save data and access it on another page
 // if that page has loaded this config file.
@@ -48,9 +48,9 @@ if(ENV === 'DEVELOPMENT') {
 
 if(ENV === 'PRODUCTION') {
 
-    define('DB_DSN', 'mysql:host=localhost;dbname=wdd1' );
-    define('DB_USER', 'wdd1');
-    define('DB_PASS', 'jkdsh65');
+    define('DB_DSN', 'mysql:host=localhost;dbname=capstone' );
+    define('DB_USER', 'mdarani');
+    define('DB_PASS', 'dRQCMQD67z');
 
 }
 
