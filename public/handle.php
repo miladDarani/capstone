@@ -39,24 +39,67 @@ if(empty($_POST['city'])) {
 }
 
 //---- Postal Code ----\\
+$can_post_pattern = '/^[A-Z][0-9][A-Za-z][- ]?[0-9][A-Za-z][0-9]$/';
+$usa_post_pattern = '/^[0-9]{5}$/';
+
 if(empty($_POST['postal_code'])) {
     $errors['postal_code'] = "You must provide your Postal Code or ZIP";
 }
+if($_POST['country']==='USA'){
+    if(preg_match($usa_post_pattern, $_POST['postal_code'])){
+
+    }else {
+         $errors['postal_code'] = " You must enter a valid USA ZIP ";
+    };
+}  
+if($_POST['country']==='Canada'){
+    if(preg_match($can_post_pattern, $_POST['postal_code'])){
+
+    }else {
+         $errors['postal_code'] = " You must enter a valid Canada Postal Code ";
+    };
+}  
+
 
 //---- Province ----\\
-if(empty($_POST['province'])) {
-    $errors['province'] = "You must provide your Province or State";
+$province_pattern = "/^[A-Za-z]{2,50}$/";
+if(preg_match($province_pattern, $_POST['province'])){
+   
+}else{
+     $errors['province'] = "You must provide a valid Province or State";
 }
 
 //---- Country ----\\
-if(empty($_POST['country'])) {
-    $errors['country'] = "You must provide your Country";
+$country_pattern = "/^[A-Za-z]{2,20}$/";
+if(preg_match($country_pattern, $_POST['country'])){
+    
+}else{
+    $errors['country'] = "Please select a country";
 }
 
+
+
+
+
+
 //---- Phone ----\\
-if(empty($_POST['phone'])) {
-    $errors['phone'] = "You must provide your Phone Number";
+$phone_pattern = '/^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{4}$/';
+
+if(preg_match($phone_pattern, $_POST['phone'])){
+   
+} else{
+    $errors['phone'] = "Please use correct format. ex. 204-555-6666 or 2045556666";
 }
+if (strlen($_POST['phone']) < 10) {
+    $errors['phone'] ="Phone number should be at least 10 characters long";
+}
+
+
+
+
+
+
+
 
 //---- Email1 ----\\
 if(empty($_POST['email'])) {
