@@ -2,7 +2,7 @@
 require __DIR__ . "/../config.php";
 $title = "Success" ;
 require __DIR__ . "/../includes/header_inc.php";
-if(empty($_GET['user_id'])) {
+if(empty($_SESSION['user_id'])) {
     
     die( "please use form to add a new user");
 }
@@ -20,7 +20,7 @@ $stmt = $dbh->prepare($query);
 
 //19
 $params = array (
-':user_id' => intval($_GET['user_id'])
+':user_id' => intval($_SESSION['user_id'])
 );
 
 //20
@@ -42,7 +42,7 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     <h1>Thank you for registering with S O U N D C O M E T</h1>
 
     <ul>
-        <li><strong>User ID</strong>: <?=$result['user_id']?></li>
+        <li><strong>User ID</strong>: <?=$_SESSION['user_id']?></li>
         <li><strong>First Name</strong>: <?=$result['first_name']?></li>
         <li><strong>Last Name</strong>: <?=$result['last_name']?></li>
         <li><strong>Nick Name</strong>: <?=$result['nick_name']?></li>
