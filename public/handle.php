@@ -37,6 +37,9 @@ $v->max_length('city', $_POST['city'],145);
 $v->max_length('province', $_POST['province'],50);
 $v->max_length('phone', $_POST['phone'],20);
 $v->max_length('email', $_POST['email'],45);
+$v->min_length('first_name', $_POST['first_name'],2);
+$v->min_length('last_name', $_POST['last_name'],2);
+$v->min_length('nick_name', $_POST['nick_name'],2);
 $v->isPhone('phone', $_POST['phone']);
 $v->password_validator('password', $_POST['password'], $_POST['password2']);
 

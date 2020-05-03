@@ -105,7 +105,7 @@ class Validator
 //-------------------------------------------------------------------------------------\\
 
     public function isString($field, $value) {
-        if(is_string($value)){
+        if(!is_string($value)){
             $this->setError($field, $this->label($field). " can only contain alphabetical characters");
         }
 
@@ -146,6 +146,12 @@ class Validator
         public function max_length ($field, $value, $number) {
             if(strlen($value) > $number) {
                 $this->setError($field, $this->label($field). " field has a maximum character length of {$number}");
+            }
+        }
+
+         public function min_length ($field, $value, $number) {
+            if(strlen($value) < $number) {
+                $this->setError($field, $this->label($field). " field must contain at least {$number} character minimum");
             }
         }
 
