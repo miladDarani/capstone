@@ -21,6 +21,7 @@ $v->required('age', $_POST['age']);
 
 //validate for other requirements
 $v->isEmail('email', $_POST['email']);
+$v->isPostalCode('postal_code', $_POST['postal_code']);
 
 $errors = $v->errors();
 
