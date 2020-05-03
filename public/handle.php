@@ -22,6 +22,14 @@ $v->required('age', $_POST['age']);
 //validate for other requirements
 $v->isEmail('email', $_POST['email']);
 $v->isPostalCode('postal_code', $_POST['postal_code']);
+$v->isString('first_name', $_POST['first_name']);
+$v->isString('nickname', $_POST['nick_name']);
+$v->isString('last_name', $_POST['last_name']);
+$v->isString('city', $_POST['city']);
+$v->isString('province', $_POST['province']);
+$v->isNumeric('age', $_POST['age']);
+$v->isPhone('phone', $_POST['phone']);
+
 
 $errors = $v->errors();
 

@@ -102,13 +102,44 @@ class Validator
 
 } // --isPostal
 
+//-------------------------------------------------------------------------------------\\
+
+    public function isString($field, $value) {
+        if(is_string($value)){
+            $this->setError($field, $this->label($field). " can only contain alphabetical characters");
+        }
+
+    }
+
+//-------------------------------------------------------------------------------------\\
+
+     public function isNumeric($field, $value) {
+        if(!is_numeric($value)){
+            $this->setError($field, $this->label($field). " can only contain numbers");
+        }
+
+    }
 
 
+//-------------------------------------------------------------------------------------\\
 
+    public function isPhone ($field, $value) {
 
+        $phone_pattern = '/^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{4}$/';
 
-
-
+        if(preg_match($phone_pattern, $value))
+        {
+           
+        } 
+        elseif (strlen($value) < 10) {
+            $this->setError($field, $this->label($field). " Phone must be 10 characters at least");
+        }
+        else{
+            
+            $this->setError($field, $this->label($field). " format is incorrect  ex. 204-555-6666 or 2045556666");
+            }
+        } // isPhone
+        
 
 
 
