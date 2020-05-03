@@ -2,7 +2,7 @@
 
 //1. Config file
 require __DIR__ . '/../config.php';
-require __DIR__ . '/classes/Validator.php';
+require __DIR__ . '/../classes/Validator.php';
 
 $v = new Validator();
 //validate fotr required field
