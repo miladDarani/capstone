@@ -141,11 +141,33 @@ class Validator
         } // isPhone
         
 
+//-------------------------------------------------------------------------------------\\
+
+        public function max_length ($field, $value, $number) {
+            if(strlen($value) > $number) {
+                $this->setError($field, $this->label($field). " field has a maximum character length of {$number}");
+            }
+        }
 
 
+//-------------------------------------------------------------------------------------\\
 
+        public function password_validator ($field, $pass1, $pass2) {
+            $pass_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/";
 
+            if($pass1 === $pass2) {
 
+                if(preg_match($pass_pattern, $pass1)){
+
+                }
+                else {
+                    $this->setError($field, $this->label($field). " must contain at least <strong>1 lowercase, 1 uppercase, ,1 numeric, 1 special character</strong> and be at <strong>least 8 characters long</strong>");
+                }
+
+            } else {
+                $this->setError($field, $this->label($field) . "s do not match"); 
+            }
+        }
 
 
 

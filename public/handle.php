@@ -28,7 +28,19 @@ $v->isString('last_name', $_POST['last_name']);
 $v->isString('city', $_POST['city']);
 $v->isString('province', $_POST['province']);
 $v->isNumeric('age', $_POST['age']);
+$v->max_length('age', $_POST['age'],3);
+$v->max_length('first_name', $_POST['first_name'],45);
+$v->max_length('last_name', $_POST['last_name'],45);
+$v->max_length('nick_name', $_POST['nick_name'],45);
+$v->max_length('street', $_POST['street'],145);
+$v->max_length('city', $_POST['city'],145);
+$v->max_length('province', $_POST['province'],50);
+$v->max_length('phone', $_POST['phone'],20);
+$v->max_length('email', $_POST['email'],45);
 $v->isPhone('phone', $_POST['phone']);
+$v->password_validator('password', $_POST['password'], $_POST['password2']);
+
+
 
 
 $errors = $v->errors();
