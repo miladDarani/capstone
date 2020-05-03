@@ -16,9 +16,9 @@ function dd($var)
 
 
 /**
- * [label description]
- * @param  [type] $field [description]
- * @return [type]        [description]
+ * beautify text
+ * @param  [field] $field 
+ * @return [variable]        
  */
 function label ($field) 
 {
@@ -27,6 +27,11 @@ function label ($field)
     return $label;
 }
 
+/**
+ * 
+ * @param  $string
+ * @return [sanitized output]  
+ */
 function esc_attr($string)
 {
     return htmlentities($string, ENT_QUOTES, "UTF-8");
@@ -42,3 +47,20 @@ function old($field, $post)
     }
 }
 
+
+
+
+
+
+/**
+ * [isEmail description]
+ * @param  [type]  $field [description]
+ * @param  [type]  $value [description]
+ * @return boolean        [description]
+ */
+function isEmail($field,$value)
+{
+    if($value !== filter_var($value, FILTER_VALIDATE_EMAIL)){
+        setError($Field, label($field). " is a required field.");
+    }
+}

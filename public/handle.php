@@ -5,7 +5,7 @@ require __DIR__ . '/../config.php';
 require __DIR__ . '/classes/Validator.php';
 
 $v = new Validator();
-
+//validate fotr required field
 $v->required('first_name', $_POST['first_name']);
 $v->required('last_name', $_POST['last_name']);
 $v->required('nick_name', $_POST['nick_name']);
@@ -18,6 +18,9 @@ $v->required('phone', $_POST['phone']);
 $v->required('email', $_POST['email']);
 $v->required('password', $_POST['password']);
 $v->required('age', $_POST['age']);
+
+//validate for other requirements
+$v->isEmail('email', $_POST['email']);
 
 $errors = $v->errors();
 
