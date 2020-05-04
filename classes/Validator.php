@@ -105,7 +105,9 @@ class Validator
 //-------------------------------------------------------------------------------------\\
 
     public function isString($field, $value) {
-        if(!is_string($value)){
+        $string_pattern = '/^[A-z]{1,}$/';
+        if(preg_match($string_pattern,$value)){
+        } else {
             $this->setError($field, $this->label($field). " can only contain alphabetical characters");
         }
 
@@ -114,7 +116,7 @@ class Validator
 //-------------------------------------------------------------------------------------\\
 
      public function isNumeric($field, $value) {
-        if(!is_numeric($value)){
+        if(is_numeric($value)){
             $this->setError($field, $this->label($field). " can only contain numbers");
         }
 
