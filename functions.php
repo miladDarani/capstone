@@ -48,19 +48,17 @@ function old($field, $post)
 }
 
 
-
-
-
-
-/**
- * [isEmail description]
- * @param  [type]  $field [description]
- * @param  [type]  $value [description]
- * @return boolean        [description]
- */
-function isEmail($field,$value)
+function err($field, $post)
 {
-    if($value !== filter_var($value, FILTER_VALIDATE_EMAIL)){
-        setError($Field, label($field). " is a required field.");
+    if(!empty($post[$field])) {
+        return "<span class='err'>" . esc_attr($post[$field]) . '</span>' ;
+    } else {
+        return '';
     }
 }
+
+
+
+
+
+

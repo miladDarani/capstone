@@ -7,10 +7,9 @@ require __DIR__ . "/../includes/header_inc.php";
 ?>
 
 
-
 <div id="error-div">
     <div id="txt">
-        <!-- 8. if there are errors do this: -->
+        
         <?php if(count($errors) > 0) : ?>
             
            <div class="errors">
@@ -27,6 +26,7 @@ require __DIR__ . "/../includes/header_inc.php";
        
     </div>
 </div>
+
 <!-- 11. Add the value to values field to make them sticky -->
 <div class="container">
     <div id="box">
@@ -38,18 +38,18 @@ require __DIR__ . "/../includes/header_inc.php";
             <div class="box1">
                 <p>  
                     <label for="first_name">First Name</label><br />
-                    <input name="first_name" type="text" placeholder="First Name *"  value="<?=old('first_name', $post)?>" />
+                    <input name="first_name" type="text" placeholder="First Name *" maxlength="45"  value="<?=old('first_name', $post)?>" /> <?=err('first_name', $errors)?>
                  
                 </p>
 
                 <p>  
                     <label for="last_name">Last Name</label><br />
-                    <input name="last_name" type="text" placeholder="Last Name *"  value="<?=old('last_name', $post)?>" />
+                    <input name="last_name" type="text" placeholder="Last Name *" maxlength="45"  value="<?=old('last_name', $post)?>" /><?=err('last_name', $errors)?>
                 </p>
 
                  <p>  
                     <label for="nick_name">Nick Name</label><br />
-                    <input name="nick_name" type="text" placeholder="Nick Name *"  value="<?=old('nick_name', $post)?>" />
+                    <input name="nick_name" type="text" placeholder="Nick Name *"  maxlength="45" value="<?=old('nick_name', $post)?>" /><?=err('nick_name', $errors)?>
                 </p>
             
             
@@ -57,23 +57,23 @@ require __DIR__ . "/../includes/header_inc.php";
             
              <p>
                 <label for="street">Street</label><br />
-                <input name="street" id="street" type="text" placeholder="Type your street address *"  value="<?=old('street', $post)?>" />
+                <input name="street" id="street" type="text" placeholder="Type your street address *"  value="<?=old('street', $post)?>" maxlength="145" /><?=err('street', $errors)?>
             </p>
 
 
              <p>
                 <label for="city">City</label><br />
-              <input name="city" id="city" type="text" placeholder="City *"  value="<?=old('city', $post)?>" />
+              <input name="city" id="city" type="text" placeholder="City *" maxlength="145" value="<?=old('city', $post)?>" /><?=err('city', $errors)?>
             </p>
 
             <p>
                 <label for="postal_code">Postal Code</label><br />
-                <input name="postal_code" type="text" placeholder="Postal Code i.e R2J1L5 or 90210 *"  value="<?=old('postal_code', $post)?>" />
+                <input name="postal_code" type="text" maxlength="7" placeholder="Postal Code i.e R2J1L5 or 90210 *"  value="<?=old('postal_code', $post)?>" /><?=err('postal_code', $errors)?>
             </p>
 
             <p>
               <label for="province">Province</label><br />  
-              <input name="province" id="province" type="text" placeholder="Province or State i.e ON or NY *"  value="<?=old('province', $post)?>" />
+              <input name="province" id="province" type="text" placeholder="Province or State i.e ON or NY *"  value="<?=old('province', $post)?>" maxlength="50"/><?=err('province', $errors)?>
             </p>
             
 
@@ -95,17 +95,17 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
                 <label for="phone">Phone</label><br />
-                <input name="phone" type="text" placeholder="Phone Number *"  value="<?=old('phone', $post)?>" />
+                <input name="phone" type="text" maxlength="20" placeholder="Phone Number *"  value="<?=old('phone', $post)?>" /><?=err('street', $errors)?>
             </p>
 
             <p>
               <label for="email">E-Mail</label><br />
-              <input name="email" id="email" type="text" placeholder="Type your e-mail address *"  value="<?=old('email', $post)?>" />
+              <input name="email" id="email" type="text" maxlength="45" placeholder="Type your e-mail address *"  value="<?=old('email', $post)?>" /><?=err('email', $errors)?>
             </p>
 
             <p>
-              <label for="email">Confirm E-Mail</label><br />
-              <input name="email2" id="email2" type="text" placeholder="Type your e-mail address again *"  value="<?=old('email2', $post)?>" />
+              <label for="email2">Confirm E-Mail</label><br />
+              <input name="email2" id="email2" type="text" maxlength="45" placeholder="Type your e-mail address again *"  value="<?=old('email2', $post)?>" /><?=err('email2', $errors)?>
             </p>
 
 
@@ -113,12 +113,12 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
               <label for="password">Password</label><br />
-              <input name="password" id="password" type="text" placeholder="Type your Password *"  value="" />
+              <input name="password" id="password" type="text" maxlength="255" placeholder="Type your Password *"  value="" /><?=err('password', $errors)?>
             </p>
 
             <p>
               <label for="password2">Confirm Password</label><br />
-              <input name="password2" id="password2" type="text" placeholder="Type your Password again *"  value="" />
+              <input name="password2" id="password2" type="text" maxlength="255" placeholder="Type your Password again *"  value="" /><?=err('password2', $errors)?>
             </p>
 
 
@@ -130,7 +130,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
                 <label for="age">Age</label><br />
-                <input name="age" type="text" placeholder="Your Age"  value="<?=old('age', $post)?>" />
+                <input name="age" type="text" placeholder="Your Age" maxlength="3"  value="<?=old('age', $post)?>" /><?=err('age', $errors)?>
             </p>
 
             <p><button>RESET</button></p>

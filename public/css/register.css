@@ -18,6 +18,10 @@
      
         }
 
+        .err {
+            display: flex;
+            color:red;
+        }
     
 
         #form1{

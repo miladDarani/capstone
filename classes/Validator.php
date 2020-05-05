@@ -1,4 +1,5 @@
 <?php
+namespace Capstone;
 
 //4. Validation
 class Validator
@@ -29,12 +30,25 @@ class Validator
      * @param  [form input value]  $value [description]
      * @return error string if true
      */
-    public function isEmail($field,$value)
+    public function isEmail($field,$value,$field2, $value2)
     {
         if($value !== filter_var($value, FILTER_VALIDATE_EMAIL)){
             $this->setError($field, $this->label($value). " is not a valid e-mail address.");
+        }elseif ($value !==  $value2) {
+             $this->setError($field," e-mails do not a match");
+             $this->setError($field2," e-mails do not a match");
         }
     }
+
+    //-------------------------------------------------------------------------------------\\
+
+    public function isEmailMatch ($email1, $email2) {
+        if($email1 !== $email2) {
+            $this->setError($email1, $this->$email1 . " are not a match");
+        }
+    }
+
+
 
     //-------------------------------------------------------------------------------------\\
 
@@ -106,11 +120,13 @@ class Validator
 
     public function isString($field, $value) {
         $string_pattern = '/^[A-z]{1,}$/';
-        if(preg_match($string_pattern,$value)){
-        } else {
-            $this->setError($field, $this->label($field). " can only contain alphabetical characters");
-        }
 
+        if(!empty($value)){
+            if(preg_match($string_pattern,$value)){
+            } else {
+                $this->setError($field, $this->label($field). " can only contain alphabetical characters");
+            }
+        }
     }
 
 //-------------------------------------------------------------------------------------\\
@@ -154,6 +170,8 @@ class Validator
          public function min_length ($field, $value, $number) {
             if(strlen($value) < $number) {
                 $this->setError($field, $this->label($field). " field must contain at least {$number} character minimum");
+            } elseif(strlen($value) < $number AND is_numeric($value)) {
+                $this->setError($field, $this->label($field). " not a valid entry");
             }
         }
 
@@ -178,12 +196,19 @@ class Validator
         }
 
 
+//-------------------------------------------------------------------------------------\\
+
+        public function zero_check ($field, $value){
+            if ($value === 0) {
+                $this->setError($field, $this->label($field) . "zero is not a valid " . $this->label($field));
+            }
+        }
 
 
 
 
-
-
+//-------------------------------------------------------------------------------------\\
+//Private set error
 
 
 

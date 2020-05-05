@@ -60,13 +60,10 @@ $v = new Capstone\Validator();
     //--------- E-Mail ----------\\
     $v->required('email', $_POST['email']);
     $v->max_length('email', $_POST['email'],45);
-    $v->isEmail('email', $_POST['email'], 'email2', $_POST['email2']);
-    // $v->isEmailMatch($_POST['email2'], $_POST['email']);
+    $v->isEmail('email', $_POST['email']);
 
     //--------- Password----------\\
     $v->required('password', $_POST['password']);
-    $v->max_length('password', $_POST['password'],255);
-    $v->max_length('password2', $_POST['password2'],255);
     $v->password_validator('password', $_POST['password'], $_POST['password2']);
 
     //--------- Age ----------\\
