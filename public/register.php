@@ -7,25 +7,7 @@ require __DIR__ . "/../includes/header_inc.php";
 ?>
 
 
-<div id="error-div">
-    <div id="txt">
-        
-        <?php if(count($errors) > 0) : ?>
-            
-           <div class="errors">
-               <ul>
-                   <?php foreach ($errors as $error) : ?>
 
-                        <li><?=$error?></li>
-
-                   <?php endforeach; ?>  
-               </ul>
-           </div>
-        
-        <?php endif; ?>
-       
-    </div>
-</div>
 
 <!-- 11. Add the value to values field to make them sticky -->
 <div class="container">
