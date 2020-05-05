@@ -11,12 +11,10 @@ require __DIR__ . "/../includes/header_inc.php";
 
 <!-- 11. Add the value to values field to make them sticky -->
 <div class="container">
-    <div id="box">
-    <h1 class="header"><?=$title?></h1>
-</div>
+
     <form name="form1" id="form1" action="handle.php" method="post" novalidate>
 
-
+            <h1><?=$title?> with S O U N D C O M E T:</h1>
             <div class="box1">
                 <p>  
                     <label for="first_name">First Name</label><br />
@@ -60,8 +58,9 @@ require __DIR__ . "/../includes/header_inc.php";
             
 
 
-            <p><button type="submit">SUBMIT</button></p>
+            
         </div> 
+       
         <!-- /.box1 -->
         <div class="box2">
 
@@ -104,26 +103,20 @@ require __DIR__ . "/../includes/header_inc.php";
             </p>
 
 
-     
-
-
-
-
 
             <p>
                 <label for="age">Age</label><br />
                 <input name="age" type="text" placeholder="Your Age" maxlength="3"  value="<?=old('age', $post)?>" /><?=err('age', $errors)?>
             </p>
 
-            <p><button>RESET</button></p>
+           
         </div>  
+        <div class="btn-div-sm"><p><button class='submit-button' type="submit">SUBMIT</button></p></div>
         <!-- /.box2 -->
-            <div class="buttons">
-                
-                
-            </div>
+
       
     </form> <!-- end form -->
+
 </div>
 
 

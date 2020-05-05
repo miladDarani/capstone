@@ -23,20 +23,38 @@
             color:red;
         }
     
-
+        .container {
+            display: flex;
+            flex-direction: row;
+            
+            box-sizing: border-box;
+        }
         #form1{
             
-            flex-direction: row;
-            background-color:#212a34;
-            color:white;
-            
+            flex-direction: column;
+            background-color: #212a34;
+            color: white;
+            width: 90%;
             display: flex;
-            padding: 60px;
+            box-sizing: border-box;
+            padding: 30px;
+            margin: 0 auto;
+        }
+        .img-div{
+            width:50%;
+        }
+        .img-div img {
+            max-width: 100%;
+            height: auto;
         }
 
         #form2 {
             display: flex;
             flex-direction: column;
+        }
+
+        form p {
+           
         }
 
        
@@ -51,6 +69,10 @@
             border:none;
             letter-spacing: 4px;
             margin-top: 40px;
+        }
+
+        .submit-button {
+            margin-top:80px;
         }
 
         input{
@@ -133,3 +155,5 @@
             width: 84%;
             margin-bottom: 16px;
         }
+
+       
