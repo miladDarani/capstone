@@ -1,7 +1,7 @@
 <?php
 namespace Capstone;
 
-//4. Validation
+//4. Validation Class
 class Validator
 {
     // empty error array
@@ -10,8 +10,8 @@ class Validator
 
     /**
      * Required Field
-     * @param  [form field] $field
-     * @param  [form field value] $value
+     * @param  string $field
+     * @param  string $value
      * @return [error string]
      */
     public function required ($field, $value){
@@ -26,9 +26,9 @@ class Validator
 
     /**
      * checks for valid email field
-     * @param  [form input field]  $field [description]
-     * @param  [form input value]  $value [description]
-     * @return error string if true
+     * @param  string $field
+     * @param  string $value
+     * @return [error string]
      */
     public function isEmail($field,$value,$field2, $value2)
     {
@@ -42,6 +42,12 @@ class Validator
 
     //-------------------------------------------------------------------------------------\\
 
+    /**
+     * [isEmailMatch description]
+     * @param  string $field
+     * @param  string $value
+     * @return [error string]
+     */
     public function isEmailMatch ($email1, $email2) {
         if($email1 !== $email2) {
             $this->setError($email1, $this->$email1 . " are not a match");
@@ -79,7 +85,7 @@ class Validator
 
     /**
      * beautify text
-     * @param  [field] $field 
+     * @param  [string] $field 
      * @return [variable]        
      */
     private function label ($field) 
@@ -90,7 +96,12 @@ class Validator
     }
 
     //-------------------------------------------------------------------------------------\\
-    
+    /**
+     * check postal code for US and Canada
+     * @param  string  $field 
+     * @param  string  $value 
+     * @return string error        
+     */
     public function isPostalCode($field,$value) {
 
         $can_post_pattern = '/^[A-Z][0-9][A-Za-z][- ]?[0-9][A-Za-z][0-9]$/';
@@ -117,7 +128,12 @@ class Validator
 } // --isPostal
 
 //-------------------------------------------------------------------------------------\\
-
+    /**
+     * [isString description]
+     * @param  string  $field 
+     * @param  string  $value 
+     * @return string error      
+     */
     public function isString($field, $value) {
         $string_pattern = '/^[A-z]{1,}$/';
 
@@ -130,9 +146,14 @@ class Validator
     }
 
 //-------------------------------------------------------------------------------------\\
-
+    /**
+     * [isNumeric description]
+     * @param  string or number  $field 
+     * @param  string  $value 
+     * @return string error       
+     */
      public function isNumeric($field, $value) {
-        if(is_numeric($value)){
+        if(!is_numeric($value)){
             $this->setError($field, $this->label($field). " can only contain numbers");
         }
 
@@ -140,7 +161,12 @@ class Validator
 
 
 //-------------------------------------------------------------------------------------\\
-
+    /**
+     * checks phone for north american number
+     * @param  string or number  $field 
+     * @param  string  $value 
+     * @return error       
+     */
     public function isPhone ($field, $value) {
 
         $phone_pattern = '/^[0-9]{3}[- ]?[0-9]{3}[- ]?[0-9]{4}$/';
@@ -160,13 +186,26 @@ class Validator
         
 
 //-------------------------------------------------------------------------------------\\
-
+        /**
+         * [max_length description]
+         * @param  [string] $field  
+         * @param  [string] $value  
+         * @param  [string] $number 
+         * @return [string]         
+         */
         public function max_length ($field, $value, $number) {
             if(strlen($value) > $number) {
                 $this->setError($field, $this->label($field). " field has a maximum character length of {$number}");
             }
         }
 
+         /**
+         * min_length description]
+         * @param  [string] $field  
+         * @param  [string] $value  
+         * @param  [string] $number 
+         * @return [string]         
+         */
          public function min_length ($field, $value, $number) {
             if(strlen($value) < $number) {
                 $this->setError($field, $this->label($field). " field must contain at least {$number} character minimum");
@@ -177,7 +216,13 @@ class Validator
 
 
 //-------------------------------------------------------------------------------------\\
-
+        /**
+         * [password_validator description]
+         * @param  [string] $field 
+         * @param  [string] $pass1 
+         * @param  [string] $pass2 
+         * @return [string]        
+         */
         public function password_validator ($field, $pass1, $pass2) {
             $pass_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/";
 
@@ -198,17 +243,7 @@ class Validator
 
 //-------------------------------------------------------------------------------------\\
 
-        public function zero_check ($field, $value){
-            if ($value === 0) {
-                $this->setError($field, $this->label($field) . "zero is not a valid " . $this->label($field));
-            }
-        }
 
-
-
-
-//-------------------------------------------------------------------------------------\\
-//Private set error
 
 
 

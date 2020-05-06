@@ -38,6 +38,13 @@ function esc_attr($string)
 }
 
 //10. function to send stuff in the value fields in index.php
+
+/**
+ * function to send stuff in the value fields in index.php
+ * @param  string $field 
+ * @param  string $post  
+ * @return string       
+ */
 function old($field, $post)
 {
     if(!empty($post[$field])) {
@@ -47,7 +54,12 @@ function old($field, $post)
     }
 }
 
-
+/**
+ * adding red errors to labels of form
+ * @param  string $field [description]
+ * @param  [string] $post  [description]
+ * @return [type]        [description]
+ */
 function err($field, $post)
 {
     if(!empty($post[$field])) {

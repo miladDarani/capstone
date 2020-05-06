@@ -40,22 +40,7 @@ if(isset($_SESSION['post'])) {
 // define the constant GST, set it's value to 0.5
 define('GST', 0.5);
 
-// Define DB connection parameters
-if(ENV === 'DEVELOPMENT') {
-
-    define('DB_DSN', 'mysql:host=localhost;dbname=blog_post' );
-    define('DB_USER', 'root');
-    define('DB_PASS', 'root');
-
-}
-
-if(ENV === 'PRODUCTION') {
-
-    define('DB_DSN', 'mysql:host=localhost;dbname=capstone' );
-    define('DB_USER', 'mdarani');
-    define('DB_PASS', 'dRQCMQD67z');
-
-}
+require __DIR__ .'/db_connect.php';
 
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASS);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

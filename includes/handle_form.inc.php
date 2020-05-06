@@ -17,7 +17,7 @@ $v = new Capstone\Validator();
     $v->isString('first_name', $_POST['first_name']);
     $v->max_length('first_name', $_POST['first_name'],45);
     $v->min_length('first_name', $_POST['first_name'],2);
-    $v->zero_check('first_name', $_POST['first_name']);
+    
 
     //--------- Last Name ----------\\
     $v->required('last_name', $_POST['last_name']);
