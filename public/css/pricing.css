@@ -10,9 +10,9 @@
 #price-span span {
   background-color:#fff;
 }
-div#mobile-nav ul li a {
+/*div#mobile-nav ul li a {
   color:#fff;
-}
+}*/
 /* *************************** 
           Wrapper 
 ***************************** */
@@ -43,9 +43,7 @@ img:hover {
 nav ul li a {
   color:#fff;
 }
-nav img {
-  margin: auto auto auto -5px;
-}
+
 /* *************************** 
          pricing-row1 
 ***************************** */
@@ -241,13 +239,13 @@ td{
   
 @media screen and (min-width: 768px) and (max-width: 959px){
 
-nav ul{
+/*nav ul{
   padding-left: 0;
-  }
-.main-nav img {
+  }*/
+/*.main-nav img {
   width: 30%;
   margin: 14px auto 0px auto;
-  }
+  }*/
 #row2 {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -292,9 +290,9 @@ nav ul{
       
 @media screen and (max-width: 767px) {
   
-nav{
-  display: none;
-  }
+/*nav{
+  display: none;*/
+  
 #row2 {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;

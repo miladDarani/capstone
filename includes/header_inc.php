@@ -27,6 +27,8 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:100,300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="https://use.fontawesome.com/3db62e7def.js"></script>
+
     
     
     <style>
@@ -67,6 +69,19 @@
 
     <?php endif; ?>
 
+
+    <?php if($title == "Login") : ?>
+
+        <link rel="stylesheet" href="css/login.css" type="text/css"/>
+
+    <?php endif; ?>
+
+    <?php if($title == "Cart") : ?>
+
+        <link rel="stylesheet" href="css/cart.css" type="text/css"/>
+
+    <?php endif; ?>
+
     <!--[if LT IE 9]>
 
       <script src="old_ie.js"></script>
@@ -96,7 +111,11 @@
                 <li><a <?php if($title == "Pricing") {echo 'class="active"';} ?> href="pricing.php">Pricing</a></li>
                 <li><a <?php if($title == "Blog") {echo 'class="active"';} ?> href="blog.php">Blog</a></li>
                 <li><a <?php if($title == "Account") {echo 'class="active"';} ?> href="account.php">Account</a></li>
+               
                 <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>
+                 <li><a <?php if($title == "Login") {echo 'class="active"';} ?> href="login.php"><span class="signin"><strong>SIGN-IN</strong></span></a></li>
+
+                 <li><a <?php if($title == "Cart") {echo 'class="active"';} ?> href="cart.php"><i class="fas fa-cart-plus"></i></a></li>
             </ul>
         </nav>
         
