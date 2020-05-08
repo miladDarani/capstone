@@ -27,7 +27,10 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:100,300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <script src="https://use.fontawesome.com/3db62e7def.js"></script>
+    <script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     
     
@@ -79,6 +82,12 @@
     <?php if($title == "Cart") : ?>
 
         <link rel="stylesheet" href="css/cart.css" type="text/css"/>
+
+    <?php endif; ?>
+
+    <?php if($title == "Profile") : ?>
+
+        <link rel="stylesheet" href="css/profile.css" type="text/css"/>
 
     <?php endif; ?>
 

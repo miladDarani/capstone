@@ -1,0 +1,92 @@
+body {
+    background-color: #f2f2f2;
+}
+
+.profile ul li {
+    font-weight: bold;
+}
+
+.profile-pic img {
+    border-radius: 50px;
+    
+    border: solid 10px #ffe361;
+    box-shadow:2px 2px 30px black; 
+
+}
+
+.profile-info {
+    font-weight: 300;
+}
+
+.yellow-row {
+    background-color: #5cdb95;
+    padding-top:20px;
+}
+
+.yellow-row h2.fullname {
+    text-align: center;
+}
+
+.yellow-row .fullname {
+    color:white;
+}
+
+.yellow-row .extras-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.success-msg {
+    background-color:#aefb8c;
+ 
+    text-align: center;
+    transition: 2s;
+
+}
+.success-msg p {
+    padding:12px;
+    margin: 0;
+}
+
+
+
+
+
+.location{
+    text-align: center;
+}
+
+.location p {
+    color:#f2f2f2;
+    font-weight: bold;
+}
+
+.more-info{
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+.more-info p {
+    color:#fff;
+    
+}
+
+.comments {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: solid 3px #ccc;
+    border-top: solid 3px #ccc;
+}
+.comments h1 {
+    color:#666;
+}
+.comment-num{
+    color:#FF6B6A;
+}
+
+.comments i {
+    color:#5cdb95;
+    font-size: 50px;
+}

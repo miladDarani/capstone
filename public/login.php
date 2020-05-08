@@ -7,6 +7,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+
     // assume you validated
     $vi = new Capstone\Validator();
     
@@ -81,6 +82,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title><?=$title?></title>
 
 <div class="container">
+
+  
   <form action="login.php" method="post">
 
     <?php if(count($errors) > 0) : ?>

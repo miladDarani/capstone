@@ -27,7 +27,7 @@ $v = new Capstone\Validator();
 
     //--------- Nick Name ----------\\
     $v->required('nick_name', $_POST['nick_name']);
-    $v->isString('nickname', $_POST['nick_name']);
+    
     $v->max_length('nick_name', $_POST['nick_name'],45);
     $v->min_length('nick_name', $_POST['nick_name'],2);
 
@@ -61,7 +61,8 @@ $v = new Capstone\Validator();
     $v->required('email', $_POST['email']);
     $v->max_length('email', $_POST['email'],45);
     $v->isEmail('email', $_POST['email'], 'email2', $_POST['email2']);
-    
+    $v->checkDBemail('email', $_POST['email']);
+
     // $v->isEmailMatch($_POST['email2'], $_POST['email']);
 
     //--------- Password----------\\
@@ -90,6 +91,7 @@ $errors = $v->errors();
 
 //5.Assign errors to session
 if(count($errors) > 0) {
+
     $_SESSION['errors'] = $errors;
   //9A. Make post sticky
     $_SESSION['post'] = $_POST;
