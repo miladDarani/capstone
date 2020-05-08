@@ -108,6 +108,7 @@ $query = 'INSERT INTO users
 //13. create stmt to prepare query 
 $stmt = $dbh->prepare($query);
 
+$encrypted_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 //14. set params
 $params = array (
@@ -121,7 +122,7 @@ $params = array (
 ':country' => $_POST['country'],
 ':phone' => $_POST['phone'],
 ':email' => $_POST['email'],
-':password' => $_POST['password'],
+':password' => $encrypted_password,
 ':age' => $_POST['age']
 
 );
