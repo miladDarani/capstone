@@ -1,6 +1,6 @@
 <?php
 namespace Capstone;
-
+use PDO;
 //4. Validation Class
 class Validator
 {
@@ -41,7 +41,60 @@ class Validator
     }
 
     //-------------------------------------------------------------------------------------\\
+    
+    public function is_in_array($array, $key, $key_value){
+      $within_array = 'no';
+      foreach( $array as $k=>$v ){
+        if( is_array($v) ){
+            $within_array = is_in_array($v, $key, $key_value);
+            if( $within_array == 'yes' ){
+                break;
+            }
+        } else {
+                if( $v == $key_value && $k == $key ){
+                        $within_array = 'yes';
+                        break;
+                }
+        }
+      }
+      return $within_array;
+}
 
+    //-------------------------------------------------------------------------------------\\
+    //1. build a validator that checks to see if email address matches database
+    //function getAllBooks()
+ public function checkDBemail($field,$emailz)
+{
+
+     global $dbh;
+    $query = 'SELECT users.email FROM users';
+    $stmt = $dbh->query($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      
+   foreach($result as $arr1)
+{
+    if(in_array($emailz,$arr1))
+    {
+        $this->setError($field," E-mail provided is already in use");
+       
+    }
+}
+
+
+    //create loop to go through the $result array
+    // if (array_search($emailz, $result) == true) {
+       
+    //      $this->setError($field,  " in the database");
+    // } else {
+    //     $this->setError($field,  " in the database xxxx else");
+    // }
+    // 
+  
+       
+}
+
+    //-------------------------------------------------------------------------------------\\
     /**
      * [isEmailMatch description]
      * @param  string $field
