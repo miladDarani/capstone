@@ -61,7 +61,7 @@ $v = new Capstone\Validator();
     $v->required('email', $_POST['email']);
     $v->max_length('email', $_POST['email'],45);
     $v->isEmail('email', $_POST['email'], 'email2', $_POST['email2']);
-    $v->checkDBemail('email',$_POST['email']);
+    
     // $v->isEmailMatch($_POST['email2'], $_POST['email']);
 
     //--------- Password----------\\

@@ -39,6 +39,22 @@ class Validator
              $this->setError($field2," e-mails do not a match");
         }
     }
+       //-------------------------------------------------------------------------------------\\
+
+
+    /**
+     * checks for valid email field
+     * @param  string $field
+     * @param  string $value
+     * @return [error string]
+     */
+    public function ValidEmail($field,$value)
+    {
+        if($value !== filter_var($value, FILTER_VALIDATE_EMAIL)){
+            $this->setError($field, $this->label($value). " is not a valid e-mail address.");
+        }
+    }
+
 
     //-------------------------------------------------------------------------------------\\
     
@@ -66,7 +82,7 @@ class Validator
  public function checkDBemail($field,$emailz)
 {
 
-     global $dbh;
+    global $dbh;
     $query = 'SELECT users.email FROM users';
     $stmt = $dbh->query($query);
     $stmt->execute();
@@ -79,6 +95,10 @@ class Validator
         $this->setError($field," E-mail provided is already in use");
        
     }
+     if($emailz !== filter_var($emailz, FILTER_VALIDATE_EMAIL))
+     {
+            $this->setError($field, $this->label($emailz). " is not a valid e-mail address.");
+        }
 }
 
 

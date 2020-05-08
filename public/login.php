@@ -6,8 +6,24 @@ $title = "Login";
 require __DIR__ . "/../includes/header_inc.php";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
+
     // assume you validated
+    $vi = new Capstone\Validator();
+    
+    $vi->ValidEmail('email',$_POST['email']);
+    $errors = $vi->errors();
+
+
+    if(count($errors) > 0) {
+        $_SESSION['errors'] = $errors;
+      //9A. Make post sticky
+        $_SESSION['post'] = $_POST;
+        
+        header('Location: login.php');
+        die;
+    }
+
+    
 
     if(empty($errors)) {
 
@@ -26,8 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->execute($params);
 
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        if($user === false) {
+                    if($user === false) {
             
             $errors['credentials'] = 'Sorry, those credentials do not match our records.';
             
@@ -85,7 +100,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       <h2 style="text-align:center">Login to your account</h2>
 
       <div class="col">
-        <input type="text" name="email" placeholder="Email" required>
+        <input type="text" name="email" placeholder="Email" value=""/><?=err('email', $errors)?>
         <input type="password" name="password" placeholder="Password" required>
         <input type="submit" value="Login">
       </div>
