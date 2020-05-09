@@ -137,8 +137,8 @@ $stmt->execute($params);
 $user_id = $dbh->lastInsertId();
 $_SESSION['user_id'] = $user_id;
 if ($user_id > 0 ) {
-
-    header('Location: success.php');
+ 
+    header('Location: profile.php');
     // ?user_id=' . $user_id
     die;
 }

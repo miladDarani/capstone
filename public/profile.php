@@ -47,7 +47,8 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
     <div class="yellow-row">
         <ul>
             <li>Joined: <span class="profile-info"><?=$user['created_at'];?></span></li>
-            <p><a href="?logout=1">Logout</a></p>
+            <form action=""></form>
+            <p><a href="logout.php">Logout</a></p>
         </ul>
 
 
@@ -58,8 +59,10 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
         <div class="extras-wrapper">
 
             <div class="location">
-                <h2 class="fullname">Nickname:<br /><?=$user['nick_name']?> </h2>
+                <h2 class="fullname">AKA: </h2>
+                <p><?=$user['nick_name']?></p>
                 <p><?=$user['age'] . 'yrs';?></p>
+                
             </div>
 
 
@@ -78,8 +81,10 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
         </div>  
 
+             <h3 class='contact-h3'>Contact info:</h3>
 
         <div class="more-info">
+
             <p><?=$user['street'];?></p>
             <p>Postal Code: <?=$user['postal_code'];?></p>
             <p>Phone: <?=$user['phone'];?></p>
