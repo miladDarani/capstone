@@ -113,7 +113,7 @@
     <section id="wrapper">
 
         <nav class="main-nav">
-            <img src="images/logo.png" alt="logo">
+            <img src="images/logo<?php if($title == "Register") {echo '-version-white';} ?>.png" alt="logo">
             <ul>
                 <li><a <?php if($title == "Welcome To Sound Comet") {echo 'class="active"';} ?> href="index.php">Home</a></li>
                 <li><a <?php if($title == "About") {echo 'class="active"';} ?> href="info.php">About</a></li>
