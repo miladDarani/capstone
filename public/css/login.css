@@ -29,6 +29,13 @@ input:hover,
   opacity: 1;
 }
 
+.signin{
+  color:white;
+}
+
+ .signin a:hover {
+  color:white;
+}
 /* add appropriate colors to fb, twitter and google buttons */
 .fb {
   background-color: #3B5998;
@@ -63,6 +70,7 @@ input[type=submit]:hover {
   margin: auto;
   padding: 0 50px;
   margin-top: 6px;
+  max-width: 500px;
 }
 
 input[type=submit] {

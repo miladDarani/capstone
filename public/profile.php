@@ -12,7 +12,9 @@ if(empty($_SESSION['user_id'])) {
     die;
 }
 
+
 // logged in
+
 
 $query = 'SELECT * FROM users WHERE user_id = :user_id';
 
@@ -26,14 +28,23 @@ $stmt->execute($params);
 
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+setcookie('Country', $user['country']);
+$_SESSION['success'] = ' Welcome back '. $user['first_name'];
+
+if(isset($_COOKIE['Country'])) {
+    $class='hidden';
+} else {
+   $class="success-msg";
+}
 
 ?>
 
 
-<div class="success-msg">
-
-    <p>You have successfully logged in.</p>
-
+<div class="<?=$class?>">
+ 
+ 
+    <p><?=$_SESSION['success']?></p>
+   
 </div>
 
 <div class="profile">

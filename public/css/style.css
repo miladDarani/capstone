@@ -213,9 +213,16 @@ nav ul li a {
   transition: box-shadow .1s, color .1s, border-radius 2.6s, transform 1.5s;
   transition: box-shadow .1s, color .1s, border-radius 2.6s, transform 1.5s, -webkit-box-shadow .1s, -webkit-transform 1.5s;*/
 }
+.hidden {
+  display: none;
+}
 
-.signin {
+/*.signin {
   color: #FF6B6B;
+}*/
+
+nav ul li:hover a{
+  color: white;
 }
 
 nav ul li:hover a {
@@ -227,7 +234,7 @@ nav ul li:hover a {
 }
 
 .active {
-  background-color: black;
+  background-color:#ff4134;
   color: #fff ;
   -webkit-box-shadow: 8px 5px .2px rgb(123, 226, 248,.6);
   box-shadow: 8px 5px .2px rgb(123, 226, 248,.6);

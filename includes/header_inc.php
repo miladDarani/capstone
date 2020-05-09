@@ -119,17 +119,17 @@
                 <li><a <?php if($title == "About") {echo 'class="active"';} ?> href="info.php">About</a></li>
                 <li><a <?php if($title == "Pricing") {echo 'class="active"';} ?> href="pricing.php">Pricing</a></li>
                 <li><a <?php if($title == "Blog") {echo 'class="active"';} ?> href="blog.php">Blog</a></li>
-                <li><a <?php if($title == "Account") {echo 'class="active"';} ?> href="account.php">Account</a></li>
+                
                
-                <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>
+               
 
                 <?php if(!empty($_SESSION['user_id'])) : ?>
-
-                     <li><a <?php if($title == "Login") {echo 'class="active"';} ?> href="login.php"><span class="signin"><strong>LOGOUT</strong></span></a></li>
-
+                     <li><a <?php if($title == "Profile") {echo 'class="active"';} ?> href="profile.php">Profile</a></li>
+                     <li><a <?php  ?> href="logout.php"><span class="signin"><strong>LOGOUT</strong></span></a></li>
+                     
                 <?php else :?>
-
-                     <li><a <?php if($title == "Login") {echo 'class="active"';} ?> href="login.php"><span class="signin"><strong>SIGN-IN</strong></span></a></li>
+                     <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>
+                     <li><a <?php if($title == "Login") {echo 'class="active sign"';} ?> href="login.php"><span class="signin"><strong>SIGN-IN</strong></span></a></li>
 
                 <?php endif; ?>
 
