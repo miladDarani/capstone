@@ -13,7 +13,7 @@
         }
 
         body{
-        
+            background-color:#212a34;
             display: flex;
      
         }
@@ -22,7 +22,14 @@
             display: flex;
             color:red;
         }
-    
+
+        .btn-div-sm{
+          
+        }
+        
+        nav ul li a {
+            color:white;
+        }
         .container {
             display: flex;
             flex-direction: row;
@@ -37,8 +44,9 @@
             width: 90%;
             display: flex;
             box-sizing: border-box;
-            padding: 30px;
+            padding-left: 130px;
             margin: 0 auto;
+            max-width: 768px;
         }
         .img-div{
             width:50%;
@@ -129,6 +137,7 @@
 
         .box1, .box2 {
             width: 100%;
+
         }
         .header{
             letter-spacing: 4px;

@@ -109,9 +109,9 @@ require __DIR__ . "/../includes/header_inc.php";
                 <input name="age" type="text" placeholder="Your Age" maxlength="3"  value="<?=old('age', $post)?>" /><?=err('age', $errors)?>
             </p>
 
-           
+           <div class="btn-div-sm"><p><button class='submit-button' type="submit">SUBMIT</button></p></div>
         </div>  
-        <div class="btn-div-sm"><p><button class='submit-button' type="submit">SUBMIT</button></p></div>
+        
         <!-- /.box2 -->
 
       
