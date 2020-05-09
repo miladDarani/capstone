@@ -189,7 +189,7 @@ class Validator
      * @return string error      
      */
     public function isString($field, $value) {
-        $string_pattern = '/^[A-z]{1,}$/';
+        $string_pattern = '/^[a-zA-Z]([\w -]*[a-zA-Z])?$/';
 
         if(!empty($value)){
             if(preg_match($string_pattern,$value)){
