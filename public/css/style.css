@@ -267,6 +267,8 @@ nav img {
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
+  background-color: antiquewhite;
+  padding-bottom: 40px;
 }
 
 #sound-bar {
@@ -285,10 +287,7 @@ nav img {
   padding-right: 100px;
 }
 
-#row1 {
-  
-  height: 400px;
-}
+
 
 #slogan {
   margin-left: 8%;
@@ -2112,6 +2111,8 @@ input[type=submit] {
 
   #slogan {
     margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 10px;
   }
   .soundcomet-image-wrapper {
   height:350px;

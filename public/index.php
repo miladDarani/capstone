@@ -11,9 +11,9 @@ require __DIR__ . "/../includes/header_inc.php";
         <div id="row1">
 
             <div id="slogan">
-                <div id="yellow-bar"></div>
+                
                 <h1 id="tools">Tools for</h1>
-                <div id="black-bar"></div>
+               
                 <h1>Musicians and</h1>
                 <h1>Creators.</h1>
                 <p>Worlds First Instant Mixing and Mastering Platform</p>
@@ -172,24 +172,7 @@ require __DIR__ . "/../includes/header_inc.php";
         </div>
         <!-- Row1 End -->
 
-        <div class="break-line" id="break"></div>
 
-        <div class="square-cover">
-            <div class="square-wrapper square-shared">
-                <div class="square0 square-shared"></div>
-                <div class="square square-shared"></div>
-                <div class="square1 square-shared"></div>
-                <div class="square2 square-shared"></div>
-                <div class="square3 square-shared"></div>
-                <div class="square4 square-shared"></div>
-                <div class="square5 square-shared"></div>
-                <div class="square6 square-shared"></div>
-
-                <div class="square7 square-shared"></div>
-                <div class="square8 square-shared"></div>
-                <div class="square9 square-shared"></div>
-            </div>
-        </div>
 
         <div id="row2-wrapper">
             <div id="row2">
