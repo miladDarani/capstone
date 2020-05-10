@@ -80,23 +80,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <head>
     <meta charset="UTF-8">
     <title><?=$title?></title>
+</head>
+        <?php if(count($errors) > 0) : ?>
 
+        <div class="flash flash-err">
+            
+                <?php foreach($errors as $error) : ?>
+                    <?=$error?>
+                <?php endforeach; ?>
+            
+        </div>
+
+        <?php endif; ?>
 <div class="container">
 
   
   <form action="login.php" method="post">
 
-    <?php if(count($errors) > 0) : ?>
 
-        <div class="errors">
-            <ul>
-                <?php foreach($errors as $error) : ?>
-                    <li><?=$error?></li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-
-        <?php endif; ?>
 
     <div class="row main-login">
 
@@ -122,7 +123,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
   </div>
 </div>
-</head>
+
 <body>
     
 </body>
