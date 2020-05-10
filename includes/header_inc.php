@@ -131,7 +131,7 @@
 
                 <?php if(!empty($_SESSION['user_id'])) : ?>
                      <li><a <?php if($title == "Profile") {echo 'class="active"';} ?> href="profile.php">Profile</a></li>
-                     <li><a <?php  ?> href="logout.php"></form><span class="signin"><strong>LOGOUT</strong></span></a></li>
+                     <li><a <?php  ?> href="signout.php"></form><span class="signin"><strong>LOGOUT</strong></span></a></li>
                      
                 <?php else :?>
                      <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>

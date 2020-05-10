@@ -29,7 +29,7 @@ $stmt->execute($params);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 setcookie('Country', $user['country']);
-$_SESSION['success'] = ' Welcome back '. $user['first_name'];
+$_SESSION['success'] = ' Welcome '. $user['first_name'] . ". Successfully logged in.";
 
 if(isset($_COOKIE['Country'])) {
     $class='hidden';
@@ -60,7 +60,7 @@ if(isset($_COOKIE['Country'])) {
             <li>Joined: <span class="profile-info"><?=$user['created_at'];?></span></li>
             <form action=""></form>
             <p>
-                <form action="logout.php" method="post">
+                <form action="signout.php" method="post">
                     <button class="btn">Logout</button>
                 </form>
               
