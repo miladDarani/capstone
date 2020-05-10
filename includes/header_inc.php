@@ -88,6 +88,7 @@
     <?php if($title == "Profile") : ?>
 
         <link rel="stylesheet" href="css/profile.css" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Muli:wght@500&display=swap" rel="stylesheet">
 
     <?php endif; ?>
 
@@ -119,7 +120,7 @@
     <section id="wrapper">
 
         <nav class="main-nav">
-            <img src="images/logo<?php if($title == "Register") {echo '-version-whitee';} ?>.png" alt="logo">
+            <img src="images/logo<?php if($title == "Register") {echo '-version-white';} ?>.png" alt="logo">
             <ul>
                 <li><a <?php if($title == "Welcome To Sound Comet") {echo 'class="active"';} ?> href="index.php">Home</a></li>
                 <li><a <?php if($title == "About") {echo 'class="active"';} ?> href="info.php">About</a></li>
