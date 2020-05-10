@@ -44,6 +44,7 @@
      -webkit-perspective: 900px;
              perspective: 900px;
      width: 100%;
+     max-width: 1200px;
      margin: 0 auto;
      display: -webkit-box;
      display: -ms-flexbox;
@@ -90,7 +91,7 @@
  #row-1 {
     /* Photo by Aleks Dorohovich on Unsplash */
      background-image: url("images/gift-habeshaw.jpg");
-     height: 600px;
+     
      background-attachment: fixed;
      background-position: center;
      background-repeat: no-repeat;
@@ -98,6 +99,7 @@
      background-position: left;
      text-align: center;
      color: #fff;
+     padding: 30px;
      display: -webkit-box;
      display: -ms-flexbox;
      display: flex;
@@ -111,9 +113,11 @@
 }
  #row-1 h1 {
      font-size: 4em;
+     color:#333;
 }
  #row-1 p {
      font-size: 1.5em;
+     color:#333;
 }
  h1.about-title-h1 {
      color:#fff;
@@ -145,9 +149,8 @@
           Why us 
 ***************************** */
  #svg-wrapper {
-     display: -webkit-inline-box;
-     display: -ms-inline-flexbox;
-     display: inline-flex;
+    text-align: center;
+    display: inline-flex;
 }
 
  #why-us-text {
@@ -183,6 +186,7 @@
  .title-wrapper {
      text-align: center;
      background-color: #eee;
+     margin-top: 75px;
 }
  #our-team {
      width: 100%;
@@ -723,7 +727,11 @@
   @media screen and (min-width:768px)and (max-width: 959px){
     #nav-id img {
      margin: -80px auto -110px auto;
+
   }
+  #svg-wrapper{
+        display: none;
+     }
 }
  
     </style>

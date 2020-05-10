@@ -3,7 +3,13 @@
 /* *************************** 
          General 
 ***************************** */
+html body{
+   
 
+}
+li a span strong {
+  color:#ff4134 !important;
+}
 .break-line {
   border-top:1px solid #ccc;
 }
@@ -17,6 +23,7 @@
           Wrapper 
 ***************************** */
 #wrapper {
+
   -webkit-perspective: 900px;
   perspective: 900px;
   width: 100%;

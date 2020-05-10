@@ -278,7 +278,7 @@ class Validator
          * @return [string]        
          */
         public function password_validator ($field, $pass1, $pass2) {
-            $pass_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/";
+            $pass_pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$><^+=!*()@%&]).{8,255}$/";
 
             if($pass1 === $pass2) {
 
@@ -286,7 +286,7 @@ class Validator
 
                 }
                 else {
-                    $this->setError($field, $this->label($field). " must contain at least <strong>1 lowercase, 1 uppercase, ,1 numeric, 1 special character</strong> and be at <strong>least 8 characters long</strong>");
+                    $this->setError($field, $this->label($field). " must contain at least 1 lowercase, 1 uppercase, ,1 numeric, 1 special character and be at least 8 characters long");
                 }
 
             } else {
