@@ -91,6 +91,12 @@
 
     <?php endif; ?>
 
+    <?php if($title == "Logout") : ?>
+
+        <link rel="stylesheet" href="css/logout.css" type="text/css"/>
+
+    <?php endif; ?>
+
     <!--[if LT IE 9]>
 
       <script src="old_ie.js"></script>
@@ -113,7 +119,7 @@
     <section id="wrapper">
 
         <nav class="main-nav">
-            <img src="images/logo<?php if($title == "Register") {echo '-version-white';} ?>.png" alt="logo">
+            <img src="images/logo<?php if($title == "Register") {echo '-version-whitee';} ?>.png" alt="logo">
             <ul>
                 <li><a <?php if($title == "Welcome To Sound Comet") {echo 'class="active"';} ?> href="index.php">Home</a></li>
                 <li><a <?php if($title == "About") {echo 'class="active"';} ?> href="info.php">About</a></li>
@@ -125,7 +131,7 @@
 
                 <?php if(!empty($_SESSION['user_id'])) : ?>
                      <li><a <?php if($title == "Profile") {echo 'class="active"';} ?> href="profile.php">Profile</a></li>
-                     <li><a <?php  ?> href="logout.php"><span class="signin"><strong>LOGOUT</strong></span></a></li>
+                     <li><a <?php  ?> href="logout.php"></form><span class="signin"><strong>LOGOUT</strong></span></a></li>
                      
                 <?php else :?>
                      <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>

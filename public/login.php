@@ -103,7 +103,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       <h2 style="text-align:center">Login to your account</h2>
 
       <div class="col">
-        <input type="text" name="email" placeholder="Email" value=""/><?=err('email', $errors)?>
+        <input type="text" name="email" placeholder="Email" value="<?=old('email', $post)?>" /><?=err('email', $errors)?>
         <input type="password" name="password" placeholder="Password" required>
         <input type="submit" value="Login">
       </div>

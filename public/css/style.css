@@ -34,6 +34,7 @@ body {
   perspective: 900px;
   width: 100%;
   margin: 0 auto;
+  max-width: 1200px;
 }
 /* *************************** 
         Nav Mobile 
@@ -2130,6 +2131,20 @@ input[type=submit] {
   #login-box {
     padding-bottom: 300px;
   }
+}
+
+
+
+.logout-msg {
+    background-color:red;
+ 
+    text-align: center;
+    transition: 2s;
+    color: blue;
+}
+.logout-msg p {
+    padding:12px;
+    margin: 0;
 }
 
 

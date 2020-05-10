@@ -59,7 +59,13 @@ if(isset($_COOKIE['Country'])) {
         <ul>
             <li>Joined: <span class="profile-info"><?=$user['created_at'];?></span></li>
             <form action=""></form>
-            <p><a href="logout.php">Logout</a></p>
+            <p>
+                <form action="logout.php" method="post">
+                    <button class="btn">Logout</button>
+                </form>
+              
+
+            </p>
         </ul>
 
 

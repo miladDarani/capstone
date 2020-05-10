@@ -15,6 +15,9 @@ require __DIR__ . '/env.php';
 // if that page has loaded this config file.
 session_start();
 
+//output buffer
+ob_start();
+
 //6. Take errors out of SESSION and put in variable
 //6. Delete SESSION errors so its only for this one instance;
 if(isset($_SESSION['errors'])) {
