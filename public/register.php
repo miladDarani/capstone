@@ -94,12 +94,12 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
               <label for="password">Password</label><br />
-              <input name="password" id="password" type="text" maxlength="255" placeholder="Type your Password *"  value="" /><?=err('password', $errors)?>
+              <input name="password" id="password" type="password" maxlength="255" placeholder="Type your Password *"  value="" /><?=err('password', $errors)?>
             </p>
 
             <p>
               <label for="password2">Confirm Password</label><br />
-              <input name="password2" id="password2" type="text" maxlength="255" placeholder="Type your Password again *"  value="" /><?=err('password2', $errors)?>
+              <input name="password2" id="password2" type="password" maxlength="255" placeholder="Type your Password again *"  value="" /><?=err('password2', $errors)?>
             </p>
 
 
