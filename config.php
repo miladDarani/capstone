@@ -3,7 +3,7 @@
 
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
-
+define('CLASSES', __DIR__ . '/classes');
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/env.php';
 
@@ -43,9 +43,14 @@ if(isset($_SESSION['post'])) {
 // define the constant GST, set it's value to 0.5
 define('GST', 0.5);
 
+require CLASSES . '/Model.php';
+
+
+
 require __DIR__ .'/db_connect.php';
 
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASS);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+Model::init($dbh);
 require __DIR__ . '/functions.php';
