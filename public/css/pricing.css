@@ -3,8 +3,8 @@
 /* *************************** 
          General 
 ***************************** */
-html body{
-   
+body{
+       background: -webkit-linear-gradient(bottom, rgba(255,255,255,1) 0%, rgba(89,71,247,1) 70%);
 
 }
 li a span strong {

@@ -92,9 +92,11 @@
 
     <?php endif; ?>
 
-    <?php if($title == "Logout") : ?>
 
-        <link rel="stylesheet" href="css/logout.css" type="text/css"/>
+
+    <?php if($title == "Blog") : ?>
+
+        <link rel="stylesheet" href="css/blog_list.css" type="text/css"/>
 
     <?php endif; ?>
 
