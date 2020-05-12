@@ -14,10 +14,12 @@ class Model
      * Get All
      * @return Array
      */
-    public function all()
+    final public function all()
     {
         // Create query
-        $query = "SELECT * FROM {$this->table}";
+        $query = "SELECT * FROM {$this->table}
+                    JOIN authors USING author_id
+                    JOIN users USING user_id";
 
         // create stmt from DB
         $stmt = static::$dbh->query($query);
@@ -35,11 +37,14 @@ class Model
      * @param  Integer $author_id
      * @return Array  
      */
-    public function one(int $id)
+    final public function one(int $id)
     {
 
         // Create query 
-        $query = "SELECT * FROM {$this->table} WHERE {$this->key} = :id";
+        $query = "SELECT * FROM {$this->table}
+        JOIN author USING author_id
+        JOIN users USING user_id 
+        WHERE {$this->key} = :id";
 
         // Create stmt from $dbh (prepare)
         $stmt =static::$dbh->prepare($query);
