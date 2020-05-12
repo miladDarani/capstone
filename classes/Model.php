@@ -44,6 +44,7 @@ class Model
         $query = "SELECT * FROM {$this->table}
         JOIN author USING author_id
         JOIN users USING user_id 
+        JOIN blog_post USING post_id
         WHERE {$this->key} = :id";
 
         // Create stmt from $dbh (prepare)
