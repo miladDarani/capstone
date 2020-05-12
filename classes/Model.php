@@ -17,9 +17,7 @@ class Model
     final public function all()
     {
         // Create query
-        $query = "SELECT * FROM {$this->table}
-                    JOIN authors USING author_id
-                    JOIN users USING user_id";
+        $query = "SELECT * FROM {$this->table}";
 
         // create stmt from DB
         $stmt = static::$dbh->query($query);
@@ -41,11 +39,7 @@ class Model
     {
 
         // Create query 
-        $query = "SELECT * FROM {$this->table}
-        JOIN author USING author_id
-        JOIN users USING user_id 
-        JOIN blog_post USING post_id
-        WHERE {$this->key} = :id";
+        $query = "SELECT * FROM {$this->table} WHERE {$this->key} = :id";
 
         // Create stmt from $dbh (prepare)
         $stmt =static::$dbh->prepare($query);
