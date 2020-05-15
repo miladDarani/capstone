@@ -43,7 +43,7 @@ if(isset($_SESSION['post'])) {
 // define the constant GST, set it's value to 0.5
 define('GST', 0.5);
 
-require CLASSES . '/Model.php';
+
 
 
 
@@ -52,5 +52,5 @@ require __DIR__ .'/db_connect.php';
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASS);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-Model::init($dbh);
+Capstone\Model::init($dbh);
 require __DIR__ . '/functions.php';

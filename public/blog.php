@@ -5,7 +5,7 @@ $title = "Blog";
 require __DIR__ . "/../includes/header_inc.php";
 
 // require __DIR__ . "/../classes/Model.php";
-require __DIR__ . "/../classes/BlogModel.php";
+use Capstone\BlogModel;
 
 $post = new BlogModel();
 $p = $post->allPosts();
@@ -14,36 +14,28 @@ $p = $post->allPosts();
 
 ?>
 
-      <div id="row2">
+      <div id="row_blog">
 
 
 
         <?php foreach ($p as $key => $value) : ?>
           
-           <div class="blog2-div">
+           <div class="blog-div">
 
               <div class="blog2-title">
 
-                <img src="images/blog1.jpg" alt="25 Tips">
-                <h2 class="header-h2"><?=$value['title']?></h2>
+                <img src="images/<?=$value['image']?>" alt="25 Tips">
+                <h3 class="header-h2"><?=$value['title']?></h3><hr />
 
-                <p><?=$value['full_desc']?></p>
+                <p>This is a simple description and it will be dynamic as you can see if you look at the code <?=$value['full_desc']?></p>
 
                 <div class="bottom-space">
-                   <a href="#">Read More</a>
+                   <button class="btn">Read More</button>
                 </div>
 
               </div>
               
             </div>
-
-
-
-
-
-
-
-
 
 
         <?php endforeach; ?>
@@ -60,7 +52,7 @@ $p = $post->allPosts();
 
 
       
-      </div> <!-- row 2 -->
+      </div> <!-- row blog -->
 
 
       <div id="more">

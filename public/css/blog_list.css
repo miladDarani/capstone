@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 img{
@@ -10,8 +11,39 @@ img{
 
 
 .blog-div {
-    width:31%;
+    width: 28%;
     margin: 1%;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 3px solid #333;
 }
 
+.bottom-space{
+    text-align: center;
+    width: 100%;
+}
+.bottom-space button {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    background-color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+}
 
+@media only screen and (max-width: 780px) {
+
+  .blog-div{
+    width:40%;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+
+  .blog-div{
+    width:94%;
+  }
+}

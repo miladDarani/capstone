@@ -1,6 +1,6 @@
 <?php
 
-
+namespace Capstone;
 class UserModel extends Model
 {
 

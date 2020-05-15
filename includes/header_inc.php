@@ -55,11 +55,7 @@
 
     <?php endif; ?>
 
-    <?php if($title == "Blog") : ?>
 
-        <link rel="stylesheet" href="css/blog.css" type="text/css"/>
-
-    <?php endif; ?>
 
     <?php if($title == "Account") : ?>
 

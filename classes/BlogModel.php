@@ -1,5 +1,5 @@
 <?php
-
+namespace Capstone;
 class BlogModel extends Model
 {
 
@@ -26,7 +26,7 @@ class BlogModel extends Model
 
             $stmt = static::$dbh->query($query);
 
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             return $result;
         }
@@ -52,7 +52,7 @@ class BlogModel extends Model
 
             $stmt->execute($params);
 
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             return $result;
         }
