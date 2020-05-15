@@ -1,8 +1,10 @@
 <?php
-require __DIR__ . "/../../config.php";
-$title = "Admin";
-// require __DIR__ . "/../../includes/header_inc.php";
-?><!doctype html>
+
+require __DIR__ . '/../../config.php';
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -23,23 +25,27 @@ $title = "Admin";
 
       <div class="navbar-collapse collapse" id="navbarsExample03" style="">
         <ul class="navbar-nav mr-auto">
+
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
+            <a class="nav-link" href="#">Posts</a>
+          </li> 
+
           <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
+            <a class="nav-link" href="#">Authors</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown03">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Comments</a>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Users</a>
+          </li>
+
         </ul>
         <form class="form-inline my-2 my-md-0">
           <input class="form-control" type="text" placeholder="Search">
