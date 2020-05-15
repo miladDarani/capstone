@@ -6,61 +6,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
 
 ?>
-      <div id="blog-row1">
-        <div id="blog1-div">
-          
-          <div id="blog1-title">
-           <img src="images/5-reasons-why-you-shouldnt-mix-and-master-picture.jpg" alt="25 Tips">
-            <h2>5 Reasons why you shouldn't mix and master your own tracks</h2>
-            <p>You’ve composed and recorded a song all on your own, now why not just mix and master it as well? There are some advantages to doing this, of course. In my experience, however, the disadvantages outweigh them for most musicians. </p>
-            <div class="bottom-space">
-              <a href="#">Read More</a>
-            </div>
-          </div>
-        </div>
-        
-        
-        <div id="login-box">
-        <h3>Sign up for Newsletter</h3>
-        <p>Hottest articles in your inbox!</p>
-        <div class="login-box-image">
-          <img src="images/music-player.svg" alt="Music Player">
-        </div>
-        <form class="form_class" id="blog-form"
-                name="first_form"
-                method="post"
-                action="http://www.scott-media.com/test/form_display.php"
-                autocomplete="on">
 
-              <p>
-                <input type="text"
-                       name="first_name"
-                       id="first_name"
-                       placeholder="First Name"
-                       required
-                />
-                
-              </p>
-              
-              <p>
-                <input type="email"
-                       name="email_address"
-                       id="email_address"
-                       tabindex="4"
-                       placeholder="Type E-Mail Address"
-                       required/>
-              </p>
-
-                <p>
-                  <input type="submit" value="Subscribe Now" />
-                 
-                </p>
-
-<!--              </fieldset>-->
-            </form>
-        </div>
-        
-      </div> <!-- Row 1 End -->
       <div id="row2">
         <div class="blog2-div">
           <div class="blog2-title">
