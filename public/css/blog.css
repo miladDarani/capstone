@@ -60,6 +60,18 @@ img:hover {
   flex-direction: row;
 }
 
+.blog-div:first-child {
+
+  background: #FF0;
+  width:50%;
+
+
+}
+.blog-div:nth-child(2){
+  width:25%;
+}
+.blog-div:nth-child(2n+3) {background: #CCC;}
+
 /* *************************** 
              Row 2 
 ***************************** */
@@ -67,6 +79,8 @@ img:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 100%;
+  flex-direction: column;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
@@ -244,6 +258,9 @@ img:hover {
 }
 #more a:nth-child(1) {
   color: #222;
+}
+img {
+  max-width: 100%;
 }
 /* **********************************
                 @media 

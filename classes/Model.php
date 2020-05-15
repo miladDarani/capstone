@@ -1,11 +1,11 @@
 <?php
-
+namespace Capstone;
 class Model
 {
     
      static protected $dbh;
 
-    static public function init(PDO $dbh) {
+    static public function init(\PDO $dbh) {
         static::$dbh = $dbh;
     }
 
@@ -23,7 +23,7 @@ class Model
         $stmt = static::$dbh->query($query);
 
         // fetch all results
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         
         // return the results
         return $result;
@@ -53,7 +53,7 @@ class Model
         $stmt->execute($params);
 
         // fetch result
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         // return the result
         return $result;

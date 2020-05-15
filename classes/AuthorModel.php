@@ -1,5 +1,5 @@
 <?php
-
+namespace Capstone;
 
 class AuthorModel extends Model
 {
