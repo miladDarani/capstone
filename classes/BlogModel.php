@@ -14,15 +14,9 @@ class BlogModel extends Model
         {
             $query = 'SELECT blog_post.*,
             authors.author_name as author
-            
-       
-           
             FROM 
             blog_post
-           
-            JOIN authors USING(author_id)
-           
-           ';
+            JOIN authors USING(author_id)';
 
             $stmt = static::$dbh->query($query);
 
@@ -35,13 +29,8 @@ class BlogModel extends Model
         public function onePost($id)
         {
             $query = 'SELECT *
-            
-          
-
             FROM 
             blog_post
-        
-          
             WHERE post_id = :id';
 
             $stmt = static::$dbh->prepare($query);
@@ -57,6 +46,40 @@ class BlogModel extends Model
             return $result;
         }
 
+
+
+        final function getAllPostsBySeacrh($searchterm)
+        {
+
+            $query = 'SELECT blog_post.*,
+            authors.author_name as author
+            FROM 
+            blog_post
+            JOIN authors USING(author_id)
+
+            WHERE 
+            blog_post.title LIKE :searchterm1
+            OR
+            author.name LIKE :searchterm2
+            OR
+            blog_post.full_desc LIKE :searchterm3
+            ORDER BY blog_post.title ASC';
+
+            $stmt = $dbh->prepare($query);
+
+            $params = array(
+               ':searchterm1' => "%{$searchterm}%",
+               ':searchterm2' => "%{$searchterm}%",
+               ':searchterm3' => "%{$searchterm}%"
+            );
+
+            $stmt->execute($params);
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            return $result;
+
+            }
 
 
 

@@ -27,6 +27,8 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:100,300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
     <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
 
     <!-- JQUERY -->

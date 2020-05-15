@@ -2,26 +2,30 @@
 
 
 require __DIR__ . '/../../config.php';
+use Capstone\BlogModel;
+$title = "Admin";
+$post = new BlogModel();
+$p = $post->allPosts();
 
 
-require __DIR__ . '/models/blog_post_model.php';
-$posts = getAllPosts();
-$title ="Admin"
+// require __DIR__ . '/models/blog_post_model.php';
+// $posts = getAllPosts();
+// $title ="Admin"
 
 
-$query = 'SELECT * FROM blog_post';
+// $query = 'SELECT * FROM blog_post';
 
-$stmt = $dbh->prepare($query);
-
-
-// // $params = array(
-// //     ':user_id' => $_SESSION['user_id']
-// // );
+// $stmt = $dbh->prepare($query);
 
 
-$stmt->execute();
+// // // $params = array(
+// // //     ':user_id' => $_SESSION['user_id']
+// // // );
 
-$posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// $stmt->execute();
+
+// $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
@@ -32,17 +36,16 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MDdH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
 
     <title><?=$title?></title>
   </head>
   <body>
-
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
       <a class="navbar-brand" href="#"><?=$title?></a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -77,29 +80,27 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </form>
       </div>
     </nav>
-
   
 
 
 
-  <div class="container">
+  <div class="container admin-container">
     <div class="row">
       <div class="col-lg-12">
 
 
-        <h1 class="mt-5">Posts</h1>
+        <h1 class="mt-3">Posts</h1>
 
           
           <p>
-            <a class="btn float-left btn-success" href="#">Add a Post</a> 
+            <a class=" btn float-left btn-success " href="#">Add a Post</a> 
 
-            <form class="form float-right form-inline" action="#" method="post">
+            <form class="mb-5 form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
 
-              <input type="hidden" name="hide" value="" />
 
-              <input type="text" name="search" placeholder="Search Posts"/>
+              <input class="form-control" type="text" id="s" name="s" maxlength="255" placeholder="Search Posts" value="" />
 
-              <button>Search</button>
+              <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
 
             </form>
           </p>
@@ -118,7 +119,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
           <tr>
              
-              <?php foreach ($posts as $key => $value) : ?>
+              <?php foreach ($p as $key => $value) : ?>
                 <td><?=$value['post_id']?></td>
                 <td><?=$value['title']?></td>
                 <td><?=$value['date_posted']?></td>
