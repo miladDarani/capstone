@@ -14,6 +14,7 @@ $p = $post->allPosts();
 
 ?>
 
+
       <div id="row_blog">
 
 
@@ -35,6 +36,7 @@ $p = $post->allPosts();
 
               </div>
               
+
             </div>
 
 

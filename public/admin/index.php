@@ -1,21 +1,28 @@
 <?php
 
- require __DIR__ . '/../../config.php';
+
+require __DIR__ . '/../../config.php';
+
+
 require __DIR__ . '/models/blog_post_model.php';
 $posts = getAllPosts();
 $title ="Admin"
+
 
 $query = 'SELECT * FROM blog_post';
 
 $stmt = $dbh->prepare($query);
 
+
 // // $params = array(
 // //     ':user_id' => $_SESSION['user_id']
 // // );
 
+
 $stmt->execute();
 
 $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
 
 
@@ -33,7 +40,9 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title><?=$title?></title>
   </head>
   <body>
+
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
       <a class="navbar-brand" href="#"><?=$title?></a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -69,8 +78,7 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </nav>
 
-     <!-- ------------------  NAV END ------------------------- -->
-   
+  
 
 
 
@@ -136,10 +144,6 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
   </footer>
 
-   </body>
- </html>
- 
-  
   </body>
 </html>
 
