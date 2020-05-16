@@ -48,7 +48,7 @@ class BlogModel extends Model
 
 
 
-        final function getAllPostsBySeacrh($searchterm)
+        final function getAllPostsBySearch($searchterm)
         {
 
             $query = 'SELECT blog_post.*,
@@ -60,12 +60,12 @@ class BlogModel extends Model
             WHERE 
             blog_post.title LIKE :searchterm1
             OR
-            author.name LIKE :searchterm2
+            authors.author_name LIKE :searchterm2
             OR
             blog_post.full_desc LIKE :searchterm3
             ORDER BY blog_post.title ASC';
 
-            $stmt = $dbh->prepare($query);
+            $stmt = static::$dbh->prepare($query);
 
             $params = array(
                ':searchterm1' => "%{$searchterm}%",
@@ -75,7 +75,7 @@ class BlogModel extends Model
 
             $stmt->execute($params);
 
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             return $result;
 

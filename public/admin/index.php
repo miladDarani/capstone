@@ -8,24 +8,12 @@ $post = new BlogModel();
 $p = $post->allPosts();
 
 
-// require __DIR__ . '/models/blog_post_model.php';
-// $posts = getAllPosts();
-// $title ="Admin"
+//search function
+if(!empty($_GET['s'])){
+    $title2 = 'You searched for ' . $_GET['s'];
+    $p = $post->getAllPostsBySearch($_GET['s']);  
+}
 
-
-// $query = 'SELECT * FROM blog_post';
-
-// $stmt = $dbh->prepare($query);
-
-
-// // // $params = array(
-// // //     ':user_id' => $_SESSION['user_id']
-// // // );
-
-
-// $stmt->execute();
-
-// $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
 
