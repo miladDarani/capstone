@@ -84,6 +84,38 @@ class BlogModel extends Model
 
 
 
+        final public function updateRecord($id)
+        {
+           $query = '
+            UPDATE blog_post
+            JOIN authors USING(author_id)
+            SET 
+            title = :title,
+            full_desc=:full_desc,
+            author_name=:author_name
+            WHERE 
+            post_id=:post_id';
+
+
+
+            //3. prepare the query
+            $stmt = static::$dbh->prepare($query);
+            //4.param
+            $params = array (
+                ':title' => $_POST['title'],
+                ':full_desc' => $_POST['full_desc'],
+                ':author_name' => $_POST['author_name'],
+                ':post_id' => $_POST['post_id']
+            );
+            //5.execute
+            $stmt->execute($params);
+            //6 fetch
+            header('Location: index.php');
+            }
+
+
+
+
 
 
 }

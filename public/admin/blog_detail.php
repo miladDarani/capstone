@@ -148,7 +148,7 @@ $one_post = $post->onePost($_GET['post_id']);
 
                 <legend>Edit Post</legend>
                
-                <input type="hidden" name="id" value="<?=esc($value['post_id'])?>" />
+                <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
 
               <div class="form-group required">
                   <label for="title"><strong>Blog Title</strong></label>
@@ -161,7 +161,7 @@ $one_post = $post->onePost($_GET['post_id']);
 
                   <label for="body"><strong>Full Post Description</strong></label>
 
-                  <textarea id="body" rows="4" cols="50" class="form-control" name="body"><?=esc($value['full_desc'])?></textarea>
+                  <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc"><?=esc($value['full_desc'])?></textarea>
 
               </div>
 
