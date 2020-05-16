@@ -31,6 +31,7 @@ class BlogModel extends Model
             $query = 'SELECT *
             FROM 
             blog_post
+            JOIN authors USING(author_id)
             WHERE post_id = :id';
 
             $stmt = static::$dbh->prepare($query);

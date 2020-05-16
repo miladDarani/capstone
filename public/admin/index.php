@@ -8,6 +8,7 @@ $post = new BlogModel();
 $p = $post->allPosts();
 
 
+
 //search function
 if(!empty($_GET['s'])){
     $title2 = 'You searched for ' . $_GET['s'];
@@ -16,6 +17,10 @@ if(!empty($_GET['s'])){
 
 
 
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    dd($_POST);
+    die;
+}
 
 
 ?><!DOCTYPE html>

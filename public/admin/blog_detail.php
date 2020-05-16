@@ -15,7 +15,9 @@ $all_authors = $authors->fullAuthors();
 
 
 
+
 $one_post = $post->onePost($_GET['post_id']);
+
 
 
 ?><!DOCTYPE html>
@@ -141,7 +143,7 @@ $one_post = $post->onePost($_GET['post_id']);
 
           <div class="col col-sm-9">
 
-            <form action="/admin/blog_detail.php" method="post">
+            <form action="/admin/" method="post">
               <fieldset>
 
                 <legend>Edit Post</legend>
@@ -167,11 +169,16 @@ $one_post = $post->onePost($_GET['post_id']);
                   <label for="author"><strong>Authors: </strong></label>
                   <select name="author_name" class="author_name">
 
-                    <option selected value="1">Select Author</option>
-
+                    <!-- <option  value="">Select Author</option> -->
+                      <option value="">Select an author</option>
                       <?php foreach($all_authors as $author) :?>
+                          
+                        
+                           <option <?=($author['author_name'] === $one_post[0]['author_name']) ? 'selected' : ''?> value="<?=$author['author_name']?>"> 
 
-                         <option value="<?=esc($author['author_name'])?>"><?=esc($author['author_name'])?></option>
+                         <?=esc($author['author_name'])?>
+                           
+                         </option>
 
                       <?php endforeach; ?>
 
@@ -180,7 +187,7 @@ $one_post = $post->onePost($_GET['post_id']);
 
               
               <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" formmethod="post" formaction="/admin/">Submit</button>
               </div>
               
 
