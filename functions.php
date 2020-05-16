@@ -37,6 +37,16 @@ function esc_attr($string)
     return htmlentities($string, ENT_QUOTES, "UTF-8");
 }
 
+/**
+ * 
+ * @param  $string
+ * @return [sanitized output]  
+ */
+function esc($string)
+{
+    return htmlentities($string, ENT_QUOTES, "UTF-8");
+}
+
 //10. function to send stuff in the value fields in index.php
 
 /**

@@ -1,11 +1,21 @@
 <?php
 require __DIR__ . '/../../config.php';
+
 use Capstone\BlogModel;
+use Capstone\AuthorModel;
+
 $title = "Post";
+
 $post = new BlogModel();
 
+$authors = new AuthorModel;
 
-$post->onePost($_GET['post_id']);
+$all_authors = $authors->fullAuthors();
+
+
+
+
+$one_post = $post->onePost($_GET['post_id']);
 
 
 ?><!DOCTYPE html>
@@ -17,121 +27,190 @@ $post->onePost($_GET['post_id']);
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Font Awesome -->
+<script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
 <!------ Include the above in your HEAD tag ---------->
 </head>
+<style>
+  img{
+    max-width: 100%;
+  }
+  .author_name{
+    width: 50%;
+  }
+  footer{
+    text-align: center;
+  }
+  ​textarea { vertical-align: top;
+  }​
+
+</style>
+
+
+
+
 <body>
-  
+
+  <!-- Navigation -->
+ <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><?=esc($title)?></a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="navbar-collapse collapse" id="navbarsExample03" style="">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Posts</a>
+          </li> 
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Authors</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Comments</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">Users</a>
+          </li>
+
+        </ul>
+        <form class="form-inline my-2 my-md-0">
+          <input class="form-control" type="text" placeholder="Search">
+        </form>
+      </div>
+    </nav>
+
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <h1 class="mt-5">Edit Post</h1>
+
+          
+          
+
+        
+        <p>
+          <a class="btn btn-info float-left mb-5" href="/admin">Back</a> 
+
+          <form class="mb-5 form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+
+
+            <input class="form-control" type="text" id="s" name="s" maxlength="255" placeholder="Search Posts" value="" />
+
+            <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
+
+          </form>
+
+        </p>
+
+        <p class="clear">&nbsp;</p>
+
+      <?php if(empty($_GET['post_id'])) {
+
+        $_SESSION['errors'] = "You must select something";
+        header('Location: /admin');
+        die;
+        }
+
+      ?>
+
+
+      <?php foreach ($one_post as $key => $value) : ?>
+
+
+      
 
 
 
+        <div class="row mt-5">
+          <div class="col col-sm-3">
+            <img id="blogger" src="/../images/<?=esc($value['image'])?>" alt="<?=esc($value['title'])?>">
+        
+          </div>
+
+          <div class="col col-sm-9">
+
+            <form action="/admin/blog_detail.php" method="post">
+              <fieldset>
+
+                <legend>Edit Post</legend>
+               
+                <input type="hidden" name="id" value="<?=esc($value['post_id'])?>" />
+
+              <div class="form-group required">
+                  <label for="title"><strong>Blog Title</strong></label>
+                  <input class="form-control" type="text" name="title" value="<?=esc($value['title'])?>" />
+              </div>
 
 
-<div class="container">
- 
+
+               <div class="form-group required">
+
+                  <label for="body"><strong>Full Post Description</strong></label>
+
+                  <textarea id="body" rows="4" cols="50" class="form-control" name="body"><?=esc($value['full_desc'])?></textarea>
+
+              </div>
+
+              <div class="form-group required">
+                  <label for="author"><strong>Authors: </strong></label>
+                  <select name="author_name" class="author_name">
+
+                    <option selected value="1">Select Author</option>
+
+                      <?php foreach($all_authors as $author) :?>
+
+                         <option value="<?=esc($author['author_name'])?>"><?=esc($author['author_name'])?></option>
+
+                      <?php endforeach; ?>
+
+                  </select>
+              </div>
+
+              
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+              
+
+              <?php endforeach ; ?>
+
+
+              </fieldset>
+            </div>
+          </form>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+
 
 
     
-<div class="card">
-    <div class="row">
-        <aside class="col-sm-5 border-right">
-          
-<article class="gallery-wrap"> 
-<div class="img-big-wrap">
-  <div> <a href="#"><img src="https://s9.postimg.org/tupxkvfj3/image.jpg"></a></div>
-</div> <!-- slider-product.// -->
-<div class="img-small-wrap">
-  <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-
-</div> <!-- slider-nav.// -->
-</article> <!-- gallery-wrap .end// -->
-        </aside>
-        <aside class="col-sm-7">
-<article class="card-body p-5">
-    <h3 class="title mb-3">Original Version of Some product name</h3>
-
-<p class="price-detail-wrap"> 
-    <span class="price h3 text-warning"> 
-        <span class="currency">US $</span><span class="num">1299</span>
-    </span> 
-    <span>/per kg</span> 
-</p> <!-- price-detail-wrap .// -->
-<dl class="item-property">
-  <dt>Description</dt>
-  <dd><p>Here goes description consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco </p></dd>
-</dl>
-<dl class="param param-feature">
-  <dt>Model#</dt>
-  <dd>12345611</dd>
-</dl>  <!-- item-property-hor .// -->
-<dl class="param param-feature">
-  <dt>Color</dt>
-  <dd>Black and white</dd>
-</dl>  <!-- item-property-hor .// -->
-<dl class="param param-feature">
-  <dt>Delivery</dt>
-  <dd>Russia, USA, and Europe</dd>
-</dl>  <!-- item-property-hor .// -->
-
-<hr>
-    <div class="row">
-        <div class="col-sm-5">
-            <dl class="param param-inline">
-              <dt>Quantity: </dt>
-              <dd>
-                <select class="form-control form-control-sm" style="width:70px;">
-                    <option> 1 </option>
-                    <option> 2 </option>
-                    <option> 3 </option>
-                </select>
-              </dd>
-            </dl>  <!-- item-property .// -->
-        </div> <!-- col.// -->
-        <div class="col-sm-7">
-            <dl class="param param-inline">
-                  <dt>Size: </dt>
-                  <dd>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                      <span class="form-check-label">SM</span>
-                    </label>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                      <span class="form-check-label">MD</span>
-                    </label>
-                    <label class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                      <span class="form-check-label">XXL</span>
-                    </label>
-                  </dd>
-            </dl>  <!-- item-property .// -->
-        </div> <!-- col.// -->
-    </div> <!-- row.// -->
-    <hr>
-    <a href="#" class="btn btn-lg btn-primary text-uppercase"> Buy now </a>
-    <a href="#" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
-</article> <!-- card-body.// -->
-        </aside> <!-- col.// -->
-    </div> <!-- row.// -->
-</div> <!-- card.// -->
 
 
-</div>
-<!--container.//-->
+  <footer>
 
+    <p>Contents copyright 2020 by S O U N D C O M E T</p>
+    
+  </footer>
 
-<br><br><br>
-<article class="bg-secondary mb-3">  
-<div class="card-body text-center">
-    <h4 class="text-white">HTML UI KIT <br> Ready to use Bootstrap 4 components and templates </h4>
-<p class="h5 text-white"> for Ecommerce, marketplace, booking websites 
-and product landing pages</p>   <br>
-<p><a class="btn btn-warning" target="_blank" href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com  
- <i class="fa fa-window-restore "></i></a></p>
-</div>
-<br><br><br>
-</article>
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <script src="/js/ckeditor/ckeditor.js"></script>
 
 
 </body>
