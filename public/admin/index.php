@@ -100,8 +100,9 @@ if(!empty($_GET['s'])){
         <table id="admin_posts" class="table table-striped table-dark">
           <tr>
               <th>Post ID</th>
+              <th>Author</th>
               <th>Title</th>
-              <th>Created_at</th>
+              <th>Created at</th>
               <th class="actions">Actions</th>
           </tr>
 
@@ -109,10 +110,16 @@ if(!empty($_GET['s'])){
              
               <?php foreach ($p as $key => $value) : ?>
                 <td><?=$value['post_id']?></td>
+                <td><?=$value['author']?></td>
                 <td><?=$value['title']?></td>
                 <td><?=$value['date_posted']?></td>
                 <td>
-                  <a class="btn btn-primary btn-sm" href="#">edit</a>&nbsp;<a class="delete btn btn-danger btn-sm" data-id="25" href=""><i class="fas fa-trash"></i></a>
+                  <form action="blog_detail.php" method="get" >
+                    <a type="submit" class="btn btn-primary btn-sm"  href="/admin/blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>">edit</a>
+                    &nbsp;
+
+                    <button type="submit" class="delete btn btn-danger btn-sm" data-id="25" href=""><i class="fas fa-trash"></i></button>
+                  </form>
                 </td>
           </tr>
 

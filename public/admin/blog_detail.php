@@ -3,9 +3,9 @@ require __DIR__ . '/../../config.php';
 use Capstone\BlogModel;
 $title = "Post";
 $post = new BlogModel();
-$p = $post->onePost($_GET['s']);
-dd($p);
-die;
+
+
+$post->onePost($_GET['post_id']);
 
 
 ?><!DOCTYPE html>
@@ -27,22 +27,21 @@ die;
 
 
 <div class="container">
-    <br>  <p class="text-center">More bootstrap 4 components on <a href="http://bootstrap-ecommerce.com/"> Bootstrap-ecommerce.com</a></p>
-<hr>
+ 
+
 
     
 <div class="card">
     <div class="row">
         <aside class="col-sm-5 border-right">
+          
 <article class="gallery-wrap"> 
 <div class="img-big-wrap">
   <div> <a href="#"><img src="https://s9.postimg.org/tupxkvfj3/image.jpg"></a></div>
 </div> <!-- slider-product.// -->
 <div class="img-small-wrap">
   <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-  <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-  <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
-  <div class="item-gallery"> <img src="https://s9.postimg.org/tupxkvfj3/image.jpg"> </div>
+
 </div> <!-- slider-nav.// -->
 </article> <!-- gallery-wrap .end// -->
         </aside>
