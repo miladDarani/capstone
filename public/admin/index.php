@@ -3,9 +3,41 @@
 
 require __DIR__ . '/../../config.php';
 use Capstone\BlogModel;
+use Capstone\Validator;
 $title = "Admin";
 $post = new BlogModel();
 $p = $post->allPosts();
+$v= new Validator();
+
+// $errors=[];
+// Validation
+// if(empty($_POST['title'])){
+//   $errors['title'] = "Title is a required field";
+// }
+// if(empty($_POST['full_desc'])){
+//   $errors['full_desc'] = "Post description is a required field";
+// }
+  $v->required('title', $_POST['title']);
+  $v->required('full_desc', $_POST['full_desc']);
+
+  $v->max_length('title', $_POST['title'],255);
+  $v->min_length('title', $_POST['title'],2);
+
+  $v->min_length('full_desc', $_POST['full_desc'],2);
+
+  $errors = $v->errors();
+
+
+//NO ERRORS
+if(empty($errors)){
+  $success = $_SESSION['success'] = " Record Successfully Updated";
+  dd($success);
+  die;
+}
+
+
+
+//YES ERRORS
 
 
 
@@ -21,10 +53,28 @@ if(!empty($_GET['s'])){
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   
     // $post->updateRecord($_POST['id']);
-    dd($post->updateRecord($_POST['post_id']));
+    $post->updateRecord($_POST['post_id']);
+
+    if(!empty($errors)){
+  
+    $_SESSION['errors'] = $errors;
+
+    $_SESSION['post'] = $_POST;
  
-    
+    $id = $_POST['post_id'];
+    header("Location: blog_detail.php?page=blog_detail&post_id=".$id );
+    die;
+  //DISPLAY SOMETHING
+ 
+  }
 }
+
+
+
+
+
+
+
 
 
 ?><!DOCTYPE html>
@@ -39,11 +89,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
 
-    <title><?=$title?></title>
+    <title><?=esc($title)?></title>
   </head>
   <body>
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="#"><?=$title?></a>
+      <a class="navbar-brand" href="#"><?=esc($title)?></a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

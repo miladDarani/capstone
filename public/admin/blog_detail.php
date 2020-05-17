@@ -1,22 +1,65 @@
 <?php
 require __DIR__ . '/../../config.php';
-
+use Capstone\Validator;
 use Capstone\BlogModel;
 use Capstone\AuthorModel;
 
+
+
+
+$v = new Validator();
 $title = "Post";
 
 $post = new BlogModel();
 
 $authors = new AuthorModel;
 
+
+
 $all_authors = $authors->fullAuthors();
+ 
+if(empty($_POST['title'])){
+$_SESSION['errors'] = "Title is a required field";
+
+
+}
+
+if(empty($_POST['full_desc'])){
+$_SESSION['errors'] = "Post Description is a required field";
+
+
+}
 
 
 
 
+if(!empty($_GET['post_id'])){
 
-$one_post = $post->onePost($_GET['post_id']);
+    $one_post = $post->onePost($_GET['post_id']);
+
+
+    // $v->required('title', $_GET['title']);
+    // $v->required('full_desc', $_GET['full_desc']);
+
+    // $errors = $v->errors();
+   
+
+} elseif(empty($_GET['post_id'])) {
+
+        $_SESSION['errors'] = "You must select something";
+        // header('Location: /admin');
+        die;
+        }
+
+
+
+// if(!empty($errors)){
+//   dd($errors);
+
+//   // header('Location: blog_detail.php');
+
+
+// }
 
 
 
@@ -118,14 +161,6 @@ $one_post = $post->onePost($_GET['post_id']);
 
         <p class="clear">&nbsp;</p>
 
-      <?php if(empty($_GET['post_id'])) {
-
-        $_SESSION['errors'] = "You must select something";
-        header('Location: /admin');
-        die;
-        }
-
-      ?>
 
 
       <?php foreach ($one_post as $key => $value) : ?>
@@ -152,15 +187,16 @@ $one_post = $post->onePost($_GET['post_id']);
 
               <div class="form-group required">
                   <label for="title"><strong>Blog Title</strong></label>
-                  <input class="form-control" type="text" name="title" value="<?=esc($value['title'])?>" />
+                  <input class="form-control" type="text" name="title" value="<?=esc($value['title'])?>" /> 
+                  <?=err('title', $errors)?>
               </div>
 
 
 
                <div class="form-group required">
 
-                  <label for="body"><strong>Full Post Description</strong></label>
-
+                  <label for="full_desc"><strong>Full Post Description</strong></label>
+                  <?=err('full_desc', $errors)?>
                   <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc"><?=esc($value['full_desc'])?></textarea>
 
               </div>
@@ -174,7 +210,7 @@ $one_post = $post->onePost($_GET['post_id']);
                       <?php foreach($all_authors as $author) :?>
                           
                         
-                           <option <?=($author['author_name'] === $one_post[0]['author_name']) ? 'selected' : ''?> value="<?=$author['author_name']?>"> 
+                           <option <?=($author['author_name'] === $one_post[0]['author_name']) ? 'selected' : ''?> value="<?=esc($author['author_name'])?>"> 
 
                          <?=esc($author['author_name'])?>
                            
@@ -187,9 +223,9 @@ $one_post = $post->onePost($_GET['post_id']);
 
               
               <div class="form-group">
-                <button type="submit" class="btn btn-primary" formmethod="post" formaction="/admin/">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
-              
+
 
               <?php endforeach ; ?>
 
@@ -202,7 +238,6 @@ $one_post = $post->onePost($_GET['post_id']);
       </div>
     </div>
   </div>
-
 
 
     
