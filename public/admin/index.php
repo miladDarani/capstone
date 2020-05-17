@@ -17,15 +17,7 @@ $v= new Validator();
 // if(empty($_POST['full_desc'])){
 //   $errors['full_desc'] = "Post description is a required field";
 // }
-  $v->required('title', $_POST['title']);
-  $v->required('full_desc', $_POST['full_desc']);
 
-  $v->max_length('title', $_POST['title'],255);
-  $v->min_length('title', $_POST['title'],2);
-
-  $v->min_length('full_desc', $_POST['full_desc'],2);
-
-  $errors = $v->errors();
 
 
 //NO ERRORS
@@ -51,7 +43,15 @@ if(!empty($_GET['s'])){
 
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-  
+  $v->required('title', $_POST['title']);
+  $v->required('full_desc', $_POST['full_desc']);
+
+  $v->max_length('title', $_POST['title'],255);
+  $v->min_length('title', $_POST['title'],2);
+
+  $v->min_length('full_desc', $_POST['full_desc'],2);
+
+  $errors = $v->errors();
     // $post->updateRecord($_POST['id']);
     $post->updateRecord($_POST['post_id']);
 
