@@ -14,14 +14,7 @@ $class='hidden';
 
 
 //NO ERRORS
-if(!empty($_POST['success'])){
-  
-  $flash =array(
-  'class' => "success-msg",
-  'message' => 'Record Successfully Updated'
-   );
- 
-}
+
 
 
 
@@ -44,8 +37,14 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $v->min_length('full_desc', $_POST['full_desc'],2);
   $errors = $v->errors();
 
+  if(!empty($_POST['success'])){
+    $success=$_POST['success'];
+  }
 
-  
+  $post->updateRecord($_POST['post_id']);
+
+ 
+ 
     
   
 
@@ -61,10 +60,21 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   die;
   //DISPLAY SOMETHING
  
-  }else{
-    $post->updateRecord($_POST['post_id']);
+  }
+  elseif(empty($errors) && !empty($success))
+  {
+
+   
+  
+    $flash =array(
+    'class' => "success-msg",
+    'message' => 'Record Successfully Updated'
+
+   );
+ 
   }
 }
+
 
 
 

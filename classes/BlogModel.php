@@ -106,6 +106,7 @@ class BlogModel extends Model
                 ':full_desc' => $_POST['full_desc'],
                 ':author_name' => $_POST['author_name'],
                 ':post_id' => $_POST['post_id']
+
             );
             //5.execute
             $stmt->execute($params);
@@ -113,8 +114,7 @@ class BlogModel extends Model
 
 
             header('Location: index.php');
-     
-            }
+                        }
 
 
 
