@@ -76,7 +76,7 @@ class BlogModel extends Model
 
             $stmt->execute($params);
 
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            
 
             return $result;
 
@@ -109,8 +109,11 @@ class BlogModel extends Model
             );
             //5.execute
             $stmt->execute($params);
-            //6 fetch
+            
+
+
             header('Location: index.php');
+     
             }
 
 

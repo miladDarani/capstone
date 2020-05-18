@@ -11,30 +11,18 @@ $v= new Validator();
 
 $class='hidden';
 
-// $errors=[];
-// Validation
-// if(empty($_POST['title'])){
-//   $errors['title'] = "Title is a required field";
-// }
-// if(empty($_POST['full_desc'])){
-//   $errors['full_desc'] = "Post description is a required field";
-// }
-
 
 
 //NO ERRORS
-if(empty($errors)){
-  $class='success-msg';
-  $success = $_SESSION['success'] = " Record Successfully Updated";
+if(!empty($_POST['success'])){
+  
+  $flash =array(
+  'class' => "success-msg",
+  'message' => 'Record Successfully Updated'
+   );
  
 }
 
-if($_SERVER['REQUEST_METHOD'] === "GET"){
-  session_destroy();
-}
-
-
-//YES ERRORS
 
 
 
@@ -46,32 +34,35 @@ if(!empty($_GET['s'])){
 }
 
 
-
+//REQUEST METHOOD = POST
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
   $v->required('title', $_POST['title']);
   $v->required('full_desc', $_POST['full_desc']);
-
   $v->max_length('title', $_POST['title'],255);
   $v->min_length('title', $_POST['title'],2);
-
   $v->min_length('full_desc', $_POST['full_desc'],2);
-
   $errors = $v->errors();
-    // $post->updateRecord($_POST['id']);
-  $post->updateRecord($_POST['post_id']);
 
-    if(!empty($errors)){
+
   
-    $_SESSION['errors'] = $errors;
     
-    $_SESSION['post'] = $_POST;
- 
-    $id = $_POST['post_id'];
-    header("Location: blog_detail.php?page=blog_detail&post_id=".$id );
-    $class='err-msg';
-    die;
+  
+
+  if(!empty($errors)){
+
+  $_SESSION['errors'] = $errors;
+  
+  $_SESSION['post'] = $_POST;
+
+  $id = $_POST['post_id'];
+  header("Location: blog_detail.php?page=blog_detail&post_id=".$id );
+  $class='err-msg';
+  die;
   //DISPLAY SOMETHING
  
+  }else{
+    $post->updateRecord($_POST['post_id']);
   }
 }
 
@@ -101,10 +92,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <style>
     .success-msg {
-      background-color:#aefb8c;
- 
-      text-align: center;
-      transition: 2s;
+      background-color: #bafaba;
+      
 
     }
     .success-msg p {
@@ -113,13 +102,28 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     .err-msg{
-      background-color:red;
-      text-align: center;
-      transition: 2s;
+      background-color: #fababa;
+     
+      
     }
     .hidden{
       display: none;
     }
+
+
+    .flash {
+    text-align: center;
+    
+    padding: 10px;
+    font-weight: bold;
+    }
+
+    .flash-area{
+    list-style: none;
+    padding:  12px;
+    text-align: center;
+    font-weight: 500;
+  }
     </style>
 
 
@@ -164,17 +168,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   
 
 
-<div class="<?=$class?>">
- 
- 
-    <p><?php 
-    echo $_SESSION['success'];
-    $_SESSION['success'] = '';
+<?php if(!empty($flash)) :?> 
+    <div class="flash-area <?=esc($flash['class'])?>">
 
+      <span><?=esc($flash['message'])?></span>
 
-    ?></p>
-   
-</div>
+    </div>
+ <?php endif; ?>
 
   <div class="container admin-container">
     <div class="row">
@@ -240,7 +240,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <script>
     $(document).ready(function(){
 
-        $(".success-msg p").delay(2000).slideUp(2500);
+        $(".flash-area").delay(2500).slideUp(2500);
 
     });
 </script>

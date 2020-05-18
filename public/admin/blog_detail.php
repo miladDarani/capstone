@@ -44,13 +44,28 @@ if(!empty($_GET['post_id'])){
 
 
 
-// if(!empty($errors)){
-//   dd($errors);
+    if(!empty(err('title', $errors))){
 
-//   // header('Location: blog_detail.php');
+      $flash =array(
+      'class' => "err-msg",
+      'message' => 'Title is a required field'
+       );
+    }
 
+    if(!empty(err('full_desc', $errors))){
+      $flash =array(
+      'class' => "err-msg",
+      'message' => "Post Description is a required field"
+       );
+    }
+    if(!empty(err('title', $errors))&&!empty(err('full_desc', $errors)) ){
+      $flash =array(
+      'class' => "err-msg",
+      'message' => "Title and Post Description are required fields."
+       );
+    }
 
-// }
+    $_SESSION['flash'] = $flash;
 
 
 
@@ -83,36 +98,43 @@ if(!empty($_GET['post_id'])){
   }
   ​textarea { vertical-align: top;
   }​
+
   .success-msg {
-    background-color:#aefb8c;
- 
-    text-align: center;
-    transition: 2s;
+    background-color: #bafaba;
+    
 
   }
   .success-msg p {
     padding:12px;
-     margin: 0;
+    margin: 0;
   }
 
   .err-msg{
-    background-color:red;
-    text-align: center;
-    transition: 2s;
+    background-color: #fababa;
   }
   .hidden{
     display: none;
   }
-  .error-ul{
+
+  .flash {
+    text-align: center;
+    
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  .hidden{
+    display: none;
+  }
+  .flash-area{
     list-style: none;
-    padding:  0;
-    color: white;
-    transition: 2s;
+    padding:  12px;
+    text-align: center;
+    font-weight: 500;
+   
   }
-  .error-ul li {
-    padding: 12px;
-  }
-  .err {}
+
+  
 </style>
 
 
@@ -124,7 +146,7 @@ if(!empty($_GET['post_id'])){
  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <a class="navbar-brand" href="#"><?=esc($title)?></a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="navbar-collapse collapse" id="navbarsExample03" style="">
@@ -159,22 +181,19 @@ if(!empty($_GET['post_id'])){
 
 
 
- <div>
-    <ul class="error-ul">
- <?php  
+ 
+    
 
-    if(!empty(err('title', $errors))){
-      $class = 'err-msg';
-      echo "<div class='err-msg'> <li>" . err('title', $errors) . "</li></div>";
-    }
-    if(!empty(err('full_desc', $errors))){
-      $class = 'err-msg';
-      echo "<div class='err-msg'> <li>" . err('full_desc', $errors) . "</li></div>";
-    }
+ <?php if(!empty($flash)) :?> 
+    <div class="flash-area <?=esc($flash['class'])?>">
 
- ?>
-  </ul>
-</div> 
+      <span><?=esc($flash['message'])?></span>
+
+    </div>
+ <?php endif; ?>
+
+
+
    
 </div>
 
@@ -228,11 +247,12 @@ if(!empty($_GET['post_id'])){
                 <legend>Edit Post</legend>
                
                 <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
+                <input type="hidden" name="success" value="success" />
 
               <div class="form-group required">
                   <label for="title"><strong>Blog Title</strong></label>
                   <input class="form-control" type="text" name="title" value="<?=esc($value['title'])?>" /> 
-                  <?=err('title', $errors)?>
+                  
               </div>
 
 
@@ -240,7 +260,7 @@ if(!empty($_GET['post_id'])){
                <div class="form-group required">
 
                   <label for="full_desc"><strong>Full Post Description</strong></label>
-                  <?=err('full_desc', $errors)?>
+                  
                   <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc"><?=esc($value['full_desc'])?></textarea>
 
               </div>
@@ -288,7 +308,7 @@ if(!empty($_GET['post_id'])){
 <script>
     $(document).ready(function(){
 
-        $(".error-ul li").delay(2000).slideUp(2500);
+        $(".flash-area").delay(2500).slideUp(2500);
 
     });
 </script>

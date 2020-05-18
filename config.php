@@ -35,7 +35,12 @@ if(isset($_SESSION['post'])) {
     $post = [];
 }
 
-
+if(!empty($_SESSION['flash'])){
+    $flash=$_SESSION['flash'];
+    $_SESSION['flash']=[];
+   }else {
+    $flash=[];
+   }
 // Once this file is loaded, our program will have access
 // to all the following constants
 
