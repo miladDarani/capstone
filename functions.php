@@ -73,7 +73,7 @@ function old($field, $post)
 function err($field, $post)
 {
     if(!empty($post[$field])) {
-        return "<span class='err'>" . esc_attr($post[$field]) . '</span>' ;
+        return  esc_attr($post[$field])  ;
     } else {
         return '';
     }

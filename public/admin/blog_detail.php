@@ -48,20 +48,20 @@ if(!empty($_GET['post_id'])){
 
       $flash =array(
       'class' => "err-msg",
-      'message' => 'Title is a required field'
+      'message' => err('title', $errors)
        );
     }
 
     if(!empty(err('full_desc', $errors))){
       $flash =array(
       'class' => "err-msg",
-      'message' => "Post Description is a required field"
+      'message' => err('full_desc', $errors)
        );
     }
     if(!empty(err('title', $errors))&&!empty(err('full_desc', $errors)) ){
       $flash =array(
       'class' => "err-msg",
-      'message' => "Title and Post Description are required fields."
+      'message' => "Title & Description are required and must contain 2 characters at minimum"
        );
     }
 
