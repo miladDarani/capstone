@@ -30,11 +30,21 @@ if(!empty($_GET['s'])){
 //REQUEST METHOOD = POST
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    
+   
+    
     $v->required('title', $_POST['title']);
-    $v->required('full_desc', $_POST['full_desc']);
-    $v->max_length('title', $_POST['title'],255);
     $v->min_length('title', $_POST['title'],2);
+    $v->max_length('title', $_POST['title'],255);
+
     $v->min_length('full_desc', $_POST['full_desc'],2);
+    $v->required('full_desc', $_POST['full_desc']);
+
+    $v->min_length('read_length', $_POST['read_length'],1);
+    $v->isNumeric('read_length', $_POST['read_length'],1);
+
+    $v->isChecked('seo_done', $_POST['seo_done']);
+
     $errors = $v->errors();
 
     if(!empty($_POST['success'])){
@@ -42,16 +52,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['success'] = "success";
         $post->updateRecord($_POST['post_id']);
 
-
     }
 
-      
-
-    
-
-
-      
-   
 
     if(!empty($errors)){
 
@@ -66,10 +68,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
    
     }
 
-
-
-
-}else{session_destroy();}
+    }
+    else{session_destroy();}
    
     if(!empty($_SESSION['success'])){
     

@@ -255,6 +255,49 @@ if(!empty($_GET['post_id'])){
                   
               </div>
 
+              <div class="form-group required">
+                  <label for="read_length"><strong>Read Length</strong></label>
+                  <input class="form-control" type="text" name="read_length" value="<?=esc($value['read_length'])?>" /> 
+                  
+              </div>
+
+
+              <div class="form-group required">
+                  <label for="views"><strong>Number of Views</strong></label>
+                  <input class="form-control" type="text" name="views" value="<?=esc($value['views'])?>" /> 
+                  
+              </div>
+
+              <div class="form-group required">
+                  <label for="seo_done"><strong>SEO Finished </strong></label>
+                  <input class="form-control" type="checkbox" name="seo_done" 
+                   <?php 
+                            if(esc($value['seo_done']) == 1){
+                              echo 'checked';
+                            }else {
+                              echo '';
+                            }
+
+
+                  ?> /> 
+                  
+              </div>
+
+
+              <div class="form-group required">
+                  <label for="category"><strong>Category</strong></label>
+                  <input class="form-control" type="text" name="category" value="<?=esc($value['category'])?>" /> 
+                  
+              </div>
+
+              <div class="form-group required">
+                  <label for="image"><strong>Image</strong></label>
+                  <input class="form-control" type="text" name="image" value="<?=esc($value['image'])?>" /> 
+                  
+              </div>
+
+
+
 
 
                <div class="form-group required">
@@ -267,6 +310,9 @@ if(!empty($_GET['post_id'])){
 
               <div class="form-group required">
                   <label for="author"><strong>Authors: </strong></label>
+
+
+
                   <select name="author_name" class="author_name">
 
                     <!-- <option  value="">Select Author</option> -->
@@ -283,6 +329,10 @@ if(!empty($_GET['post_id'])){
                       <?php endforeach; ?>
 
                   </select>
+
+
+
+
               </div>
 
               
