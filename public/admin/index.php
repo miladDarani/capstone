@@ -29,6 +29,9 @@ if(empty($errors)){
  
 }
 
+if($_SERVER['REQUEST_METHOD'] === "GET"){
+  session_destroy();
+}
 
 
 //YES ERRORS
@@ -164,7 +167,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="<?=$class?>">
  
  
-    <p><?=$_SESSION['success']?></p>
+    <p><?php 
+    echo $_SESSION['success'];
+    $_SESSION['success'] = '';
+
+
+    ?></p>
    
 </div>
 
