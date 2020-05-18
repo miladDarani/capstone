@@ -5,3 +5,17 @@
 .admin-btn{
     margin: 10px;
 }
+.success-msg {
+    background-color:#aefb8c;
+ 
+    text-align: center;
+    transition: 2s;
+
+}
+.success-msg p {
+    padding:12px;
+    margin: 0;
+}
+body{
+    display: none;
+}

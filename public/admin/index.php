@@ -9,6 +9,8 @@ $post = new BlogModel();
 $p = $post->allPosts();
 $v= new Validator();
 
+$class='hidden';
+
 // $errors=[];
 // Validation
 // if(empty($_POST['title'])){
@@ -22,9 +24,9 @@ $v= new Validator();
 
 //NO ERRORS
 if(empty($errors)){
+  $class='success-msg';
   $success = $_SESSION['success'] = " Record Successfully Updated";
-  dd($success);
-  die;
+ 
 }
 
 
@@ -53,16 +55,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $errors = $v->errors();
     // $post->updateRecord($_POST['id']);
-    $post->updateRecord($_POST['post_id']);
+  $post->updateRecord($_POST['post_id']);
 
     if(!empty($errors)){
   
     $_SESSION['errors'] = $errors;
-
+    
     $_SESSION['post'] = $_POST;
  
     $id = $_POST['post_id'];
     header("Location: blog_detail.php?page=blog_detail&post_id=".$id );
+    $class='err-msg';
     die;
   //DISPLAY SOMETHING
  
@@ -86,8 +89,36 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/admin.css" type="text/css">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
+
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+    .success-msg {
+      background-color:#aefb8c;
+ 
+      text-align: center;
+      transition: 2s;
+
+    }
+    .success-msg p {
+      padding:12px;
+      margin: 0;
+    }
+
+    .err-msg{
+      background-color:red;
+      text-align: center;
+      transition: 2s;
+    }
+    .hidden{
+      display: none;
+    }
+    </style>
+
 
     <title><?=esc($title)?></title>
   </head>
@@ -130,6 +161,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   
 
 
+<div class="<?=$class?>">
+ 
+ 
+    <p><?=$_SESSION['success']?></p>
+   
+</div>
 
   <div class="container admin-container">
     <div class="row">
@@ -192,7 +229,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </div>
 
+<script>
+    $(document).ready(function(){
 
+        $(".success-msg p").delay(2000).slideUp(2500);
+
+    });
+</script>
   <footer>
 
     <p>Contents copyright 2020 by S O U N D C O M E T</p>

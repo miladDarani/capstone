@@ -9,7 +9,7 @@ use Capstone\AuthorModel;
 
 $v = new Validator();
 $title = "Post";
-
+$class='hidden';
 $post = new BlogModel();
 
 $authors = new AuthorModel;
@@ -17,18 +17,8 @@ $authors = new AuthorModel;
 
 
 $all_authors = $authors->fullAuthors();
- 
-if(empty($_POST['title'])){
-$_SESSION['errors'] = "Title is a required field";
 
 
-}
-
-if(empty($_POST['full_desc'])){
-$_SESSION['errors'] = "Post Description is a required field";
-
-
-}
 
 
 
@@ -46,6 +36,7 @@ if(!empty($_GET['post_id'])){
 
 } elseif(empty($_GET['post_id'])) {
 
+        $class='err-msg';
         $_SESSION['errors'] = "You must select something";
         // header('Location: /admin');
         die;
@@ -75,6 +66,10 @@ if(!empty($_GET['post_id'])){
 <!-- Font Awesome -->
 <script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
 <!------ Include the above in your HEAD tag ---------->
+
+<!-- JQUERY -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <style>
   img{
@@ -88,7 +83,36 @@ if(!empty($_GET['post_id'])){
   }
   ​textarea { vertical-align: top;
   }​
+  .success-msg {
+    background-color:#aefb8c;
+ 
+    text-align: center;
+    transition: 2s;
 
+  }
+  .success-msg p {
+    padding:12px;
+     margin: 0;
+  }
+
+  .err-msg{
+    background-color:red;
+    text-align: center;
+    transition: 2s;
+  }
+  .hidden{
+    display: none;
+  }
+  .error-ul{
+    list-style: none;
+    padding:  0;
+    color: white;
+    transition: 2s;
+  }
+  .error-ul li {
+    padding: 12px;
+  }
+  .err {}
 </style>
 
 
@@ -133,6 +157,26 @@ if(!empty($_GET['post_id'])){
       </div>
     </nav>
 
+
+
+ <div>
+    <ul class="error-ul">
+ <?php  
+
+    if(!empty(err('title', $errors))){
+      $class = 'err-msg';
+      echo "<div class='err-msg'> <li>" . err('title', $errors) . "</li></div>";
+    }
+    if(!empty(err('full_desc', $errors))){
+      $class = 'err-msg';
+      echo "<div class='err-msg'> <li>" . err('full_desc', $errors) . "</li></div>";
+    }
+
+ ?>
+  </ul>
+</div> 
+   
+</div>
 
   <!-- Page Content -->
   <div class="container">
@@ -241,7 +285,13 @@ if(!empty($_GET['post_id'])){
 
 
     
+<script>
+    $(document).ready(function(){
 
+        $(".error-ul li").delay(2000).slideUp(2500);
+
+    });
+</script>
 
   <footer>
 
