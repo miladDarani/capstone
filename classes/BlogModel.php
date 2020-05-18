@@ -105,7 +105,8 @@ class BlogModel extends Model
                 ':title' => $_POST['title'],
                 ':full_desc' => $_POST['full_desc'],
                 ':author_name' => $_POST['author_name'],
-                ':post_id' => $_POST['post_id']
+                ':post_id' => $_POST['post_id'],
+                
 
             );
             //5.execute
@@ -114,7 +115,8 @@ class BlogModel extends Model
 
 
             header('Location: index.php');
-                        }
+     
+            }
 
 
 

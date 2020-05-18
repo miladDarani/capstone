@@ -30,53 +30,55 @@ if(!empty($_GET['s'])){
 //REQUEST METHOOD = POST
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  $v->required('title', $_POST['title']);
-  $v->required('full_desc', $_POST['full_desc']);
-  $v->max_length('title', $_POST['title'],255);
-  $v->min_length('title', $_POST['title'],2);
-  $v->min_length('full_desc', $_POST['full_desc'],2);
-  $errors = $v->errors();
+    $v->required('title', $_POST['title']);
+    $v->required('full_desc', $_POST['full_desc']);
+    $v->max_length('title', $_POST['title'],255);
+    $v->min_length('title', $_POST['title'],2);
+    $v->min_length('full_desc', $_POST['full_desc'],2);
+    $errors = $v->errors();
 
-  if(!empty($_POST['success'])){
-    $success=$_POST['success'];
-  }
+    if(!empty($_POST['success'])){
 
-  $post->updateRecord($_POST['post_id']);
+        $_SESSION['success'] = "success";
+        $post->updateRecord($_POST['post_id']);
 
- 
- 
+
+    }
+
+      
+
     
-  
 
-  if(!empty($errors)){
 
-  $_SESSION['errors'] = $errors;
-  
-  $_SESSION['post'] = $_POST;
-
-  $id = $_POST['post_id'];
-  header("Location: blog_detail.php?page=blog_detail&post_id=".$id );
-  $class='err-msg';
-  die;
-  //DISPLAY SOMETHING
- 
-  }
-  elseif(empty($errors) && !empty($success))
-  {
-
+      
    
-  
-    $flash =array(
-    'class' => "success-msg",
-    'message' => 'Record Successfully Updated'
 
-   );
- 
-  }
-}
+    if(!empty($errors)){
+
+        $_SESSION['errors'] = $errors;
+        
+        $_SESSION['post'] = $_POST;
+
+        $id = $_POST['post_id'];
+        header("Location: blog_detail.php?page=blog_detail&post_id=".$id );
+        $class='err-msg';
+        die;
+   
+    }
 
 
 
+
+}else{session_destroy();}
+   
+    if(!empty($_SESSION['success'])){
+    
+         $flash =array(
+          'class' => "success-msg",
+          'message' => 'Record Successfully Updated'
+        );
+
+    }
 
 
 
