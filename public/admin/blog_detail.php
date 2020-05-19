@@ -27,13 +27,6 @@ if(!empty($_GET['post_id'])){
 
     $one_post = $post->onePost($_GET['post_id']);
 
-
-    // $v->required('title', $_GET['title']);
-    // $v->required('full_desc', $_GET['full_desc']);
-
-    // $errors = $v->errors();
-   
-
 } elseif(empty($_GET['post_id'])) {
 
         $class='err-msg';
@@ -164,7 +157,7 @@ if(!empty($_GET['post_id'])){
 
   <!-- Navigation -->
  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="#"><?=esc($title)?></a>
+      <a class="navbar-brand" href="/admin/">Admin</a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
@@ -172,13 +165,10 @@ if(!empty($_GET['post_id'])){
       <div class="navbar-collapse collapse" id="navbarsExample03" style="">
         <ul class="navbar-nav mr-auto">
 
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/">Posts <span class="sr-only">(current)</span></a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/">Posts</a>
-          </li> 
 
           <li class="nav-item">
             <a class="nav-link" href="#">Authors</a>
@@ -193,9 +183,14 @@ if(!empty($_GET['post_id'])){
           </li>
 
         </ul>
-        <form class="form-inline my-2 my-md-0">
-          <input class="form-control" type="text" placeholder="Search">
-        </form>
+            <form class=" form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+
+
+              <input class="form-control" type="text" id="s2" name="s2" maxlength="255" placeholder="Search Posts" value="" />
+
+              <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
+
+            </form>
       </div>
     </nav>
 
@@ -231,14 +226,14 @@ if(!empty($_GET['post_id'])){
         <p>
           <a class="btn btn-info float-left mb-5" href="/admin">Back</a> 
 
-          <form class="mb-5 form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+          <!-- <form class="mb-5 form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
 
 
             <input class="form-control" type="text" id="s" name="s" maxlength="255" placeholder="Search Posts" value="" />
 
             <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
 
-          </form>
+          </form> -->
 
         </p>
 

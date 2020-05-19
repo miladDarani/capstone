@@ -2,14 +2,18 @@
 
 
 require __DIR__ . '/../../config.php';
+
 use Capstone\BlogModel;
 use Capstone\Validator;
+
 $title = "Admin";
+
 $post = new BlogModel();
 $p = $post->allPosts();
 $v= new Validator();
 
 $class='hidden';
+// --------- TEST AREA -------------\\
 // dd($_SERVER['REQUEST_METHOD']);
 // die;
 // dd($_POST);
@@ -22,6 +26,7 @@ $class='hidden';
 if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete'])){
 
         $_SESSION['delete'] = "delete";
+
         $post->deleteRecord($_POST['post_id']);
 
         header('Location: index.php');
@@ -29,7 +34,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete'])){
         die;
         
 }
+
+
+
 if(!empty($_SESSION['delete'])){
+
       $flash =array(
           'class' => "success-msg",
           'message' => 'Record Successfully Deleted'
@@ -41,10 +50,22 @@ if(!empty($_SESSION['delete'])){
 
 //search function
 if(!empty($_GET['s'])){
+
     $title2 = 'You searched for ' . $_GET['s'];
     $p = $post->getAllPostsBySearch($_GET['s']);  
 }
 
+if(!empty($_GET['s1'])){
+
+    $title2 = 'You searched for ' . $_GET['s1'];
+    $p = $post->getAllPostsBySearch($_GET['s1']);  
+}
+
+if(!empty($_GET['s2'])){
+
+    $title2 = 'You searched for ' . $_GET['s2'];
+    $p = $post->getAllPostsBySearch($_GET['s2']);  
+}
 
 //REQUEST METHOOD = POST
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -198,9 +219,14 @@ else
           </li>
 
         </ul>
-        <form class="form-inline my-2 my-md-0">
-          <input class="form-control" type="text" placeholder="Search">
-        </form>
+            <form class="form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+
+
+              <input class="form-control" type="text" id="s1" name="s1" maxlength="255" placeholder="Search Posts" value="" />
+
+              <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
+
+            </form>
       </div>
     </nav>
   
