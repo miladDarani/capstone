@@ -59,12 +59,7 @@ if(!empty($_GET['post_id'])){
        );
     }
 
-    if(!empty(err('read_length', $errors))){
-      $flash =array(
-      'class' => "err-msg",
-      'message' => err('read_length', $errors)
-       );
-    }
+
 
     if(!empty(err('category', $errors))){
       $flash =array(
@@ -78,12 +73,7 @@ if(!empty($_GET['post_id'])){
       'message' => err('image', $errors)
        );
     }
-    if(!empty(err('views', $errors))){
-      $flash =array(
-      'class' => "err-msg",
-      'message' => err('views', $errors)
-       );
-    }
+
 
 
 
@@ -286,15 +276,17 @@ if(!empty($_GET['post_id'])){
               </div>
 
               <div class="form-group required">
-                  <label for="read_length"><strong>Read Length</strong></label>
-                  <input class="form-control" type="text" name="read_length" value="<?=esc($value['read_length'])?>" /> 
+                  <label for="read_length"><strong>Read Length</strong>(read only)</label>
+                 <!--  <input class="form-control" type="text" name="read_length" value="<?=esc($value['read_length'])?>" />  -->
+                  <p><?=esc($value['read_length'])?></p>
                   
               </div>
 
 
               <div class="form-group required">
-                  <label for="views"><strong>Number of Views</strong></label>
-                  <input class="form-control" type="text" name="views" value="<?=esc($value['views'])?>" /> 
+                  <label for="views"><strong>Number of Views</strong>(read only)</label>
+                  
+                  <p><?=esc($value['views'])?></p>
                   
               </div>
 
@@ -389,11 +381,7 @@ if(!empty($_GET['post_id'])){
     });
 </script>
 
-  <footer>
 
-    <p>Contents copyright 2020 by S O U N D C O M E T</p>
-    
-  </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

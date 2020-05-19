@@ -10,13 +10,19 @@ $p = $post->allPosts();
 $v= new Validator();
 
 $class='hidden';
-
+// dd($_SERVER['REQUEST_METHOD']);
+// die;
 
 
 //NO ERRORS
+if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete'])){
 
+        $_SESSION['delete'] = "delete";
+        $post->deleteRecord($_POST['post_id']);
+        
+}
 
-
+    
 
 
 
@@ -31,7 +37,7 @@ if(!empty($_GET['s'])){
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
-   
+
     
     $v->required('title', $_POST['title']);
     $v->min_length('title', $_POST['title'],2);
@@ -40,10 +46,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $v->min_length('full_desc', $_POST['full_desc'],2);
     $v->required('full_desc', $_POST['full_desc']);
 
-    $v->min_length('read_length', $_POST['read_length'],1);
-    $v->isNumeric('read_length', $_POST['read_length']);
-
-    // $v->isChecked('seo_done', $_POST['seo_done']);
 
     $v->required('category', $_POST['category']);
     $v->min_length('category', $_POST['category'],2);
@@ -51,8 +53,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $v->required('image', $_POST['image']);
     $v->min_length('image', $_POST['image'],5);
 
-    $v->required('views', $_POST['views']);
-    $v->min_length('views', $_POST['views'],1);
+
 
     $errors = $v->errors();
 
@@ -62,6 +63,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $post->updateRecord($_POST['post_id']);
 
     }
+
 
 
     if(!empty($errors)){
@@ -145,6 +147,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     text-align: center;
     font-weight: 500;
   }
+  .icons {
+    display: flex;
+  }
     </style>
 
 
@@ -161,12 +166,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item active">
-            <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/admin">Posts <span class="sr-only">(current)</span></a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Posts</a>
-          </li> 
 
           <li class="nav-item">
             <a class="nav-link" href="#">Authors</a>
@@ -238,13 +239,21 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <td><?=$value['author']?></td>
                 <td><?=$value['title']?></td>
                 <td><?=$value['date_posted']?></td>
-                <td>
+                <td class="icons">
                   <form action="blog_detail.php" method="get" >
                     <a type="submit" class="btn btn-primary btn-sm"  href="/admin/blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>">edit</a>
                     &nbsp;
 
-                    <button type="submit" class="delete btn btn-danger btn-sm" data-id="25" href=""><i class="fas fa-trash"></i></button>
+                    
                   </form>
+
+                  <form action="/admin/" method="post">
+                    <input type="hidden" name="delete" value="delete" />
+                    <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
+                    <button type="submit" class="delete btn btn-danger btn-sm" href="index.php"><i class="fas fa-trash"></i></button>
+                    
+                  </form>
+                  
                 </td>
           </tr>
 
@@ -265,11 +274,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     });
 </script>
-  <footer>
 
-    <p>Contents copyright 2020 by S O U N D C O M E T</p>
-    
-  </footer>
 
   </body>
 </html>

@@ -43,7 +43,7 @@ class BlogModel extends Model
             $stmt->execute($params);
 
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
+ 
             return $result;
         }
 
@@ -76,7 +76,7 @@ class BlogModel extends Model
 
             $stmt->execute($params);
 
-            
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
             return $result;
 
@@ -127,6 +127,27 @@ class BlogModel extends Model
 
             header('Location: index.php');
      
+        }
+
+
+            final public function deleteRecord(int $id)
+            {
+                $query = 'DELETE FROM blog_post 
+               
+                WHERE post_id = :post_id';
+
+                $stmt = static::$dbh->prepare($query);
+
+                $params = array (
+                    ':post_id' => $id
+                );
+                
+
+                
+
+                
+
+                return $stmt->execute($params);
             }
 
 
