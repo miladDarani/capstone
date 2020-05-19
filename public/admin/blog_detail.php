@@ -177,7 +177,7 @@ if(!empty($_GET['post_id'])){
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Posts</a>
+            <a class="nav-link" href="/admin/">Posts</a>
           </li> 
 
           <li class="nav-item">

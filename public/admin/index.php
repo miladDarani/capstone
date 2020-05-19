@@ -12,16 +12,29 @@ $v= new Validator();
 $class='hidden';
 // dd($_SERVER['REQUEST_METHOD']);
 // die;
-
+// dd($_POST);
+// dd($_GET);
+// dd($_SERVER['REQUEST_METHOD']);
+// dd($flash);
+// die;
 
 //NO ERRORS
 if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete'])){
 
         $_SESSION['delete'] = "delete";
         $post->deleteRecord($_POST['post_id']);
+
+        header('Location: index.php');
+
+        die;
         
 }
-
+if(!empty($_SESSION['delete'])){
+      $flash =array(
+          'class' => "success-msg",
+          'message' => 'Record Successfully Deleted'
+      );
+}
     
 
 
@@ -35,8 +48,6 @@ if(!empty($_GET['s'])){
 
 //REQUEST METHOOD = POST
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-    
 
     
     $v->required('title', $_POST['title']);
@@ -58,29 +69,34 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = $v->errors();
 
     if(!empty($_POST['success'])){
-
         $_SESSION['success'] = "success";
         $post->updateRecord($_POST['post_id']);
-
     }
 
 
 
-    if(!empty($errors)){
+    if(!empty($_POST['add'])){
+        $post->addPost($_POST['post_id']);
+    }
 
+
+    if(!empty($errors)){
         $_SESSION['errors'] = $errors;
-        
         $_SESSION['post'] = $_POST;
 
         $id = $_POST['post_id'];
+
         header("Location: blog_detail.php?page=blog_detail&post_id=".$id );
         $class='err-msg';
         die;
    
     }
 
-    }
-    else{session_destroy();}
+}
+else
+{
+  session_destroy();
+}
    
     if(!empty($_SESSION['success'])){
     
@@ -207,7 +223,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           
           <p>
-            <a class=" btn float-left btn-success " href="#">Add a Post</a> 
+
+            <form action="index.php" method="post" novalidate="">
+                <button class=" btn float-left btn-success " href="#">Add a Post</button> 
+                <input type="hidden" name="add" value="add" />
+            </form>
 
             <form class="mb-5 form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
 

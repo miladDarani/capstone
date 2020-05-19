@@ -151,6 +151,46 @@ class BlogModel extends Model
             }
 
 
+            final public function addPost()
+            {
+                $query = 'INSERT INTO users
+                          (title, full_desc, read_length, date_posted, views, seo_done, category, author_id, image)
+                          VALUES
+                          (:title, :full_desc, :read_length, :date_posted, :views, :seo_done, :category, :author_id, :image)';
+
+            //13. create stmt to prepare query 
+            $stmt = static::$dbh->prepare($query);
+
+
+            //14. set params
+            $params = array (
+            ':title' => $_POST['title'],
+            ':full_desc' => $_POST['full_desc'],
+            ':read_length' => $_POST['read_length'],
+            ':date_posted' => $_POST['date_posted'],
+            ':views' => $_POST['views'],
+            ':seo_done' => $_POST['seo_done'],
+            ':category' => $_POST['category'],
+            ':author_id' => $_POST['author_id'],
+            ':image' => $_POST['image']
+          
+
+            );
+
+            //15 execute query
+            $stmt->execute($params);
+
+            //16.value of the primary key of the last record on this session
+            $user_id = static::$dbh->lastInsertId();
+            $_SESSION['user_id'] = $user_id;
+            if ($user_id > 0 ) {
+ 
+            header('Location: index.php');
+    // ?user_id=' . $user_id
+            die;
+            }
+
+        }
 
 
 
