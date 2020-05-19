@@ -58,6 +58,36 @@ if(!empty($_GET['post_id'])){
       'message' => err('full_desc', $errors)
        );
     }
+
+    if(!empty(err('read_length', $errors))){
+      $flash =array(
+      'class' => "err-msg",
+      'message' => err('read_length', $errors)
+       );
+    }
+
+    if(!empty(err('category', $errors))){
+      $flash =array(
+      'class' => "err-msg",
+      'message' => err('category', $errors)
+       );
+    }
+    if(!empty(err('image', $errors))){
+      $flash =array(
+      'class' => "err-msg",
+      'message' => err('image', $errors)
+       );
+    }
+    if(!empty(err('views', $errors))){
+      $flash =array(
+      'class' => "err-msg",
+      'message' => err('views', $errors)
+       );
+    }
+
+
+
+
     if(!empty(err('title', $errors))&&!empty(err('full_desc', $errors)) ){
       $flash =array(
       'class' => "err-msg",
@@ -270,16 +300,12 @@ if(!empty($_GET['post_id'])){
 
               <div class="form-group required">
                   <label for="seo_done"><strong>SEO Finished </strong></label>
-                  <input class="form-control" type="checkbox" name="seo_done" 
-                   <?php 
-                            if(esc($value['seo_done']) == 1){
-                              echo 'checked';
-                            }else {
-                              echo '';
-                            }
-
-
-                  ?> /> 
+                
+                    <p><input class="form-control" type="radio" name="seo_done" value='0' <?php  if(esc($value['seo_done']) == 0 || esc($value['seo_done']) === NULL ){echo 'checked';} ?>/> No </p>
+                    
+                  
+                    <p><input class="form-control" type="radio" name="seo_done" value='1' <?php if(esc($value['seo_done']) == 1 ){echo 'checked';} ?>/> Yes </p>
+                
                   
               </div>
 
@@ -291,7 +317,7 @@ if(!empty($_GET['post_id'])){
               </div>
 
               <div class="form-group required">
-                  <label for="image"><strong>Image</strong></label>
+                  <label for="image"><strong>Image</strong>(<?=esc($value['image'])?>)</label>
                   <input class="form-control" type="text" name="image" value="<?=esc($value['image'])?>" /> 
                   
               </div>

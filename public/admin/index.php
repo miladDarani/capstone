@@ -41,9 +41,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $v->required('full_desc', $_POST['full_desc']);
 
     $v->min_length('read_length', $_POST['read_length'],1);
-    $v->isNumeric('read_length', $_POST['read_length'],1);
+    $v->isNumeric('read_length', $_POST['read_length']);
 
-    $v->isChecked('seo_done', $_POST['seo_done']);
+    // $v->isChecked('seo_done', $_POST['seo_done']);
+
+    $v->required('category', $_POST['category']);
+    $v->min_length('category', $_POST['category'],2);
+
+    $v->required('image', $_POST['image']);
+    $v->min_length('image', $_POST['image'],5);
+
+    $v->required('views', $_POST['views']);
+    $v->min_length('views', $_POST['views'],1);
 
     $errors = $v->errors();
 

@@ -297,19 +297,19 @@ class Validator
 
 //-------------------------------------------------------------------------------------\\
 
-        public function isChecked($field, $value)
-        {
-            if($value === 'on')
-            {
-                $_POST["$field"] = 1;
-            }else 
-            {
-                $_POST["$field"] = 0;
-            }
+        // public function isChecked($field, $value)
+        // {
+        //     if($value === 'on')
+        //     {
+        //         $field = 1;
+        //     }else 
+        //     {
+        //         $field = 0;
+        //     }
 
-       
 
-        }
+
+        // }
 
 
 
