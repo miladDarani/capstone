@@ -22,7 +22,6 @@ $all_authors = $authors->fullAuthors();
 
 
 
-
 if(!empty($_GET['post_id'])){
 
     $one_post = $post->onePost($_GET['post_id']);
@@ -330,10 +329,10 @@ if(!empty($_GET['post_id'])){
 
                     <!-- <option  value="">Select Author</option> -->
                       <option value="">Select an author</option>
-                      <?php foreach($all_authors as $author) :?>
+                                          <?php foreach($all_authors as $author) :?>
                           
                         
-                           <option <?=($author['author_name'] === $one_post[0]['author_name']) ? 'selected' : ''?> value="<?=esc($author['author_name'])?>"> 
+                           <option <?=($author['author_name'] === $one_post[0]['author_name']) ? 'selected' : ''?> value="<?=esc($author['author_id'])?>"> 
 
                          <?=esc($author['author_name'])?>
                            

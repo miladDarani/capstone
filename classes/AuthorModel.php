@@ -25,7 +25,7 @@ class AuthorModel extends Model
 
         public function fullAuthors()
         {
-            $query = "SELECT DISTINCT author_name from authors";
+            $query = "SELECT DISTINCT author_name,author_id from authors";
 
             $stmt =  static::$dbh->query($query);
 

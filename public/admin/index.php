@@ -15,11 +15,13 @@ $v= new Validator();
 $class='hidden';
 // --------- TEST AREA -------------\\
 // dd($_SERVER['REQUEST_METHOD']);
-// die;
+// // die;
 // dd($_POST);
+// die;
 // dd($_GET);
-// dd($_SERVER['REQUEST_METHOD']);
-// dd($flash);
+// // dd($_SERVER['REQUEST_METHOD']);
+// // dd($flash);
+
 // die;
 
 //NO ERRORS

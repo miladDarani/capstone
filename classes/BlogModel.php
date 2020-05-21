@@ -88,11 +88,11 @@ class BlogModel extends Model
         {
            $query = '
             UPDATE blog_post
-            JOIN authors USING(author_id)
+           
             SET 
             title = :title,
             full_desc=:full_desc,
-            author_name=:author_name,
+            author_id = :author_id,
             read_length=:read_length,
             views=:views,
             seo_done=:seo_done,
@@ -110,7 +110,7 @@ class BlogModel extends Model
             $params = array (
                 ':title' => $_POST['title'],
                 ':full_desc' => $_POST['full_desc'],
-                ':author_name' => $_POST['author_name'],
+                ':author_id' => $_POST['author_name'],
                 ':post_id' => $_POST['post_id'],
                 ':read_length' => $_POST['read_length'],
                 ':views' => $_POST['views'],
@@ -121,6 +121,10 @@ class BlogModel extends Model
 
             );
             //5.execute
+            // dd($_POST);
+            // dd($stmt);
+            // dd($params);
+            // die;
             $stmt->execute($params);
             
 
