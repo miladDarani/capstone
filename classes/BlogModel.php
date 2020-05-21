@@ -93,8 +93,7 @@ class BlogModel extends Model
             title = :title,
             full_desc=:full_desc,
             author_id = :author_id,
-            read_length=:read_length,
-            views=:views,
+        
             seo_done=:seo_done,
             category=:category,
             image=:image
@@ -112,8 +111,7 @@ class BlogModel extends Model
                 ':full_desc' => $_POST['full_desc'],
                 ':author_id' => $_POST['author_name'],
                 ':post_id' => $_POST['post_id'],
-                ':read_length' => $_POST['read_length'],
-                ':views' => $_POST['views'],
+              
                 ':seo_done' => $_POST['seo_done'],
                 ':category' => $_POST['category'],
                 ':image' => $_POST['image']
