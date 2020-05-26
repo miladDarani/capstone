@@ -204,13 +204,13 @@ require __DIR__ . "/../includes/header_inc.php";
                         <div class="knob box">
                             <img id="knob" src="images/knob.svg" alt="amplifier">
                             <h3>3. Wait 1 minute</h3>
-                            <p>Sit back for 1 minute while our system analyzes your track and applies the required adjustments just like any mix engineer would.</p>
+                            <p>System analyzes your track and applies the required adjustments.</p>
                         </div>
 
                         <div class="keyboard box">
                             <img id="key" src="images/keyboard.svg" alt="amplifier">
                             <h3>4. Finished Track</h3>
-                            <p>All that is left is for you to download your finished track and release it on your desired platform</p>
+                            <p>Download your finished track and release it on your desired platform</p>
                         </div>
                     </div>
                     <!-- Row 2 b -->
@@ -222,40 +222,38 @@ require __DIR__ . "/../includes/header_inc.php";
         </div>
         <!-- Row2 Wrapper End -->
         
-        <div class="break-line" id="break2"></div>
-
-        <div id="row3">
-
-            <div class="h1-div">
-                <h1>Go from studio - to radio</h1>
-                <p>Doesn't matter what genre you use - We can do it all.</p>
-            </div>
-            <div class="border-shape">
-                <div class="soundcomet-image-wrapper">
-                    <img src="images/soundcomet-video-image.jpg" alt="studio">
-                </div>
-            </div>
-
-            <div id="right-p-wrapper">
-                <div id="right-p">
-                   
-                    <img src="images/computer.svg" alt="PC">
-                    <h2>Be Creative</h2>
-                    <p style="width: 90%">
-                        Our aim is to save you time. For $8 you can get us to finish it properly for you and save yourself hours. Time is money .
-                    </p>
-                </div>
-                <!-- right p end -->
-                <div id="right-p-2">
-                    <img src="images/recorder.svg" alt="recorder">
-                    <h2>Ready for Release</h2>
-                    <p style="width: 90%">
-                      Your music will be ready to release on platforms like <strong>Spotify</strong>, <strong>iTunes</strong>, <strong>Pandora</strong>, <strong>Amazon Music</strong>, <strong>Google Music </strong>and many more.
-                    </p>
-                </div>
-            </div>
-            <!-- end of right p wrapper -->
+        
+        <div class="row3-sound-pro">
+                <h1>Professional audio mastering with instant results. Sound like a pro without paying studio rates or learning complex plug-ins.</h1>
+                <i class="fas fa-volume-up sound-pro-play"></i>
         </div>
+        
+        <div class="sound-pro-container">
+            
+            <div class="sound-pro-wrapper row">
+            
+                <div class="sound-pro-1 sound-pro-box"><h1>Sound Professional</h1>
+                    <p>Instant results at a fraction of the cost of studio mastering. Competitive sound has never been more affordable.</p>
+                </div>
+                <div class="sound-pro-2 sound-pro-box"><h1>Instant Results</h1>
+                    <p>Use SOUNDCOMET for final masters, demos, mix referencing or entire albums. Upload audio, tweak the controls to find your sound, and download.</p>
+                </div>
+                <div class="sound-pro-3 sound-pro-box"><h1>Amazing Quality</h1>
+                    <p>Polish and balance your sound and make your music ready for streaming or any other playback scenario. Share with confidence.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="try-row">
+            <h1 class="try-h1">Try it FREE</h1>
+            <p class="try-p">Better sound is here</p>
+            <button class="try-btn">Get Started</button>
+
+        </div>
+
+
+
         <div class="break-line break4" id="break1"></div>
         <div id="row4">
             <div class="title-4">

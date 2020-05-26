@@ -17,6 +17,10 @@
 /* *************************** 
         General 
 ***************************** */
+
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: 'Quicksand', sans-serif;
   padding: 0;
@@ -378,6 +382,7 @@ nav img {
   margin-bottom: 2%;
   border-radius: 15px;
   width: 70%;
+  box-sizing: border-box;
 }
 
 .speaker, .amplifier {
@@ -468,21 +473,120 @@ nav img {
   -o-transition: transform .6s ease-in-out, box-shadow .6s ease-in, color .3s;
   transition: transform .6s ease-in-out, box-shadow .6s ease-in, color .3s;
   transition: transform .6s ease-in-out, box-shadow .6s ease-in, color .3s, -webkit-transform .6s ease-in-out, -webkit-box-shadow .6s ease-in;
-  margin-bottom: 50px;
-}
-
-.knob:hover {
+  -webkit-box-shadow: 12px 16px 2px rgba(0,0,0,.6);
+  box-shadow: 12px 16px 2px rgba(0,0,0,.6);
+  margin-top: 20px;
+  margin-right: 30px;
+  padding: 10px;
+  border-right: 3px solid #333;
+  border-bottom: 1px solid #000;
+  background-color: #E63946;
+  color: #fff;
   -webkit-transform: skewY(2deg);
   -ms-transform: skewY(2deg);
   transform: skewY(2deg);
+}
+
+.knob:hover {
+  -webkit-transform: skewY(0deg);
+  -ms-transform: skewY(0deg);
+  transform: skewY(0deg);
   -webkit-animation: AnimationName 5s ease infinite;
   animation: AnimationName 5s ease infinite;
-  background-color: #A8DADC;
+  background-color: #fff;
   background-size: 400% 400%;
   border: 0;
-  color: #555;
-  -webkit-box-shadow: 2px 6px 2px rgba(0,0,0,.6);
-  box-shadow: 2px 6px 2px rgba(0,0,0,.6);
+  color: #333;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,.6);
+  box-shadow: 0px 0px 0px rgba(0,0,0,.6);
+}
+
+.sound-pro-container{
+  width: 100%;
+}
+.sound-pro-play{
+  font-size: 55px;
+  padding:30px;
+  text-align: center;
+  color: #12cbcb;
+}
+
+.row3-sound-pro {
+  background-color:  #0c1b2b;
+  color:white;
+  margin: 0;
+  text-align: center;
+}
+.row3-sound-pro h1, .try-row h1 {
+  margin: 0;
+  padding: 30px;
+}
+.row3-sound-pro h1{
+  text-align: center;
+  font-weight: 600;
+  padding-bottom: 40px;
+  padding-top: 70px;
+}
+
+.sound-pro-wrapper{
+  display: flex;
+  width: 100%;
+  background-color: #0c1b2b;
+  padding-bottom: 10px;
+}
+
+.sound-pro-box{
+  background-color:#0c1b2b;
+  margin-bottom: :10px;
+  border-right:.3px solid white;
+  width: 33%;
+  color:white;
+  text-align: center;
+  padding:30px;
+  max-width: 100%;
+}
+.sound-pro-box:last-child{
+  border:none;
+}
+
+.try-row{
+  background-color: #0c1b2b;
+  color: white;
+  margin: 0;
+  text-align: center;
+  padding-bottom: 80px;
+}
+
+.try-btn {
+  border-radius: none;
+  background-color: #42cbcb;
+  border:none;
+  padding:30px;
+  color:white;
+  font-family: Quicksand;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.try-h1 {
+  font-size: 50px;
+}
+
+.try-p {
+  font-size: 24px;
+}
+
+@media  screen and (max-width: 768px) {
+    .sound-pro-wrapper {
+      flex-direction: column;
+    }
+    .sound-pro-box{
+      width: 100%;
+      border:none;
+      border-bottom: .1px solid #ccc;
+    }
+
 }
 
 #row2 {
@@ -490,6 +594,8 @@ nav img {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  margin-top:30px;
+  padding-bottom: 70px;
     /* flex-direction: column;
     */
     /* border: 2px solid green;
@@ -508,7 +614,7 @@ nav img {
 }
 
 #row2-wrapper {
-  padding: 50px;
+  padding: 90px;
   margin-top: 0px;
   padding-top: 0;
 }
@@ -1133,9 +1239,7 @@ nav img {
 }
 
 .knob {
-  margin-top: 20px;
-  margin-right: 30px;
-  padding: 10px;
+
 }
 
 .keyboard {
@@ -1400,7 +1504,7 @@ div.footer-item2 {
 
 .myButton:hover {
   background-color: #4ECDC4;
-  color: #555;
+  color: white;
   -webkit-box-shadow: 5px 2px 2px rgba(0,0,0,0.6);
   box-shadow: 5px 2px 2px rgba(0,0,0,0.6);
   -webkit-transform: scale(1.03);
@@ -1864,6 +1968,13 @@ input[type=submit] {
     flex-direction: column;
   }
 
+  #row2-wrapper{
+    padding: 0;
+  }
+  #finish-heading{
+    padding: 40px;
+  }
+
   #row2-side-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2058,6 +2169,7 @@ input[type=submit] {
   #right-side {
     padding-bottom: 90px;
     border-bottom: 1px solid #ccc;
+    margin-top: 30px;
   }
 
   #row5-right p {
