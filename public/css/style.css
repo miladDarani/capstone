@@ -567,6 +567,11 @@ nav img {
   font-family: Quicksand;
   font-weight: bold;
   font-size: 24px;
+  transition: .3s;
+}
+.try-btn:hover {
+  background-color:#E63946;
+  color:#fff;
 }
 
 .try-h1 {
@@ -588,6 +593,72 @@ nav img {
     }
 
 }
+
+.video-row{
+  height: 600px;
+  display: flex;
+  width: 100%;
+  background-image: url("../images/video-bg-blur2-small.jpg");
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+
+  z-index: -8000;
+  text-align: center;
+}
+
+.video-circle{
+  color: white;
+  font-size:65px;
+  text-align: center; 
+  transition: .3s;
+}
+.video-circle:hover {
+  color:#42cbcb;
+}
+.head-1 p {
+  text-align: center;
+  font-size: 20px;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  padding-bottom: 30px;
+}
+.head-1 {
+  text-align: center;
+  width: 100%;
+}
+
+.video-row .head-1 h1 {
+  font-size: 40px;
+  font-weight: 700;
+  color:white;
+  text-align: center;
+ 
+  margin-top: 80px;
+  
+  
+}
+
+#slideshow #slidesContainer {
+  margin:0 auto;
+  width:560px;
+  height:560px;
+  overflow:auto; /* allow scrollbar */
+  position:relative;
+}
+
+#slideshow #slidesContainer .slide {
+  margin:0 auto;
+  width:540px; /* reduce by 20 pixels to avoid horizontal scroll */
+  height:5403px;
+}
+
+.slide img {
+  max-width: 100%;
+}
+
+
 
 #row2 {
   display: -webkit-box;
