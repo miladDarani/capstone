@@ -2168,7 +2168,7 @@ dribbble {
   margin: 0 auto;
   display: inline-block;
 }
-content {
+.two {
   font-family: 'Quicksand', sans-serif;
   text-align: left;
   width: 100%;
@@ -2176,16 +2176,9 @@ content {
   margin: 1rem 0 0 0rem;
   line-height: 1.5;
 }
-content h1,
-h2,
-h3 {
-  font-family: 'Quicksand', sans-serif;
-  margin: 0 !important;
-}
 
-sidebar h2 {
-  margin: 1rem auto !important;
-}
+
+
 
 .post__card-2 {
   padding-top: 0.5rem;
