@@ -43,7 +43,7 @@ $one_post = $post->onePost($_GET['post_id']);
   </figure>
   <content class="fl text-desc " >
 
-        <p><?=esc($value['full_desc'])?></p>
+        <p><?=esc($value['title'])?></p>
 
   </content>
   <sidebar class="fl">
