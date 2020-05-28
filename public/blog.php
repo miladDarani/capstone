@@ -14,9 +14,9 @@ $p = $post->allPosts();
 
 ?>
 
-
+      <div class="row-blog-header"><h1>B L O G</h1></div>
       <div id="row_blog">
-
+      
 
 
         <?php foreach ($p as $key => $value) : ?>
