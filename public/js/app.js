@@ -391,12 +391,12 @@ $(document).ready(function(){
     }); 
 
 
-   $('.text').each(function (f) {
+   // $('.text').each(function (f) {
 
-      var newstr = $(this).text().substring(0,200);
-      $(this).text(newstr + '...');
+   //    var newstr = $(this).text().substring(0,200);
+   //    $(this).text(newstr + '...');
 
-    });
+   //  });
 
 
   });

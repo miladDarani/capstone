@@ -23,7 +23,9 @@ $one_post = $post->onePost($_GET['post_id']);
   <h1><?=esc($value['title'])?></h1>
   <a class="authorlink"><?=esc($value['author_name'])?></a>
   <figure>
-    <div class="share">
+
+    <div style="position:relative">
+            <div class="share">
       <a href="#">
 
         <svg viewBox="0 -45 512.00013 512" xmlns="http://www.w3.org/2000/svg">
@@ -39,7 +41,7 @@ $one_post = $post->onePost($_GET['post_id']);
       </a>
     </div>
     <img src="images/blog-pics/<?=esc($value['image'])?>">
-
+    </div>   
   </figure>
   <div class="fl text-desc two " >
 
