@@ -23,6 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  Desktop   -->
 
+
     <!--    Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand:100,300,400,500,600,700&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
@@ -32,11 +33,17 @@
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/977c9f68f6.js" crossorigin="anonymous"></script>
-
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/app.js"></script>
+    <!-- SLIDER -->
+    <script src="js/ResponsiveSlides/responsiveslides.js"></script>
 
+
+   
+
+    
+    <!-- Milads JS -->
+    <script src="js/app.js"></script>
   
    
 
