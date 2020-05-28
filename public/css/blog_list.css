@@ -1,3 +1,6 @@
+.row_blog {
+    font-family: Quicksand;
+}
 #row_blog{
     display: flex;
     flex-direction: row;
@@ -15,12 +18,37 @@ img{
     margin: 1%;
     padding: 10px;
     background-color: #f2f2f2;
-    border: 3px solid #333;
+    border: 0px solid #333;
+    border-radius: 4px;
+    /* box-shadow: 2px 2px 0px; */
+    text-align: center;
+    padding: 28px;
+    padding-bottom: 60px;
+    background-color: #0c1b2b;
+    color: white;
+    position: relative;
+}
+
+.sub-btn {
+    background-color: #ebba2d;
+    color:#0c1b2b;
+    padding: 5px 99px;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 5px;
+    text-decoration:none;
+    color: #555;
+    font-size: 16px;
+    font-weight: 400;
 }
 
 .bottom-space{
-    text-align: center;
     width: 100%;
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+    margin: 0 auto;
 }
 .bottom-space button {
     text-decoration: none;

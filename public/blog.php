@@ -20,18 +20,20 @@ $p = $post->allPosts();
 
 
         <?php foreach ($p as $key => $value) : ?>
-          
            <div class="blog-div">
 
               <div class="blog2-title">
 
-                <img src="images/<?=$value['image']?>" alt="25 Tips">
+                <img src="images/blog-pics/<?=$value['image']?>" alt="<?=$value['title']?>">
                 <h3 class="header-h2"><?=$value['title']?></h3><hr />
 
-                <p>This is a simple description and it will be dynamic as you can see if you look at the code <?=$value['full_desc']?></p>
-
+                <span class="text"> <?=$value['full_desc']?></span>
+                
                 <div class="bottom-space">
-                   <button class="btn">Read More</button>
+                  <form action="blog_detail.php"  method="get" >
+                  
+                   <a type="submit" class="sub-btn try-btn" href="blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>" >Read More</a>
+                  </form>
                 </div>
 
               </div>
