@@ -38,15 +38,15 @@ $one_post = $post->onePost($_GET['post_id']);
 
       </a>
     </div>
-    <img src="images/blog-pics/<?=$value['image']?>">
+    <img src="images/blog-pics/<?=esc($value['image'])?>">
 
   </figure>
-  <content class="pl-0 col-md-8 fl text-desc " >
+  <content class="fl text-desc " >
 
-        <?=esc($value['full_desc'])?>
+        <p><?=esc($value['full_desc'])?></p>
 
   </content>
-  <sidebar class="col-md-4 fl pr-0">
+  <sidebar class="fl">
 
     <h2>Popular Posts</h2>
 
