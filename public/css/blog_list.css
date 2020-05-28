@@ -27,6 +27,9 @@
 img{
     max-width: 100%;
 }
+.jquery-comments ul.navigation .navigation-wrapper {
+    padding: 20px !important;
+}
 
 
 .blog-div {

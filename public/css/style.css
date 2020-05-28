@@ -251,7 +251,30 @@ nav ul li:active a {
   color: #555;
   border: 1px solid #FF6B6B;
 }
+.navigation-wrapper .active {
+  background-color: peachpuff;
+}
 
+.jquery-comments .commenting-field.main{
+  display: flex;
+}
+.jquery-comments .textarea-wrapper{
+  width: 80%;
+}
+.jquery-comments img {
+  border-radius: 100px;
+  max-width: 59px;
+}
+
+
+
+#comment {
+  width: 80%;
+  margin-bottom: 80px;
+}
+.comment-wrapper{
+  display: flex;
+}
 nav ul li a:active {
 }
 
@@ -2087,20 +2110,7 @@ body {
   left: 0;
   right: 0;
 }
-logo {
-  font-family: "Montserrat", sans-serif;
-  padding-left: 4rem;
-  padding-top: 1.5rem;
-  display: block;
-  float: left;
-  font-size: 24px;
-}
-dribbble {
-  float: right;
-  padding-right: 4rem;
-  padding-top: 1.5rem;
-  display: block;
-}
+
 
 .main {
   text-align: center;
@@ -2142,7 +2152,7 @@ dribbble {
   position: absolute;
   background: white;
   padding-top: 0.75rem;
-  padding-left: 1rem;
+  padding-left: 4rem;
   padding-bottom: 0.75rem;
   align-items: center;
   justify-content: center;
@@ -2178,7 +2188,9 @@ dribbble {
 }
 
 
-
+.jquery-comments ul.navigation .navigation-wrapper {
+    padding: 20px !important;
+}
 
 .post__card-2 {
   padding-top: 0.5rem;

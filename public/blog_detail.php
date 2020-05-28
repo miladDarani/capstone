@@ -18,7 +18,7 @@ $one_post = $post->onePost($_GET['post_id']);
 
     <?php foreach ($one_post as $key => $value) : ?>
 
-    <div class="main container">
+<div class="main container">
   <h5><?=esc($value['category'])?></h5>
   <h1><?=esc($value['title'])?></h1>
   <a class="authorlink"><?=esc($value['author_name'])?></a>
@@ -50,7 +50,7 @@ $one_post = $post->onePost($_GET['post_id']);
   </div>
   <sidebar class="fl">
 
-    <h2>Popular Posts</h2>
+<!--     <h2>Popular Posts</h2>
 
 
 
@@ -146,11 +146,20 @@ $one_post = $post->onePost($_GET['post_id']);
         </div>
 
       </div>
-    </div>
+    </div> -->
 
 
 </sidebar>
+        <div id="comments-container">
+            <h2>Comments</h2>
+            <hr>
+            <div class="comment-wrapper">
+                <textarea name="comment" id="comment" rows="5"></textarea>
+                <div><a href="#" class=try-btn>Send</a></div>
+            </div>
+        </div>
 
+    </div>
 </div> <!-- Main Container -->
 
   <?php endforeach; ?>
