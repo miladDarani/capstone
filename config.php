@@ -56,7 +56,7 @@ require __DIR__ .'/db_connect.php';
 
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASS);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-$dbh->set_charset('utf8');
+
 
 Capstone\Model::init($dbh);
 require __DIR__ . '/functions.php';
