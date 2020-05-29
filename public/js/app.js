@@ -399,4 +399,7 @@ $(document).ready(function(){
     });
 
 
+
+ $(".flash-area").delay(2500).slideUp(2500);
+
   });

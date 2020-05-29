@@ -1,9 +1,14 @@
 <?php
 require __DIR__ . "/../config.php";
+use Capstone\Model;
+use Capstone\CommentsModel;
 $title = "Profile";
 
 require __DIR__ . "/../includes/header_inc.php";
 
+$comment_model = new CommentsModel();
+
+$comments = $comment_model->userComments($_SESSION['user_id']);
 
 if(empty($_SESSION['user_id'])) {
     $errors['credentials'] = 'You must be logged in to see that page.';
@@ -115,6 +120,15 @@ if(isset($_COOKIE['Country'])) {
         <p><i class="fas fa-comments"></i> </p>
         <h1>Number of comments</h1>
         <h1 class="comment-num">0</h1>
+    </div>
+
+    <div class="comments-row">
+        
+        <ul>
+            <?php foreach ($comments as $comment) : ?>
+                <li><a href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" ><?=esc($comment['comment_text'])?></a></li>
+            <?php endforeach; ?>
+        </ul>
     </div>
    
     

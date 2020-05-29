@@ -79,6 +79,17 @@ function err($field, $post)
     }
 }
 
+/**
+ * [auth description]
+ * @return [type] [description]
+ */
+function auth ()
+{
+    if(isset($_SESSION['user_id'])  && $_SESSION['user_id'] > 0){
+        return true;
+    }
+    return false;
+}
 
 
 

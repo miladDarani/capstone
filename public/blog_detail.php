@@ -6,17 +6,38 @@ require __DIR__ . "/../includes/header_inc.php";
 
 // require __DIR__ . "/../classes/Model.php";
 use Capstone\BlogModel;
+use Capstone\CommentsModel;
+
+if(!empty($flash)){
+
+}
 
 $post = new BlogModel();
 
 $one_post = $post->onePost($_GET['post_id']);
 
+if(!empty($_GET['post_id'])){
+    $_SESSION['post_id'] = $_GET['post_id'];
+}
+
+$comment_model = new CommentsModel();
+
+$comments = $comment_model->postComments($_SESSION['post_id']);
 
 
 ?>
+
+<?php if(!empty($flash)) :?> 
+    <div class="flash-area <?=esc($flash['class'])?>">
+
+      <span><?=esc($flash['message'])?></span>
+
+    </div>
+ <?php endif; ?>
+
 <div class="page-wrapper">
 
-    <?php foreach ($one_post as $key => $value) : ?>
+<?php foreach ($one_post as $key => $value) : ?>
 
 <div class="main container">
   <h5><?=esc($value['category'])?></h5>
@@ -43,8 +64,10 @@ $one_post = $post->onePost($_GET['post_id']);
     <img src="images/blog-pics/<?=esc($value['image'])?>">
     </div>   
   </figure>
+  <br>
+  <hr>
   <div class="fl text-desc two " >
-
+        <h1 style="text-align: center;"><?=esc($value['title'])?></h1>
         <p><?=esc($value['full_desc'])?></p>
 
   </div>
@@ -153,11 +176,63 @@ $one_post = $post->onePost($_GET['post_id']);
         <div id="comments-container">
             <h2>Comments</h2>
             <hr>
-            <div class="comment-wrapper">
-                <textarea name="comment" id="comment" rows="5"></textarea>
-                <div><a href="#" class=try-btn>Send</a></div>
+            
+
+
+
+        </div>
+
+
+<?php foreach($comments as $comment) : ?>
+   
+        <div class="other-comments-wrapper" style="text-align:left; margin-top: 50px; margin-bottom:50px ;padding: 15px;">
+            <div class="inside-wrap">
+
+                        <div class="commment-img" style="text-align:center;">
+                            <img src="https://api.adorable.io/avatars/150/<?=esc($comment['first_name'])?>@adorable.png" alt="Profile Picture">
+                        </div>
+
+                        <div class="comment-content">
+                            <div class="comment-name">
+                                <h5><?=esc($comment['first_name'] ." " . $comment['last_name'] )?> </h5>&nbsp;
+                                <h5 style="font-size:14px; color:#aaa"> - <?=esc($comment['date_added'])?> </h5>
+                            </div>
+                            <p name="comment" id="comment" rows="5"><?=esc($comment['comment_text'])?></p>
+                        </div>
             </div>
         </div>
+
+<?php endforeach; ?>        
+
+
+        <div class="comment-wrapper">
+                <h4>Leave a comment</h4>
+
+
+                <?php if(!auth()) :?>
+                    <p>Please <a href="register.php">register </a> or <a href="login.php">login</a> to leave a comment</p>
+                <?php else : ?>
+                <form action="process_comment.php" method="post">
+                  
+                    <input type="hidden" name="user_id" value="<?=esc($_SESSION['user_id'])?>">
+                    <input type="hidden" name="post_id" value="<?=esc($_SESSION['post_id'])?>">
+
+                    <div class="inside-wrap">
+
+                        <div class="commment-img">
+                            <img src="https://api.adorable.io/avatars/150/Milad@adorable.png" alt="Profile Picture">
+                        </div>
+
+                        <textarea name="comment_text" id="comment" rows="5"></textarea>
+                        <div class="send-btn"><button href="#" class=try-btn>Send</button></div>
+                    </div>
+
+                </form>
+
+                <?php endif; ?>
+
+
+            </div>
 
     </div>
 </div> <!-- Main Container -->
@@ -165,5 +240,10 @@ $one_post = $post->onePost($_GET['post_id']);
   <?php endforeach; ?>
 
 </div> <!-- Page Wrapper -->
+ <?php 
 
+
+require __DIR__ . "/../includes/footer_inc.php";
+
+?>
 

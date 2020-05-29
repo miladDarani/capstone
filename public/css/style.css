@@ -265,22 +265,66 @@ nav ul li:active a {
   border-radius: 100px;
   max-width: 59px;
 }
-
-
-
-#comment {
-  width: 80%;
-  margin-bottom: 80px;
+.comment-wrapper {
+  padding-top: 30px;
+   border-top: 1px solid #ddd;
+   padding-bottom: 100px;
 }
-.comment-wrapper{
+
+.comment-wrapper button{
+  width: 100%;
+  padding: 25px;
+  
+  background-color: #56d962;
+}
+.inside-wrap{
   display: flex;
 }
+.inside-wrap img{
+  width: 50%;
+  border-radius: 50px;
+  border: 1px solid #666;
+}
+.inside-wrap textarea {
+  border:1px solid #ccc;
+  width: 60%;
+  margin-right: 10px;
+}
+.send-btn{
+  width: 21%;
+}
+
+
+.comment-wrapper{
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
+
+}
+
+.other-comments-wrapper{
+  margin-top:50px;
+  display: flex;
+  background-color: #f2f2f2;
+  width: 90%;
+  margin: 0 auto;
+
+}
+.other-comments-p {
+  width: 90%;
+}
+
+.comment-name {
+  display: flex;
+}
+
+
 nav ul li a:active {
 }
 
 nav img {
   margin-top: -100px;
-  margin-bottom: -70px;
+  margin-bottom: -100px;
     /* width: 150px;
     */;
 }
@@ -386,6 +430,45 @@ nav img {
   
 
 }
+
+.success-msg {
+  background-color: #bafaba;
+  
+
+}
+.success-msg p {
+  padding:12px;
+  margin: 0;
+}
+
+.err-msg{
+  background-color: #fababa;
+ 
+  
+}
+.hidden{
+  display: none;
+}
+
+
+.flash {
+text-align: center;
+
+padding: 10px;
+font-weight: bold;
+}
+
+.flash-area{
+list-style: none;
+padding:  12px;
+text-align: center;
+font-weight: 500;
+}
+
+.page-wrapper p{
+  padding: 0 60px;
+}
+
 
 /* *************************** Row 2 ***************************** */
 #break, #break1, #break2 {
