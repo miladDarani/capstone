@@ -1,7 +1,10 @@
 <?php 
 require __DIR__ . "/../config.php";
 $title = "Welcome To Sound Comet";
+use Capstone\BlogModel;
 
+$post = new BlogModel();
+$p = $post->allPosts();
 
 
 require __DIR__ . "/../includes/header_inc.php";
@@ -248,7 +251,7 @@ require __DIR__ . "/../includes/header_inc.php";
         <div class="try-row">
             <h1 class="try-h1">Try it FREE</h1>
             <p class="try-p">Better sound is here</p>
-            <button class="try-btn">Get Started</button>
+            <a href="register.php"><button class="try-btn">Get Started</button></a>
 
         </div>
 
@@ -265,12 +268,17 @@ require __DIR__ . "/../includes/header_inc.php";
             
           <!-- Slideshow HTML -->
         <div class="fg">
-            <div class="slides">    
+            <div class="slides">        
                 <ul class="rslides" >
-                  <li><img src="images/blog-slide1.jpg" alt=""></li>
-                  <li><img src="images/blog2-sized.jpg" alt=""></li>
-                  <li><img src="images/blog3-sized.jpg" alt=""></li>
-                  <li><img src="images/blog4-sized.jpg" alt=""></li>
+                <?php foreach ($p as $post) : ?>
+
+                  <li>
+                    <h4><a  class="title-for-blog" style="text-decoration:none; color:white;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>"><?=esc($post['title'])?></a></h4>
+                    <a href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>"><img src="images/blog-pics/<?=esc($post['image'])?>" alt=""></a>
+                    <p><span class="text"> <?=$post['full_desc']?></span></p>
+                  </li>
+
+                <?php endforeach ; ?>
                 </ul>
 
                 <div class="blog-head">
@@ -278,7 +286,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
                     <p>Master the Art of Mixing & Mastering</p>
                     <p id='under-p'>TUTORIALS/DEMOS/TIPS/NEWS</p>
-                    <button class="try-btn">OUR BLOG</button>
+                    <a href="blog.php"><button class="try-btn">OUR BLOG</button></a>
                 </div>
             </div>
 
