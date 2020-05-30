@@ -144,6 +144,11 @@
                 <li><a <?php if($title == "Pricing") {echo 'class="active"';} ?> href="pricing.php">Pricing</a></li>
                 <li><a <?php if($title == "Blog") {echo 'class="active"';} ?> href="blog.php">Blog</a></li>
                 
+                <?php if(!empty($_SESSION['is_admin'])) : ?>
+
+                    <li><a href="/admin">Admin</a></li>
+
+                <?php endif; ?>
                
                
 

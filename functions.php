@@ -91,6 +91,11 @@ function auth ()
     return false;
 }
 
+function isAdmin(){
+    
+}
+
+
 
 
 

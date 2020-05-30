@@ -8,9 +8,7 @@ require __DIR__ . "/../includes/header_inc.php";
 use Capstone\BlogModel;
 use Capstone\CommentsModel;
 
-if(!empty($flash)){
 
-}
 
 $post = new BlogModel();
 
@@ -26,6 +24,7 @@ $comments = $comment_model->postComments($_SESSION['post_id']);
 
 
 ?>
+
 
 <?php if(!empty($flash)) :?> 
     <div class="flash-area <?=esc($flash['class'])?>">

@@ -195,10 +195,11 @@ if(!empty($_GET['post_id'])){
 
 
 
- 
+   <?=dd($flash);die;?>
     
 
  <?php if(!empty($flash)) :?> 
+
     <div class="flash-area <?=esc($flash['class'])?>">
 
       <span><?=esc($flash['message'])?></span>

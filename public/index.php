@@ -276,6 +276,7 @@ require __DIR__ . "/../includes/header_inc.php";
                     <h4><a  class="title-for-blog" style="text-decoration:none; color:white;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>"><?=esc($post['title'])?></a></h4>
                     <a href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>"><img src="images/blog-pics/<?=esc($post['image'])?>" alt=""></a>
                     <p><span class="text"> <?=$post['full_desc']?></span></p>
+                    <button class="try-btn try-btn2" style="width:100%;"><a  class="title-for-blog" style="text-decoration:none; color:white;padding:20px 100px;border-radius: 3px;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>">Read More</a></button>
                   </li>
 
                 <?php endforeach ; ?>
@@ -283,10 +284,14 @@ require __DIR__ . "/../includes/header_inc.php";
 
                 <div class="blog-head">
                     <h1>The Latest Tips and Tricks</h1>
+                    <p>Sound Design | Mixing | Mastering | News</p>
 
-                    <p>Master the Art of Mixing & Mastering</p>
-                    <p id='under-p'>TUTORIALS/DEMOS/TIPS/NEWS</p>
-                    <a href="blog.php"><button class="try-btn">OUR BLOG</button></a>
+                    <div class="blog-head-p">
+                       
+                        <p style="margin-top:60px; border:1px solid white; text-align:left; font-size:18px;padding:35px 40px; margin-bottom: 74px;"> Our blog post are made by industry professional covering variety of topics. We pride ourselves by staying ahead of the trends. Become the master of mastering or be the mix engineer everyone is looking for. </p>
+                        
+                    </div>
+                    <a href="blog.php"><button class="try-btn" style="margin-bottom:23px">VISIT BLOG</button></a>
                 </div>
             </div>
 

@@ -13,6 +13,7 @@ $comments = $comment_model->userComments($_SESSION['user_id']);
 if(empty($_SESSION['user_id'])) {
     $errors['credentials'] = 'You must be logged in to see that page.';
     $_SESSION['errors'] = $errors;
+
     header('Location: login.php');
     die;
 }
@@ -33,29 +34,48 @@ $stmt->execute($params);
 
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-setcookie('Country', $user['country']);
-$_SESSION['success'] = ' Welcome '. $user['first_name'] . ". Successfully logged in.";
+if($user['is_admin'] == 1){
+    
+    $_SESSION['is_admin'] = $user['is_admin'];
 
-if(isset($_COOKIE['Country'])) {
-    $class='hidden';
-} else {
-   $class="success-msg";
 }
+
+
+
+// setcookie('Country', $user['country']);
+
+
+
+if(isset($_SESSION['user_id'])) {
+    $flash =array(
+    'class' => "success-msg",
+    'message' => "Welcome " . $user['first_name'] . ", Successfully logged in."
+    );
+} 
+
+
+$_SESSION['flash'] = $flash;
+
+
+
+
 
 ?>
 
 
-<div class="<?=$class?>">
- 
- 
-    <p><?=$_SESSION['success']?></p>
-   
-</div>
+<?php if(!empty($flash)) :?> 
 
+       <div class="flash-area <?=esc($flash['class']) ?> success-msg">
+   
+         <span><?=esc($flash['message'])?></span>
+   
+        </div>
+
+<?php endif; ?>
 <div class="profile">
     <?php 
 
-        
+        $flash = [];
 
     ?>
     
@@ -68,8 +88,11 @@ if(isset($_COOKIE['Country'])) {
                 <form action="signout.php" method="post">
                     <button class="btn">Logout</button>
                 </form>
-              
-
+                <?php if($user['is_admin'] == 1) : ?>
+                    <form action="/admin" method="post">
+                    <button style="margin-top:10px; letter-spacing: .7px; background-color: #22e089; " class="btn">Admin</button>
+                </form>
+                <?php endif; ?>
             </p>
         </ul>
 
@@ -119,18 +142,46 @@ if(isset($_COOKIE['Country'])) {
     <div class="comments">
         <p><i class="fas fa-comments"></i> </p>
         <h1>Number of comments</h1>
-        <h1 class="comment-num">0</h1>
+
+        <h1 class="comment-num"><?=count($comments)?></h1>
     </div>
 
     <div class="comments-row">
         
-        <ul>
+        <table id="comment-table">
+            <tr>
+                <th></th>
+                <th>Comment</th>
+                <th>Date</th>
+                <th>Post</th>
+               
+                
+            </tr>
             <?php foreach ($comments as $comment) : ?>
-                <li><a href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" ><?=esc($comment['comment_text'])?></a></li>
-            <?php endforeach; ?>
-        </ul>
-    </div>
+          
+                
+
+              <tr>
+                <td>
+                    <a href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" > <img style="width:100px;" src="images/blog-pics/<?=esc($comment['image'])?>" alt="<?=esc($comment['title'])?>"></a>
+                </td>
+                <td><a style="color:#005df7" href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" ><?=esc($comment['comment_text'])?></a></td>
+                <td><?=esc($comment['date_added'])?></td>
+                <td class="title-size" ><a href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" ><?=esc($comment['title'])?></a></td>
+                
+               
+                  
+              </tr>
+              
+
+ 
    
+            <?php endforeach; ?>
+
+        </table>
+    </div>
+
+    
     
 </div>
 

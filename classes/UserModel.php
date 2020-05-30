@@ -12,9 +12,9 @@ class UserModel extends Model
         {
             $query = 'SELECT *
             FROM 
-            blog_post
+            users
             JOIN authors USING(author_id)
-            WHERE post_id = :id';
+            WHERE user_id = :id';
 
             $stmt = static::$dbh->prepare($query);
 
@@ -26,6 +26,21 @@ class UserModel extends Model
 
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
  
+            return $result;
+        }
+
+
+        public function allUsers()
+        {
+            $query = 'SELECT * 
+            FROM 
+            users';
+
+
+            $stmt = static::$dbh->query($query);
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
             return $result;
         }
 

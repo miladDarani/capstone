@@ -23,7 +23,12 @@ $class='hidden';
 // // dd($flash);
 
 // die;
-
+if(empty($_SESSION['is_admin'])){
+    $errors['admin'] = 'You must be an admin to see this page.';
+    $_SESSION['errors'] = $errors;
+    header('Location: /profile.php' );
+    die;
+}
 //NO ERRORS
 if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete'])){
 
@@ -118,7 +123,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 else
 {
-  session_destroy();
+  // session_destroy();
 }
    
     if(!empty($_SESSION['success'])){
@@ -217,7 +222,11 @@ else
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Users</a>
+            <a class="nav-link" href="users.php">Users</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/">Back to SoundComet</a>
           </li>
 
         </ul>
