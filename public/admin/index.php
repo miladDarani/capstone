@@ -4,12 +4,27 @@
 require __DIR__ . '/../../config.php';
 
 use Capstone\BlogModel;
+use Capstone\UserModel;
+use Capstone\CommentsModel;
+use Capstone\AuthorModel;
 use Capstone\Validator;
 
 $title = "Admin";
 
 $post = new BlogModel();
 $p = $post->allPosts();
+
+
+$u = new UserModel();
+$uu = $u->allUsers();
+
+$c = new CommentsModel();
+$cc = $c->allComments();
+
+$a = new AuthorModel();
+$aa = $a->authorsAll();
+
+
 $v= new Validator();
 
 $class='hidden';
@@ -250,6 +265,28 @@ else
 
     </div>
  <?php endif; ?>
+
+ <table class="table table-striped table-dark">
+    <tbody>
+        <tr>
+            <th class="one-quarter">Overview</th>
+        </tr>
+
+        <tr>
+          <td class="one-quarter">
+
+            <p>
+               Posts: <strong><?=count($p)?></strong><br>
+               Users: <strong><?=count($uu)?></strong><br>
+               Comments: <strong><?=count($cc)?></strong><br>
+               Authors: <strong><?=count($aa)?></strong><br>
+            </p>
+
+          </td>
+        </tr>
+
+    </tbody>
+  </table>
 
   <div class="container admin-container">
     <div class="row">
