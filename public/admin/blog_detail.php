@@ -195,7 +195,7 @@ if(!empty($_GET['post_id'])){
 
 
 
-   <?=dd($flash);die;?>
+
     
 
  <?php if(!empty($flash)) :?> 
@@ -249,9 +249,9 @@ if(!empty($_GET['post_id'])){
 
 
         <div class="row mt-5">
-          <div class="col col-sm-3">
-            <img id="blogger" src="/../images/<?=esc($value['image'])?>" alt="<?=esc($value['title'])?>">
-        
+          <div class=" col-img d-flex justify-content-center" style="margin-bottom:30px;">
+            <img id="blogger" src="../images/blog-pics/<?=esc($value['image'])?>" alt="<?=esc($value['title'])?>">
+           
           </div>
 
           <div class="col col-sm-9">

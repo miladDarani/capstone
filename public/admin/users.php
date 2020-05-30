@@ -77,7 +77,7 @@ $all_users = $u->allUsers();
       <div class="navbar-collapse collapse" id="navbarsExample03" style="">
         <ul class="navbar-nav mr-auto">
 
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/admin">Posts <span class="sr-only">(current)</span></a>
           </li>
 
@@ -86,10 +86,10 @@ $all_users = $u->allUsers();
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Comments</a>
+            <a class="nav-link" href="comments.php">Comments</a>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="users.php">Users</a>
           </li>
 
@@ -158,7 +158,13 @@ $all_users = $u->allUsers();
               <?php foreach ($all_users as $key => $value) : ?>
 
                 <td><img style="width:58px;" src="https://api.adorable.io/avatars/150/<?=$value['first_name'];?>@adorable.png" alt="Profile Picture"></td>
-                <td><?=esc($value['first_name']). " " .esc($value['last_name'])?></td>
+
+                <td>
+
+                    <?=esc($value['first_name']). " " .esc($value['last_name'])?>
+                    <?php if(esc($value['is_admin']) == 1 ){echo "<br/>(admin)";} ?>    
+                </td>
+
                 <td><?=esc($value['street']) . ', ' . esc($value['city']) . ', ' . esc($value['province']) ?></td>
                 <td><?=esc($value['email'])?></td>
                   

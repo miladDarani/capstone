@@ -721,7 +721,7 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #99a4d7;
-  
+
 }
 
 @media  screen and (max-width: 768px) {
@@ -734,6 +734,11 @@ tr:nth-child(even) {
       border-bottom: .1px solid #ccc;
     }
 
+}
+
+.col-img {
+  flex-basis: 1 !important;
+  margin-bottom: 40px;
 }
 
 .video-row{

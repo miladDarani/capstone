@@ -58,7 +58,7 @@ class CommentsModel extends Model
     }
 
         final public function userComments($id)
-    {
+        {
         // Create query
         $query = "SELECT comment_text, date_added, user_id, first_name, last_name, post_id, title, image FROM comment_rate  
         JOIN users USING(user_id)
@@ -78,7 +78,30 @@ class CommentsModel extends Model
  
             return $result;
 
-    }
+        }
+
+
+        final public function allComments()
+        {
+            // Create query
+            $query = "SELECT * FROM comment_rate
+            JOIN users USING(user_id)
+            JOIN blog_post USING(post_id)
+             "; 
+        
+
+            $stmt = static::$dbh->prepare($query);
+
+
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+ 
+            return $result;
+
+        }
+
+
 
    
 }

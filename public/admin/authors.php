@@ -78,16 +78,16 @@ $all_authors = $aa->authorsAll();
       <div class="navbar-collapse collapse" id="navbarsExample03" style="">
         <ul class="navbar-nav mr-auto">
 
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/admin">Posts <span class="sr-only">(current)</span></a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">Authors</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="authors.php">Authors</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Comments</a>
+            <a class="nav-link" href="comments.php">Comments</a>
           </li>
 
           <li class="nav-item">

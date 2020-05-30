@@ -214,11 +214,11 @@ else
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Authors</a>
+            <a class="nav-link" href="authors.php">Authors</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Comments</a>
+            <a class="nav-link" href="comments.php">Comments</a>
           </li>
 
           <li class="nav-item">
