@@ -513,9 +513,9 @@ font-weight: 500;
   transform: skewY(2deg);
   -webkit-animation: AnimationName 5s ease infinite;
   animation: AnimationName 5s ease infinite;
-  background-color: #E63946;
+  background-color: lightgreen;
   border: 0;
-  color: #fff;
+  color: #333;
   -webkit-box-shadow: 2px 6px 2px rgba(0,0,0,.6);
   box-shadow: 2px 6px 2px rgba(0,0,0,.6);
 }
