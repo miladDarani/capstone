@@ -35,5 +35,19 @@ class AuthorModel extends Model
 
         }
 
+        public function authorsAll()
+        {
+            $query = 'SELECT * 
+            FROM 
+            authors';
+
+
+            $stmt = static::$dbh->query($query);
+
+            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            return $result;
+        }
+
    
 }
