@@ -251,7 +251,7 @@ require __DIR__ . "/../includes/header_inc.php";
         <div class="try-row">
             <h1 class="try-h1">Try it FREE</h1>
             <p class="try-p">Better sound is here</p>
-            <a href="register.php"><button class="try-btn">Get Started</button></a>
+            <a href="register.php"><button class="try-btn" style="padding:24px">Get Started</button></a>
 
         </div>
 
@@ -276,7 +276,7 @@ require __DIR__ . "/../includes/header_inc.php";
                     <h4><a  class="title-for-blog" style="text-decoration:none; color:white;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>"><?=esc($post['title'])?></a></h4>
                     <a href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>"><img src="images/blog-pics/<?=esc($post['image'])?>" alt=""></a>
                     <p><span class="text"> <?=$post['full_desc']?></span></p>
-                    <button class="try-btn try-btn2" style="width:100%;"><a  class="title-for-blog" style="text-decoration:none; color:white;padding:20px 100px;border-radius: 3px;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>">Read More</a></button>
+                    <button class="try-btn try-btn2" style="width:100%; margin-top:25px;"><a  class="title-for-blog" style="text-decoration:none; color:white;border-radius: 3px; " href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>">Read More</a></button>
                   </li>
 
                 <?php endforeach ; ?>
@@ -291,7 +291,18 @@ require __DIR__ . "/../includes/header_inc.php";
                         <p style="margin-top:60px; border:1px solid white; text-align:left; font-size:18px;padding:35px 40px; margin-bottom: 74px;"> Our blog post are made by industry professional covering variety of topics. We pride ourselves by staying ahead of the trends. Become the master of mastering or be the mix engineer everyone is looking for. </p>
                         
                     </div>
-                    <a href="blog.php"><button class="try-btn" style="margin-bottom:23px">VISIT BLOG</button></a>
+                    
+                    <div class="arrow-container">
+
+                        
+                            <h2 class="blog-btn"><a  class="blog-a" href="blog.php">GO TO BLOG</a></h2>  
+                           
+
+                        
+                            
+                
+                    </div>
+
                 </div>
             </div>
 

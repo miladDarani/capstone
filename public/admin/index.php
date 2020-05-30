@@ -38,6 +38,7 @@ $class='hidden';
 // // dd($flash);
 
 // die;
+
 if(empty($_SESSION['is_admin'])){
     $errors['admin'] = 'You must be an admin to see this page.';
     $_SESSION['errors'] = $errors;
@@ -266,10 +267,10 @@ else
     </div>
  <?php endif; ?>
 
- <table class="table table-striped table-dark">
+ <table class="table table-striped table-hover table-dark" style="width:90%; margin:0 auto;">
     <tbody>
         <tr>
-            <th class="one-quarter">Overview</th>
+            <th class="one-quarter ">Dashboard</th>
         </tr>
 
         <tr>
