@@ -67,7 +67,11 @@ require __DIR__ . "/../includes/header_inc.php";
         </div>
 <!--        SOUNDCLOUD SECTION         -->
         <div id="soundcloud">
-          <img src="images/Soundcloud.jpg" alt="Soundcloud Playlist">
+          <div >
+            <div class="soundcloud-wrapper">
+                <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/679309221&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+            </div>
+          </div>
         </div>  
       </section>
 <?php 

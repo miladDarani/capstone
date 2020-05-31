@@ -59,10 +59,6 @@ $p = $post->allPosts();
       </div> <!-- row blog -->
 
 
-      <div id="more">
-        <a href="#">1</a>
-        <a href="#">2</a>
-      </div>
 
  <?php 
 

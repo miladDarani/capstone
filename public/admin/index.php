@@ -267,7 +267,7 @@ else
     </div>
  <?php endif; ?>
 
- <table class="table table-striped table-hover table-dark" style="width:90%; margin:0 auto;">
+ <table class="table table-striped table-hover table-dark" style="width:90%; margin:30px auto;">
     <tbody>
         <tr>
             <th class="one-quarter ">Dashboard</th>

@@ -16,6 +16,7 @@
     color: white;
     text-align: center;
     width: 88%;
+    margin-top: 50px;
 
 }
 
@@ -98,6 +99,43 @@ img{
   }
 }
 
+@media only screen and (max-width: 1000px) {
+
+ .sub-btn{
+    padding: 5px 65px;
+ }
+}
+
+@media only screen and (max-width: 950px) {
+
+    .blog-div{
+        width:46%;
+    }
+
+    .row-blog-header{
+        width:94%;
+    }
+
+    .blog-div:first-child {
+        width: 94%;
+        margin-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+    .blog-div:nth-child(6) {
+        width: 94%;
+    }
+    .blog-div:nth-child(5) {
+        width: 46%;
+    }
+    .blog-div:nth-child(4) {
+        width: 46%;
+    }
+    .blog-div:last-child {
+        width: 94%;
+    }
+
+}
 @media only screen and (max-width: 620px) {
 
   .blog-div{

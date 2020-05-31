@@ -21,7 +21,7 @@ require __DIR__ . "/../includes/header_inc.php";
                 <h1>Creators.</h1>
                 <p>Worlds First Instant Mixing and Mastering Platform</p>
                 <p>Try it Now for Free</p>
-                <a href="#" class="myButton">Subscribe</a>
+                <a href="register.p" class="myButton">Subscribe</a>
 
                 <div id="social-media">
                     <img id="facebook" src="images/svgs/brands/facebook.svg" alt="Facebook Logo" />
@@ -183,7 +183,8 @@ require __DIR__ . "/../includes/header_inc.php";
                     <h1 id="finish-heading">Finish your next track with Sound Comet. In minutes</h1>
                     <p>Sound Comet is a system for instantly mixing music online. With today’s computing power, along with advanced algorithms and machine learning, music can be mixed automatically following the steps that an audio engineer would take.</p>
                     <p>Our hope is that this service will fill a gap in the industry, allowing any and all musicians to present high quality music to their fans.</p>
-                    <a href="#" class="myButton" id="button2">Take 1-minute Tour</a>
+                    <a href="https://www.youtube.com/watch?v=l2uPemLXZFY" target="_blank" class="myButton" id="button2">Take 1-minute Tour</a>
+                    
                 </div>
                 <div id="row2-side-wrapper">
 
@@ -263,7 +264,12 @@ require __DIR__ . "/../includes/header_inc.php";
 
             </div>
         </div>
-
+        
+        <!-- <div class="soundcloud">
+            <div class="soundcloud-wrapper">
+                <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/679309221&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+            </div>
+        </div> -->
         <div id="row4">
             
           <!-- Slideshow HTML -->
