@@ -7,6 +7,7 @@ require __DIR__ . "/../includes/header_inc.php";
 // require __DIR__ . "/../classes/Model.php";
 use Capstone\BlogModel;
 use Capstone\CommentsModel;
+use Capstone\UserModel;
 
 
 
@@ -22,6 +23,8 @@ $comment_model = new CommentsModel();
 
 $comments = $comment_model->postComments($_SESSION['post_id']);
 
+$u = new UserModel();
+$our_user = $u->ourUser($_SESSION['user_id']);
 
 ?>
 
@@ -183,7 +186,7 @@ $comments = $comment_model->postComments($_SESSION['post_id']);
 
 
 <?php foreach($comments as $comment) : ?>
-   
+        
         <div class="other-comments-wrapper" style="text-align:left; margin-top: 50px; margin-bottom:50px ;padding: 15px;">
             <div class="inside-wrap">
 
@@ -206,7 +209,7 @@ $comments = $comment_model->postComments($_SESSION['post_id']);
 
         <div class="comment-wrapper">
                 <h4>Leave a comment</h4>
-
+          
 
                 <?php if(!auth()) :?>
                     <p>Please <a href="register.php">register </a> or <a href="login.php">login</a> to leave a comment</p>
@@ -219,7 +222,7 @@ $comments = $comment_model->postComments($_SESSION['post_id']);
                     <div class="inside-wrap">
 
                         <div class="commment-img">
-                            <img src="https://api.adorable.io/avatars/150/Milad@adorable.png" alt="Profile Picture">
+                            <img src="https://api.adorable.io/avatars/150/<?=esc($our_user[0]['first_name'])?>@adorable.png" alt="Profile Picture">
                         </div>
 
                         <textarea name="comment_text" id="comment" rows="5"></textarea>
