@@ -46,11 +46,12 @@ if(empty($_SESSION['is_admin'])){
     die;
 }
 //NO ERRORS
-if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete'])){
+if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete']) ){
 
-        $_SESSION['delete'] = "delete";
+        $_SESSION['delete'] = $_POST['delete'];
 
         $post->deleteRecord($_POST['post_id']);
+
 
         header('Location: index.php');
 
@@ -112,10 +113,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = $v->errors();
 
-    if(!empty($_POST['success'])){
-        $_SESSION['success'] = "success";
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['success'])){
+ 
         $post->updateRecord($_POST['post_id']);
+          $flash =array(
+          'class' => "success-msg",
+          'message' => 'Record Successfully Updated'
+        );
+         
     }
+  
+
+
 
 
 
@@ -139,17 +148,19 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 else
 {
-  // session_destroy();
-}
-   
-    if(!empty($_SESSION['success'])){
-    
-         $flash =array(
-          'class' => "success-msg",
-          'message' => 'Record Successfully Updated'
-        );
+   $_SESSION['delete'] = "";
 
-    }
+
+   
+
+}
+
+
+
+
+
+   
+
 
 
 
@@ -299,7 +310,7 @@ else
           
           <p>
 
-            <form action="index.php" method="post" novalidate="">
+            <form action="add_post.php" method="post" novalidate="">
                 <button class=" btn float-left btn-success " href="#">Add a Post</button> 
                 <input type="hidden" name="add" value="add" />
             </form>
@@ -346,7 +357,6 @@ else
                     <input type="hidden" name="delete" value="delete" />
                     <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
                     <button type="submit" class="delete btn btn-danger btn-sm" href="index.php"><i class="fas fa-trash"></i></button>
-                    
                   </form>
                   
                 </td>

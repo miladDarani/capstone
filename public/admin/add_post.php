@@ -1,85 +1,23 @@
 <?php
+
 require __DIR__ . '/../../config.php';
-use Capstone\Validator;
-use Capstone\BlogModel;
 use Capstone\AuthorModel;
-
-
-
-
-$v = new Validator();
-$title = "Post Detail";
-$class='hidden';
-$post = new BlogModel();
-
+use Capstone\BlogModel;
+use Capstone\Validator;
+$v= new Validator();    
 $authors = new AuthorModel;
-
-
-
 $all_authors = $authors->fullAuthors();
+$title = "Add Post";
+// dd($_SERVER['REQUEST_METHOD']);
+// dd($_POST);
+// die;
+
+$i = new BlogModel();
 
 
+$all_images = $i->allImages();
 
-$all_images = $post->allImages();
-
-
-
-if(!empty($_GET['post_id'])){
-
-    $one_post = $post->onePost($_GET['post_id']);
-
-} elseif(empty($_GET['post_id'])) {
-
-        $class='err-msg';
-        $_SESSION['errors'] = "You must select something";
-        // header('Location: /admin');
-        die;
-        }
-
-
-
-    if(!empty(err('title', $errors))){
-
-      $flash =array(
-      'class' => "err-msg",
-      'message' => err('title', $errors)
-       );
-    }
-
-    if(!empty(err('full_desc', $errors))){
-      $flash =array(
-      'class' => "err-msg",
-      'message' => err('full_desc', $errors)
-       );
-    }
-
-
-
-    if(!empty(err('category', $errors))){
-      $flash =array(
-      'class' => "err-msg",
-      'message' => err('category', $errors)
-       );
-    }
-    if(!empty(err('image', $errors))){
-      $flash =array(
-      'class' => "err-msg",
-      'message' => err('image', $errors)
-       );
-    }
-
-
-
-
-
-    if(!empty(err('title', $errors))&&!empty(err('full_desc', $errors)) ){
-      $flash =array(
-      'class' => "err-msg",
-      'message' => "Title & Description are required and must contain 2 characters at minimum"
-       );
-    }
-
-    $_SESSION['flash'] = $flash;
+// dd($_SESSION['errors']);
 
 
 
@@ -114,7 +52,7 @@ if(!empty($_GET['post_id'])){
   }​
 
   .success-msg {
-    background-color: #bafaba;
+    background-color: #bafaba !important;
     
 
   }
@@ -167,7 +105,7 @@ if(!empty($_GET['post_id'])){
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="/admin/">Posts <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/admin/">Posts </a>
           </li>
 
 
@@ -207,6 +145,19 @@ if(!empty($_GET['post_id'])){
       <span><?=esc($flash['message'])?></span>
 
     </div>
+
+ <?php endif; ?>
+
+
+
+  <?php if(!empty($errors)) :?> 
+
+    <div class="flash-area err-msg">
+        <?php foreach ($errors as $error) : ?>
+            <span><?=$error?></span>
+        <?php endforeach; ?>
+    </div>
+
  <?php endif; ?>
 
 
@@ -219,7 +170,7 @@ if(!empty($_GET['post_id'])){
     <div class="row">
       <div class="col-lg-12">
 
-        <h1 class="mt-5">Edit Post</h1>
+        <h1 class="mt-5">Add Post</h1>
 
           
           
@@ -243,7 +194,7 @@ if(!empty($_GET['post_id'])){
 
 
 
-      <?php foreach ($one_post as $key => $value) : ?>
+ 
 
 
       
@@ -252,48 +203,35 @@ if(!empty($_GET['post_id'])){
 
         <div class="row mt-5">
           <div class=" col-img d-flex justify-content-center" style="margin-bottom:30px;">
-            <img id="blogger" src="../images/blog-pics/<?=esc($value['image'])?>" alt="<?=esc($value['title'])?>">
+            <img id="blogger" src="" alt="">
            
           </div>
 
           <div class="col col-sm-9">
 
-            <form action="/admin/" method="post">
+            <form action="process_post.php" method="post">
               <fieldset>
 
                 <legend>Edit Post</legend>
                
-                <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
-                <input type="hidden" name="success" value="success" />
+                <input type="hidden" name="post_id" value="" />
+                <input type="hidden" name="post_add" value="post_add" />
 
               <div class="form-group required">
                   <label for="title"><strong>Blog Title</strong></label>
-                  <input class="form-control" type="text" name="title" value="<?=esc($value['title'])?>" /> 
-                  
-              </div>
-
-              <div class="form-group required">
-                  <label for="read_length"><strong>Read Length</strong>(read only)</label>
-                 <!--  <input class="form-control" type="text" name="read_length" value="<?=esc($value['read_length'])?>" />  -->
-                  <p><?=esc($value['read_length'])?></p>
+                  <input class="form-control" type="text" name="title" value="" /> 
                   
               </div>
 
 
-              <div class="form-group required">
-                  <label for="views"><strong>Number of Views</strong>(read only)</label>
-                  
-                  <p><?=esc($value['views'])?></p>
-                  
-              </div>
 
               <div class="form-group required">
                   <label for="seo_done"><strong>SEO Finished </strong></label>
                 
-                    <p><input class="form-control" type="radio" name="seo_done" value='0' <?php  if(esc($value['seo_done']) == 0 || esc($value['seo_done']) === NULL ){echo 'checked';} ?>/> No </p>
+                    <p><input class="form-control" type="radio" name="seo_done" value='0' checked="true" /> No </p>
                     
                   
-                    <p><input class="form-control" type="radio" name="seo_done" value='1' <?php if(esc($value['seo_done']) == 1 ){echo 'checked';} ?>/> Yes </p>
+                    <p><input class="form-control" type="radio" name="seo_done" value='1' /> Yes </p>
                 
                   
               </div>
@@ -301,27 +239,33 @@ if(!empty($_GET['post_id'])){
 
               <div class="form-group required">
                   <label for="category"><strong>Category</strong></label>
-                  <input class="form-control" type="text" name="category" value="<?=esc($value['category'])?>" /> 
+                  <input class="form-control" type="text" name="category" value="" /> 
                   
               </div>
+              
 
-                  <select name="image">
 
-                    <!-- <option  value="">Select Author</option> -->
-                      <option value="">Select an image</option>
-                      
-                      <?php foreach($all_images as $picture) :?>
+                <select name="image" style="margin:20px 0 25px 0; ">
+
+                      <option value="">Select an image:</option>
+                
+                        <?php foreach($all_images as $image) :?>
                           
-                        
-                           <option <?=($picture['image'] === $one_post[0]['image']) ? 'selected' : ''?> > 
-
-                         <?=esc($picture['image'])?>
                            
-                         </option>
+                           <option  value="<?=esc($image['image'])?>"> 
 
-                      <?php endforeach; ?>
+                               <?=esc($image['image'])?>
+                           
+                           </option>
 
-                  </select>
+                        <?php endforeach; ?>
+
+                </select>
+
+
+
+
+
 
 
 
@@ -331,7 +275,7 @@ if(!empty($_GET['post_id'])){
 
                   <label for="full_desc"><strong>Full Post Description</strong></label>
                   
-                  <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc"><?=esc($value['full_desc'])?></textarea>
+                  <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc"></textarea>
 
               </div>
 
@@ -343,14 +287,14 @@ if(!empty($_GET['post_id'])){
                   <select name="author_name" class="author_name">
 
                     <!-- <option  value="">Select Author</option> -->
-                      <option value="">Select an author</option>
-
-                      <?php foreach($all_authors as $author) :?>
+                      <option value="">Select an author:</option>
+                
+                        <?php foreach($all_authors as $author) :?>
                           
-                        
-                           <option <?=($author['author_name'] === $one_post[0]['author_name']) ? 'selected' : ''?> value="<?=esc($author['author_id'])?>"> 
+                           
+                           <option  value="<?=esc($author['author_name'])?>"> 
 
-                         <?=esc($author['author_name'])?>
+                            <?=esc($author['author_name'])?>
                            
                          </option>
 
@@ -366,12 +310,10 @@ if(!empty($_GET['post_id'])){
               
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
-
-                <a href="blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>"><button type="submit"  class="btn btn-primary">Visit Blog</button></a>
               </div>
 
 
-              <?php endforeach ; ?>
+  
 
 
               </fieldset>

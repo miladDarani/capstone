@@ -5,7 +5,7 @@ require __DIR__ . '/../../config.php';
 use Capstone\BlogModel;
 use Capstone\CommentsModel;
 
-$title = "Users";
+$title = "Comments";
 
 $c = new CommentsModel();
 $all_comments = $c->allComments();

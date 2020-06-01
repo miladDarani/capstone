@@ -5,7 +5,7 @@ require __DIR__ . '/../../config.php';
 use Capstone\BlogModel;
 use Capstone\AuthorModel;
 
-$title = "Users";
+$title = "Authors";
 
 $aa = new AuthorModel();
 $all_authors = $aa->authorsAll();

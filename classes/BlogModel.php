@@ -127,7 +127,7 @@ class BlogModel extends Model
             
 
 
-            header('Location: index.php');
+
      
         }
 
@@ -153,46 +153,55 @@ class BlogModel extends Model
             }
 
 
-            final public function addPost()
+            
+
+
+
+            /*
+             * adds one post to blog_post
+             */
+            public function addPost($array){
+
+                $query = 'INSERT INTO blog_post 
+                (title, full_desc, read_length, views, seo_done, category, author_id, image) 
+                VALUES
+                (:title, :full_desc,:read_length,:views, :seo_done, :category, :author_id, :image)';
+
+                 $stmt = static::$dbh->prepare($query);
+
+                 $params = array (
+                    ":title" => $array['title'],
+                    ":full_desc" => $array['full_desc'],
+                    ":read_length" => 2,
+                    ":views" => 0,
+                    ":seo_done" => $array['seo_done'],
+                    ":category" => $array['category'],
+                    ":author_id" => 1,
+                    ":image" => $array['image'],
+
+                );
+
+                 $stmt->execute($params);
+
+                 return static::$dbh->lastInsertId();
+
+            }
+            
+
+
+            public function allImages()
             {
-                $query = 'INSERT INTO users
-                          (title, full_desc, read_length, date_posted, views, seo_done, category, author_id, image)
-                          VALUES
-                          (:title, :full_desc, :read_length, :date_posted, :views, :seo_done, :category, :author_id, :image)';
+                $query = "SELECT DISTINCT image from blog_post";
 
-            //13. create stmt to prepare query 
-            $stmt = static::$dbh->prepare($query);
+                $stmt =  static::$dbh->query($query);
 
+                $images = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-            //14. set params
-            $params = array (
-            ':title' => $_POST['title'],
-            ':full_desc' => $_POST['full_desc'],
-            ':read_length' => $_POST['read_length'],
-            ':date_posted' => $_POST['date_posted'],
-            ':views' => $_POST['views'],
-            ':seo_done' => $_POST['seo_done'],
-            ':category' => $_POST['category'],
-            ':author_id' => $_POST['author_id'],
-            ':image' => $_POST['image']
-          
+                return $images;
 
-            );
-
-            //15 execute query
-            $stmt->execute($params);
-
-            //16.value of the primary key of the last record on this session
-            $user_id = static::$dbh->lastInsertId();
-            $_SESSION['user_id'] = $user_id;
-            if ($user_id > 0 ) {
- 
-            header('Location: index.php');
-    // ?user_id=' . $user_id
-            die;
             }
 
-        }
+        
 
 
 

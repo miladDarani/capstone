@@ -646,6 +646,42 @@ font-weight: 500;
   margin:0 auto;
 }
 
+  .success-msg {
+    background-color: #bafaba !important;
+    
+
+  }
+  .success-msg p {
+    padding:12px;
+    margin: 0;
+  }
+
+  .err-msg{
+    background-color: #fababa;
+  }
+  .hidden{
+    display: none;
+  }
+
+  .flash {
+    text-align: center;
+    
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  .hidden{
+    display: none;
+  }
+  .flash-area{
+    list-style: none;
+    padding:  12px;
+    text-align: center;
+    font-weight: 500;
+   
+  }
+
+
 .sound-pro-wrapper{
   display: flex;
   width: 100%;
