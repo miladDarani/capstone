@@ -83,24 +83,7 @@ $_SESSION['flash'] = $flash;
 
     <div class="yellow-row">
         
-        <div class="btn-div1">
 
-            <div>
-                <form action="signout.php" method="post">
-                    <button class="btn">Logout</button>
-                </form>
-            </div>
-            <div>
-                <?php if($user['is_admin'] == 1) : ?>
-
-                    <form action="/admin" method="post">
-                        <button style="letter-spacing: .7px; background-color: #22e089; " class="btn">Admin</button>
-                    </form>
-                
-                <?php endif; ?>
-            </div>
-
-        </div><!-- btn-div1 -->
         <div class="info1">
 
             <div class="profile-pic">
@@ -110,9 +93,20 @@ $_SESSION['flash'] = $flash;
             </div>
             
 
-            <div class="main-info">
+            <div class="main-info" style="border-bottom: .5px solid #ccc">
                 
-                <h2 class='name-of-user'><strong><?=$user['first_name'] . ' ' . $user['last_name'] ?></strong><i class="fas fa-map-marker-alt" style="margin-left:25px;font-size:12px; color:#ccc"><span style="font-family: 'Quicksand', sans-serif; font-size:12px; color:#ccc" ><?=$user['province'] . ", " . $user['country'] ;?></span></i></h2>
+                <h2 class='name-of-user'>
+
+                    <strong><?=$user['first_name'] . ' ' . $user['last_name'] ?></strong>
+
+                    <i class="fas marker-icon fa-map-marker-alt" style="margin-left:25px;font-size:12px; color:#ccc">
+                        <span style="font-family: 'Quicksand', sans-serif; font-size:12px; color:#ccc" >
+                            <?=$user['province'] . ", " . $user['country'] ;?>      
+                        </span>
+                    </i>
+
+                </h2>
+
                 <p class="nick">
                     <?=$user['nick_name'];?>
                 </p>
@@ -121,10 +115,27 @@ $_SESSION['flash'] = $flash;
                 <p class="info-number"><?=count($comments)?></p>
 
                 <p class="info-label-small" style="margin:20px auto 0 auto;" > Member Since: <?=$user['created_at'];?></p>
-
+            
             </div>
 
+                    <div class="btn-div1">
 
+            <div>
+                <form class= "signout-form" action="signout.php" method="post">
+                    <button class="btn">Logout</button>
+                </form>
+            </div>
+            <div>
+                <?php if($user['is_admin'] == 1) : ?>
+
+                    <form action="/admin" method="post">
+                        <button  style="letter-spacing: .7px; background-color: #22e089; margin:0 20px; " class="btn admin-btn">Admin</button>
+                    </form>
+                
+                <?php endif; ?>
+            </div>
+
+        </div><!-- btn-div1 -->
                 
 
             
@@ -132,13 +143,28 @@ $_SESSION['flash'] = $flash;
         
 
         </div> <!-- /info1 -->
-        <hr>
+      
         <div class="info2">
 
-            <div class="info2-left">
-                
-            
+            <div class="info2-left" style="padding: 0 53px; ">
+                <div class="info2-l-wrapper1">
+                    <h3 style="margin:0; padding-bottom: 10px;">Membership Level</h3> 
+                    <p class="info-label-small"> Subscription:
+                    <a href="pricing.php" style="color:#777; text-decoration: none;background-color: #cdfad5; padding:10px;">FREE</a>
+                    </p>
+                    <p class="info-label-small" style="border-bottom: .5px solid #ccc;padding-bottom:40px;"> upgrade to <br> <a style="color:#2289e0; text-decoration: none" href="pricing.php">Basic </a> for $4.99mth </p>
+                </div>
 
+                <div class="info2-l-wrapper2">
+                    <h3 style="margin:0; padding-bottom: 10px;">Skills</h3> 
+                    <ul style="list-style: none;padding-left: 0;margin-bottom: 170px">
+                        <li>Sound Design</li>
+                        <li>Audio Editing</li>
+                        <li>Mixing</li>
+                        <li>Mastering</li>
+                        <li>Blogging</li>
+                    </ul>
+                </div>
             </div>
 
 
@@ -181,9 +207,10 @@ $_SESSION['flash'] = $flash;
                         <table id="comment-table">
                             <tr>
                                 <th></th>
+                                <th>Post</th>
                                 <th>Comment</th>
                                 <th>Date</th>
-                                <th>Post</th>
+                                
                             </tr>
 
                             <?php foreach ($comments as $comment) : ?>
@@ -193,10 +220,11 @@ $_SESSION['flash'] = $flash;
                                 <td>
                                     <a href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" > <img style="width:100px;" src="images/blog-pics/<?=esc($comment['image'])?>" alt="<?=esc($comment['title'])?>"></a>
                                 </td>
-
-                                <td><a style="color:#005df7" href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" ><?=esc($comment['comment_text'])?></a></td>
-                                <td><?=esc($comment['date_added'])?></td>
-                                <td class="title-size" ><a href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" ><?=esc($comment['title'])?></a></td> 
+                                
+                                <td class="title-size" ><a  style="font-size:13px" href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" ><?=esc($comment['title'])?></a></td> 
+                                <td><a style="color:#005df7; font-size: 13px" href="blog_detail.php?page=blog_detail&post_id=<?=esc($comment['post_id'])?>" ><?=esc($comment['comment_text'])?></a></td>
+                                <td style="width:100px; font-size:11px;"><?=esc($comment['date_added'])?></td>
+                                
 
                               </tr>
 
@@ -244,12 +272,7 @@ $_SESSION['flash'] = $flash;
 document.getElementById("defaultOpen").click();
     </script>
 
-    <div class="comments">
-        <p><i class="fas fa-comments"></i> </p>
-        <h1>Number of comments</h1>
 
-        <h1 class="comment-num"><?=count($comments)?></h1>
-    </div>
 
     <div class="comments-row">
         

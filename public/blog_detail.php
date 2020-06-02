@@ -24,8 +24,10 @@ $comment_model = new CommentsModel();
 $comments = $comment_model->postComments($_SESSION['post_id']);
 
 $u = new UserModel();
-$our_user = $u->ourUser($_SESSION['user_id']);
 
+if(!empty($_SESSION['user_id'])){
+    $our_user = $u->ourUser($_SESSION['user_id']);
+}
 ?>
 
 

@@ -7,12 +7,13 @@ body {
 }
 
 .profile-pic  {
-width: 30%;
-
+    width: 30%;
+    padding-left: 25px;
 }
 
 .main-info{
     width: 70%;
+    margin-left:25px;
 }
 
 .profile-info {
@@ -42,6 +43,11 @@ width: 30%;
 .info1{
     display: flex;
     justify-content: space-between;
+}
+
+.info2-l-wrapper2 ul li {
+    font-weight: 400;
+    color:#aaa;
 }
 
 .btn-div1{
@@ -149,6 +155,7 @@ width: 30%;
 }
 .info2-right{
     width: 70%;
+   
 }
 p.info-label-small{
     font-size: 14px;
@@ -185,6 +192,7 @@ td{font-weight: 600;}
   padding: 14px 16px;
   font-size: 17px;
   width: 25%;
+  text-align: left;
 }
 
 .tablink:hover {
@@ -204,3 +212,97 @@ td{font-weight: 600;}
 #News {background-color: #fff;}
 #Contact {background-color: blue;}
 #About {background-color: orange;}
+
+@media screen and (max-width: 960px){
+    .info1{
+        flex-direction: column;
+    }
+    .main-info{
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .profile-pic{
+        margin: 0 auto;
+        padding-left: 0;
+        width: auto;
+    }
+    .marker-icon{
+        display: none;
+    }
+    .btn-div1 {
+        justify-content: center;
+    }
+    .info2{
+        flex-direction: column;
+    }
+    .info2-left{
+        width: auto;
+        margin: 0 auto;
+    }
+    .info2-right{
+        width: 100%;
+    }
+    .info2-right button{
+        text-align: center;
+            }
+    .tablink{
+        width: 50%;
+    }
+    .info2-l-wrapper2{
+        display: none;
+    }
+    .admin-btn{
+        margin:0 !important;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 960px){
+    .info1{
+        /*flex-direction: row;*/
+        border-bottom: 1px solid #ccc;
+    }
+    .info2{
+        
+    }
+    .btn-div1 {
+       /* width: 15%;
+        display: block;*/
+        margin:11px auto;
+
+    }
+    .signout-form{
+        text-align: center;
+        margin-right: 10px;
+    }
+    .profile-pic img{
+        border:5px solid #0c1b2b;
+    }
+    .main-info{
+        border-bottom: none !important;
+    }
+    .info2-l-wrapper1{
+        
+    }
+    .info2-l-wrapper2{
+        display: none;
+        flex-direction: column;
+    }
+    .info2-left{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+        padding:30px 0 10px 0 !important;
+        background-color: #555;
+        color: white;
+
+    }
+    .info-label-small{
+        border-bottom: none !important;
+    }
+    .info2-right{
+        border-top:1px solid #ccc;
+    }
+
+}
