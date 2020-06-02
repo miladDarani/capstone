@@ -261,7 +261,7 @@ else
           </li>
 
         </ul>
-            <form class="form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+            <form class="form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
 
 
               <input class="form-control" type="text" id="s1" name="s1" maxlength="255" placeholder="Search Posts" value="" />
@@ -299,7 +299,7 @@ else
                 <input type="hidden" name="add" value="add" />
             </form>
 
-            <form class="mb-5 form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+            <form class="mb-5 form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
 
 
               <input class="form-control" type="text" id="s" name="s" maxlength="255" placeholder="Search Posts" value="" />
@@ -340,7 +340,7 @@ else
                   <form action="/admin/" method="post">
                     <input type="hidden" name="delete" value="delete" />
                     <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
-                    <button type="submit" class="delete btn btn-danger btn-sm" href="index.php"><i class="fas fa-trash"></i></button>
+                    <button onclick="return (confirm('Follow this link?'))" type="submit" class="delete btn btn-danger btn-sm" href="index.php"  ><i class="fas fa-trash"></i></button>
                   </form>
                   
                 </td>
@@ -361,8 +361,22 @@ else
 
         $(".flash-area").delay(2500).slideUp(2500);
 
+
+
     });
+
+    function deleteItem(e) {
+      if (confirm("Are you sure?")) {
+        return true;
+      }else {
+        location.reload();
+        return false;
+      }
+      
+}
+
 </script>
+
 
 
   </body>

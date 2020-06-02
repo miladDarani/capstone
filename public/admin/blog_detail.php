@@ -189,7 +189,7 @@ if(!empty($_GET['post_id'])){
           </li>
 
         </ul>
-            <form class=" form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+            <form class=" form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
 
 
               <input class="form-control" type="text" id="s2" name="s2" maxlength="255" placeholder="Search Posts" value="" />
@@ -372,7 +372,7 @@ if(!empty($_GET['post_id'])){
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
 
-                <a href="blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>"><button type="submit"  class="btn btn-primary">Visit Blog</button></a>
+                <a  class="btn btn-primary" href="/blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>">Visit Blog</a>
               </div>
 
 

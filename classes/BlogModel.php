@@ -16,7 +16,8 @@ class BlogModel extends Model
             authors.author_name as author
             FROM 
             blog_post
-            JOIN authors USING(author_id)';
+            JOIN authors USING(author_id)
+            WHERE deleted = 0';
 
             $stmt = static::$dbh->query($query);
 
@@ -32,7 +33,8 @@ class BlogModel extends Model
             FROM 
             blog_post
             JOIN authors USING(author_id)
-            WHERE post_id = :id';
+            WHERE post_id = :id
+            AND deleted = 0';
 
             $stmt = static::$dbh->prepare($query);
 
@@ -57,13 +59,13 @@ class BlogModel extends Model
             FROM 
             blog_post
             JOIN authors USING(author_id)
-
-            WHERE 
+            WHERE
             blog_post.title LIKE :searchterm1
             OR
             authors.author_name LIKE :searchterm2
             OR
             blog_post.full_desc LIKE :searchterm3
+
             ORDER BY blog_post.title ASC';
 
             $stmt = static::$dbh->prepare($query);
@@ -99,7 +101,8 @@ class BlogModel extends Model
             image=:image
 
             WHERE 
-            post_id=:post_id';
+            post_id=:post_id
+            AND deleted = 0';
 
 
 
@@ -134,9 +137,8 @@ class BlogModel extends Model
 
             final public function deleteRecord(int $id)
             {
-                $query = 'DELETE FROM blog_post 
-               
-                WHERE post_id = :post_id';
+                $query = ' UPDATE blog_post SET deleted = 1 WHERE post_id = :post_id';
+
 
                 $stmt = static::$dbh->prepare($query);
 
@@ -191,7 +193,8 @@ class BlogModel extends Model
 
             public function allImages()
             {
-                $query = "SELECT DISTINCT image from blog_post";
+                $query = "SELECT DISTINCT image from blog_post 
+                WHERE deleted = 0";
 
                 $stmt =  static::$dbh->query($query);
 
@@ -204,7 +207,8 @@ class BlogModel extends Model
 
             public function minViews()
             {
-                $query = "SELECT MIN(views) FROM blog_post";
+                $query = "SELECT MIN(views) FROM blog_post 
+                WHERE deleted = 0";
 
                 $stmt =  static::$dbh->query($query);
 
@@ -216,7 +220,8 @@ class BlogModel extends Model
 
             public function maxViews()
             {
-                $query = "SELECT MAX(views) FROM blog_post";
+                $query = "SELECT MAX(views) FROM blog_post 
+                WHERE deleted = 0";
 
                 $stmt =  static::$dbh->query($query);
 
@@ -227,7 +232,8 @@ class BlogModel extends Model
 
             public function sumViews()
             {
-                $query = "SELECT SUM(views) FROM blog_post";
+                $query = "SELECT SUM(views) FROM blog_post 
+                WHERE deleted = 0";
 
                 $stmt =  static::$dbh->query($query);
 
@@ -238,7 +244,8 @@ class BlogModel extends Model
 
             public function avgViews()
             {
-                $query = "SELECT AVG(views) FROM blog_post";
+                $query = "SELECT AVG(views) FROM blog_post 
+                WHERE deleted = 0";
 
                 $stmt =  static::$dbh->query($query);
 

@@ -266,7 +266,7 @@ else
           </li>
 
         </ul>
-            <form class="form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+            <form class="form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
 
 
               <input class="form-control" type="text" id="s1" name="s1" maxlength="255" placeholder="Search Posts" value="" />
