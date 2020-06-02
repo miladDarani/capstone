@@ -9,6 +9,12 @@ $title = "Authors";
 
 $aa = new AuthorModel();
 $all_authors = $aa->authorsAll();
+if(empty($_SESSION['is_admin'])){
+    $errors['admin'] = 'You must be an admin to see this page.';
+    $_SESSION['errors'] = $errors;
+    header('Location: /profile.php' );
+    die;
+}
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -79,11 +85,15 @@ $all_authors = $aa->authorsAll();
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="/admin">Posts <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/admin">Dash </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="posts.php">Posts</a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="authors.php">Authors</a>
+            <a class="nav-link" href="authors.php">Authors <span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item">

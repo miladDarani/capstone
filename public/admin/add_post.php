@@ -19,7 +19,12 @@ $all_images = $i->allImages();
 
 // dd($_SESSION['errors']);
 
-
+if(empty($_SESSION['is_admin'])){
+    $errors['admin'] = 'You must be an admin to see this page.';
+    $_SESSION['errors'] = $errors;
+    header('Location: /profile.php' );
+    die;
+}
 
 ?><!DOCTYPE html>
 <html lang="en">

@@ -9,6 +9,12 @@ $title = "Comments";
 
 $c = new CommentsModel();
 $all_comments = $c->allComments();
+if(empty($_SESSION['is_admin'])){
+    $errors['admin'] = 'You must be an admin to see this page.';
+    $_SESSION['errors'] = $errors;
+    header('Location: /profile.php' );
+    die;
+}
 ?><!DOCTYPE html>
 <html lang="en">
   <head>
@@ -78,15 +84,19 @@ $all_comments = $c->allComments();
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="/admin">Posts <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/admin">Dash </a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="posts.php">Posts</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="authors.php">Authors</a>
+            <a class="nav-link" href="authors.php">Authors </a>
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href="comments.php">Comments</a>
+            <a class="nav-link" href="comments.php">Comments <span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item">

@@ -4,7 +4,12 @@ use Capstone\Validator;
 use Capstone\BlogModel;
 use Capstone\AuthorModel;
 
-
+if(empty($_SESSION['is_admin'])){
+    $errors['admin'] = 'You must be an admin to see this page.';
+    $_SESSION['errors'] = $errors;
+    header('Location: /profile.php' );
+    die;
+}
 
 
 $v = new Validator();
