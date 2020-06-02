@@ -9,14 +9,10 @@ use Capstone\CommentsModel;
 use Capstone\AuthorModel;
 use Capstone\Validator;
 
-$title = "Dashboard";
+$title = "Posts";
 
 $post = new BlogModel();
 $p = $post->allPosts();
-$min_views= $post->minViews();
-$max_views= $post->maxViews();
-$sum_views= $post->sumViews();
-$avg_views= $post->avgViews();
 
 
 $u = new UserModel();
@@ -27,7 +23,6 @@ $cc = $c->allComments();
 
 $a = new AuthorModel();
 $aa = $a->authorsAll();
-
 
 
 $v= new Validator();
@@ -241,12 +236,12 @@ else
       <div class="navbar-collapse collapse" id="navbarsExample03" style="">
         <ul class="navbar-nav mr-auto">
 
-          <li class="nav-item active">
-            <a class="nav-link" href="index.php">Dash <span class="sr-only">(current)</span></a>
+           <li class="nav-item">
+            <a class="nav-link" href="index.php">Dash</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="posts.php">Posts</a>
+          <li class="nav-item active">
+            <a class="nav-link" href="posts.php">Posts <span class="sr-only">(current)</span></a>
           </li>
 
           <li class="nav-item">
@@ -287,42 +282,79 @@ else
     </div>
  <?php endif; ?>
 
- <table class="table table-striped table-hover table-dark" style="width:90%; margin:30px auto;">
-    <tbody>
-        <tr>
-            <th class="one-quarter ">Dashboard</th>
-        </tr>
-
-        <tr>
-          <td class="one-quarter">
-
-            <p>
-               Posts: <strong><?=count($p)?></strong><br>
-               Users: <strong><?=count($uu)?></strong><br>
-               Comments: <strong><?=count($cc)?></strong><br>
-               Authors: <strong><?=count($aa)?></strong><br>
-            </p>
-
-          </td>
-
-
-          <td class="one-quarter">
-
-            <p>
-               Min View: <strong><?=implode(" ",$min_views[0])?></strong><br>
-               Max View: <strong><?=implode(" ",$max_views[0])?></strong><br>
-               Sum of all views: <strong><?=implode(" ",$sum_views[0])?></strong><br>
-               Average per views: <strong><?=round(implode(" ",$avg_views[0]))?></strong><br>
-
-            </p>
-
-          </td>
-        </tr>
-
-    </tbody>
-  </table>
-
  
+
+  <div class="container admin-container">
+    <div class="row">
+      <div class="col-lg-12">
+
+
+        <h1 class="mt-3">Posts</h1>
+
+          
+          <p>
+
+            <form action="add_post.php" method="post" novalidate="">
+                <button class=" btn float-left btn-success " href="#">Add a Post</button> 
+                <input type="hidden" name="add" value="add" />
+            </form>
+
+            <form class="mb-5 form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+
+
+              <input class="form-control" type="text" id="s" name="s" maxlength="255" placeholder="Search Posts" value="" />
+
+              <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
+
+            </form>
+          </p>
+
+
+
+
+               
+        <table id="admin_posts" class="table table-striped table-dark">
+          <tr>
+              <th>Post ID</th>
+              <th>Author</th>
+              <th>Title</th>
+              <th>Created at</th>
+              <th class="actions">Actions</th>
+          </tr>
+
+          <tr>
+             
+              <?php foreach ($p as $key => $value) : ?>
+                <td><?=$value['post_id']?></td>
+                <td><?=$value['author']?></td>
+                <td><?=$value['title']?></td>
+                <td><?=$value['date_posted']?></td>
+                <td class="icons">
+                  <form action="blog_detail.php" method="get" >
+                    <a type="submit" class="btn btn-primary btn-sm"  href="/admin/blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>">edit</a>
+                    &nbsp;
+
+                    
+                  </form>
+
+                  <form action="/admin/" method="post">
+                    <input type="hidden" name="delete" value="delete" />
+                    <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
+                    <button type="submit" class="delete btn btn-danger btn-sm" href="index.php"><i class="fas fa-trash"></i></button>
+                  </form>
+                  
+                </td>
+          </tr>
+
+              <?php endforeach ; ?>
+
+
+        </table>
+
+        
+      </div>
+    </div>
+  </div>
 
 <script>
     $(document).ready(function(){

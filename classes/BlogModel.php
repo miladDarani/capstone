@@ -201,6 +201,52 @@ class BlogModel extends Model
 
             }
 
+
+            public function minViews()
+            {
+                $query = "SELECT MIN(views) FROM blog_post";
+
+                $stmt =  static::$dbh->query($query);
+
+                $views = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+                return $views;
+            }
+
+
+            public function maxViews()
+            {
+                $query = "SELECT MAX(views) FROM blog_post";
+
+                $stmt =  static::$dbh->query($query);
+
+                $views = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+                return $views;
+            }
+
+            public function sumViews()
+            {
+                $query = "SELECT SUM(views) FROM blog_post";
+
+                $stmt =  static::$dbh->query($query);
+
+                $views = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+                return $views;
+            }
+
+            public function avgViews()
+            {
+                $query = "SELECT AVG(views) FROM blog_post";
+
+                $stmt =  static::$dbh->query($query);
+
+                $views = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+                return $views;
+            }
+
         
 
 
