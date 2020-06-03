@@ -1,9 +1,20 @@
 <?php 
+                    //     ──────▄▀▄─────▄▀▄              W W W !!
+                    //     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+                    //     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+                    //     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// ||       Milad Darani - Capstone 2020 - Functions file               ||
+// || Where all cuztom functions are stored .                           ||
+// || they will loaded on every page via config file                    ||
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+//-------------------------------------------------------\\
 
 /**
  * Dump and die
  * @param  [variable] $var [what you need to output ]
- * @return [text]      [the results of your param selection]
+ * @return [text]      
  */
 function dd($var)
 
@@ -13,7 +24,7 @@ function dd($var)
     echo '</pre>';
 }
 
-
+//-------------------------------------------------------\\
 
 /**
  * beautify text
@@ -26,6 +37,7 @@ function label ($field)
     $label = ucwords($label);
     return $label;
 }
+//-------------------------------------------------------\\
 
 /**
  * 
@@ -36,6 +48,7 @@ function esc_attr($string)
 {
     return htmlentities($string, ENT_QUOTES, "UTF-8");
 }
+//-------------------------------------------------------\\
 
 /**
  * 
@@ -46,8 +59,7 @@ function esc($string)
 {
     return htmlentities($string, ENT_QUOTES, "UTF-8");
 }
-
-//10. function to send stuff in the value fields in index.php
+//-------------------------------------------------------\\
 
 /**
  * function to send stuff in the value fields in index.php
@@ -63,12 +75,14 @@ function old($field, $post)
         return '';
     }
 }
+//-------------------------------------------------------\\
+
 
 /**
  * adding red errors to labels of form
- * @param  string $field [description]
- * @param  [string] $post  [description]
- * @return [type]        [description]
+ * @param  string $field [logs errors to display to user]
+ * @param  [string] 
+ * @return [string]  
  */
 function err($field, $post)
 {
@@ -78,10 +92,13 @@ function err($field, $post)
         return '';
     }
 }
+//-------------------------------------------------------\\
+
+
 
 /**
  * [auth description]
- * @return [type] [description]
+ * @return [int] [authentication function]
  */
 function auth ()
 {

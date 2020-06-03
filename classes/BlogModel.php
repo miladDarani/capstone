@@ -1,4 +1,19 @@
 <?php
+
+                    //     ──────▄▀▄─────▄▀▄              W W W !!
+                    //     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+                    //     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+                    //     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// ||       Milad Darani - Capstone 2020 - Blog Model Class             ||
+// || Sound Comets primary Class, it is based on the model class and    ||
+// || its job is to help us select stuff from our blog post.            ||
+// || - Responsile for our search results.                              ||
+// || - Responsible for updating records.                               ||
+// || - Responsile for adding records.                                  ||
+// || - Responsible for deleting records.                               ||
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// 
 namespace Capstone;
 class BlogModel extends Model
 {

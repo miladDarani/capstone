@@ -1,5 +1,24 @@
 <?php
 
+//     ──────▄▀▄─────▄▀▄              W W W !!
+//     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+//     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+//     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// ||||||||||||||||||||||||||||||
+// |||                        |||
+// |||       Milad Darani     |||
+// |||    WDD - Capstone      |||
+// |||          2020          |||
+// |||  Instructor: S. George |||
+// |||     blog_detail.php    ||| 
+// ||| - shows one blog post  |||
+// |||    which as an admin   ||| 
+// |||          you           |||
+// |||       can edit.        |||     
+// |||                        |||
+// ||||||||||||||||||||||||||||||
+
+
 require __DIR__ . '/../../config.php';
 
 use Capstone\Validator;
@@ -169,44 +188,49 @@ $_SESSION['flash'] = $flash;
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"><?=esc($title)?></a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <a class="navbar-brand" href="/admin/"><?=esc($title)?></a>
+        <div class="navbar-collapse collapse" id="navbarsExample03" style="">
+            <ul class="navbar-nav mr-auto">
 
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Dash </a>
+                </li>
 
-    <div class="navbar-collapse collapse" id="navbarsExample03" style="">
-        <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" href="posts.php">Posts</a>
+                </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/">Posts <span class="sr-only">(current)</span></a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="authors.php">Authors </a>
+                </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Authors</a>
-            </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="comments.php">Comments </a>
+                </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Comments</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users.php">Users</a>
+                </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#">Users</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Back to SoundComet</a>
+                </li>
 
-        </ul>
-          <!-- Search Form -->
-          <form class=" form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
+            </ul>
 
-              <input class="form-control" type="text" id="s2" name="s2" maxlength="255" placeholder="Search Posts" value="" />
+            <form class="form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
+
+              <input class="form-control" type="text" id="s1" name="s1" maxlength="255" placeholder="Search Posts" value="" />
 
               <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
 
-          </form>
-
-    </div>
-</nav>
+            </form>
+        </div>
+    </nav>
 
 
 

@@ -1,5 +1,19 @@
 <?php
-
+                    //     ──────▄▀▄─────▄▀▄              W W W !!
+                    //     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+                    //     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+                    //     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// ||       Milad Darani - Capstone 2020 - Main Config File             ||
+// || - Responsible Displayin errors.                                   ||
+// || - Responsible for making database connection.                     ||
+// || - Responsible for collecting errors from Session.                 ||
+// || - Responsible for collecting _POST data.                          ||
+// || - Responsible for collection flash msg's.                         ||
+// || - Responsible for initiating model class.                         ||
+// || - Responsible for loading our functions file.                     ||
+// || * DO NOT MOVE OR DELETE FROM THIS FILE *                          ||
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
@@ -41,18 +55,11 @@ if(!empty($_SESSION['flash'])){
    }else {
     $flash=[];
    }
-// Once this file is loaded, our program will have access
-// to all the following constants
-
-// Constant is a value that cannot be changed after it is set
-// define the constant GST, set it's value to 0.5
-define('GST', 0.5);
 
 
-
-
-
+// Connection for DATABASE in in here , hidden from GIT
 require __DIR__ .'/db_connect.php';
+
 
 $dbh = new PDO(DB_DSN, DB_USER, DB_PASS);
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -7,8 +7,8 @@
 |||                        |||
 |||       Milad Darani     |||
 |||    WDD - Capstone      |||
-|||          2019          |||
-|||  Instructor: B. Scott  |||
+|||          2020          |||
+|||  Instructor: S. GEORGE |||
 |||                        |||
 ||||||||||||||||||||||||||||||
 
@@ -213,19 +213,11 @@ nav ul li a {
   text-decoration: none;
   color: #444;
   padding: 14px;
- /* -webkit-transition: color .1s, border-radius 2.6s, -webkit-box-shadow .1s, -webkit-transform 1.5s;
-  transition: color .1s, border-radius 2.6s, -webkit-box-shadow .1s, -webkit-transform 1.5s;
-  -o-transition: box-shadow .1s, color .1s, border-radius 2.6s, transform 1.5s;
-  transition: box-shadow .1s, color .1s, border-radius 2.6s, transform 1.5s;
-  transition: box-shadow .1s, color .1s, border-radius 2.6s, transform 1.5s, -webkit-box-shadow .1s, -webkit-transform 1.5s;*/
-}
+ }
+
 .hidden {
   display: none;
 }
-
-/*.signin {
-  color: #FF6B6B;
-}*/
 
 nav ul li:hover a{
   color: white;
@@ -275,32 +267,33 @@ nav ul li:active a {
 .comment-wrapper button{
   width: 100%;
   padding: 25px;
-  
   background-color: #56d962;
 }
+
 .inside-wrap{
   display: flex;
 }
+
 .inside-wrap img{
   width: 50%;
   border-radius: 50px;
   border: 1px solid #666;
 }
+
 .inside-wrap textarea {
   border:1px solid #ccc;
   width: 60%;
   margin-right: 10px;
 }
+
 .send-btn{
   width: 21%;
 }
-
 
 .comment-wrapper{
   display: flex;
   flex-direction: column;
   background-color: #ddd;
-
 }
 
 .other-comments-wrapper{
@@ -309,8 +302,8 @@ nav ul li:active a {
   background-color: #f2f2f2;
   width: 90%;
   margin: 0 auto;
-
 }
+
 .other-comments-p {
   width: 90%;
 }
@@ -319,16 +312,14 @@ nav ul li:active a {
   display: flex;
 }
 
-
 nav ul li a:active {
 }
 
 nav img {
   margin-top: -100px;
   margin-bottom: -100px;
-    /* width: 150px;
-    */;
 }
+
 /* *************************** Flash MSG ***************************** */
 .flash{
     width: 100%;
@@ -378,8 +369,6 @@ nav img {
   padding-right: 100px;
 }
 
-
-
 #slogan {
   margin-left: 8%;
   margin-top: 4%;
@@ -394,7 +383,6 @@ nav img {
   display: flex;
   width:481px;
   height:59px;
- 
   margin-top: 7%;
 }
 
@@ -410,33 +398,25 @@ nav img {
 }
 
 #yellow-bar{
- 
   background-color: black;
-
-   width: 137px;
-   height:50px;
+  width: 137px;
+  height:50px;
   position: absolute;
   transition: 1s ease-in-out;
-  
-
 }
-#black-bar{
- 
-  background-color: black;
 
-   width: 170px;
-   height:50px;
+#black-bar{
+  background-color: black;
+  width: 170px;
+  height:50px;
   position: absolute;
   transition: 1s ease-in-out;
-  
-
 }
 
 .success-msg {
   background-color: #bafaba;
-  
-
 }
+
 .success-msg p {
   padding:12px;
   margin: 0;
@@ -444,42 +424,40 @@ nav img {
 
 .err-msg{
   background-color: #fababa;
- 
-  
 }
+
 .hidden{
   display: none;
 }
 
-
 .flash {
-text-align: center;
-
-padding: 10px;
-font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
 }
 
 .flash-area{
-list-style: none;
-padding:  12px;
-text-align: center;
-font-weight: 500;
+  list-style: none;
+  padding:  12px;
+  text-align: center;
+  font-weight: 500;
 }
 
 .page-wrapper p{
   padding: 0 60px;
 }
 
-
 /* *************************** Row 2 ***************************** */
 #break, #break1, #break2 {
   margin-bottom: 100px;
   margin-top: 100px;
 }
+
 .soundcomet-image-wrapper {
   max-width:805px;
   margin:0 auto
 }
+
 #amp, #spkr, #key, #knob  {
   width: 10%;
 }
@@ -494,8 +472,6 @@ font-weight: 500;
 
 .speaker, .amplifier {
   margin-top: 50px;
-    /* margin-right: 30px;
-    */
   margin-left: 20px;
   padding: 10px;
 }
@@ -625,63 +601,65 @@ font-weight: 500;
   margin: 0;
   text-align: center;
 }
+
 .row3-sound-pro h1, .try-row h1 {
   margin: 0;
   padding: 30px;
 }
+
 .row3-sound-pro h1{
   text-align: center;
   font-weight: 600;
   padding-bottom: 40px;
   padding-top: 70px;
 }
+
 .soundcloud{
   width: 100%;
   background-color: #0c1b2b;
 }
+
 .widget{
   border-radius: 0 !important;
 }
+
 .soundcloud-wrapper{
   width:75%;
   margin:0 auto;
 }
 
-  .success-msg {
-    background-color: #bafaba !important;
-    
+.success-msg {
+  background-color: #bafaba !important;
+}
+.success-msg p {
+  padding:12px;
+  margin: 0;
+}
 
-  }
-  .success-msg p {
-    padding:12px;
-    margin: 0;
-  }
+.err-msg{
+  background-color: #fababa;
+}
 
-  .err-msg{
-    background-color: #fababa;
-  }
-  .hidden{
-    display: none;
-  }
+.hidden{
+  display: none;
+}
 
-  .flash {
-    text-align: center;
-    
-    padding: 10px;
-    font-weight: bold;
-  }
+.flash {
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+}
 
-  .hidden{
-    display: none;
-  }
-  .flash-area{
-    list-style: none;
-    padding:  12px;
-    text-align: center;
-    font-weight: 500;
-   
-  }
+.hidden{
+  display: none;
+}
 
+.flash-area{
+  list-style: none;
+  padding:  12px;
+  text-align: center;
+  font-weight: 500;
+}
 
 .sound-pro-wrapper{
   display: flex;
@@ -700,6 +678,7 @@ font-weight: 500;
   padding:30px;
   max-width: 100%;
 }
+
 .sound-pro-box:last-child{
   border:none;
 }
@@ -723,10 +702,12 @@ font-weight: 500;
   font-size: 24px;
   transition: .3s;
 }
+
 .try-btn:hover {
   background-color:#E63946;
   color:#fff;
 }
+
 .text {
   margin-bottom: 20px;
 }
@@ -747,16 +728,13 @@ font-weight: 500;
 #comment-table a{
   text-decoration:none;
   color: #222;
-
 }
-#comment-table{
 
-}
 .title-size{
   width: 215px;
 }
+
 table {
-  
   border-collapse: collapse;
   width: 100%;
 }
@@ -767,11 +745,7 @@ td, th {
   padding: 8px;
 }
 
-/*tr:nth-child(even) {
-  background-color: #99a4d7;
-
-}*/
-
+/* @MEDIA */
 @media  screen and (max-width: 768px) {
     .sound-pro-wrapper {
       flex-direction: column;
@@ -781,8 +755,8 @@ td, th {
       border:none;
       border-bottom: .1px solid #ccc;
     }
-
 }
+/* /@MEDIA*/
 
 .col-img {
   flex-basis: 1 !important;
@@ -797,7 +771,6 @@ i.arrow-icon {
 a.blog-a {
   color:white; padding:25px;
   transition: .5s;
-
 }
 
 a.blog-a:hover {
@@ -805,17 +778,18 @@ a.blog-a:hover {
   text-decoration:none;
   background-color: #ddd;
   color:#333;
-
 }
+
 .arrow-container{
   padding-bottom: 30px;
 }
-.blog-btn{
 
-    margin: 0 auto;
-    padding: 30px;
-    border-radius: 2px;
+.blog-btn{
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 2px;
 }
+
 .video-row{
   height: 600px;
   display: flex;
@@ -824,7 +798,6 @@ a.blog-a:hover {
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover;
-
   z-index: -8000;
   text-align: center;
 }
@@ -835,9 +808,11 @@ a.blog-a:hover {
   text-align: center; 
   transition: .3s;
 }
+
 .video-circle:hover {
   color:#42cbcb;
 }
+
 .head-1 p {
   text-align: center;
   font-size: 20px;
@@ -846,6 +821,7 @@ a.blog-a:hover {
   font-weight: 300;
   padding-bottom: 30px;
 }
+
 .head-1 {
   text-align: center;
   width: 100%;
@@ -856,10 +832,7 @@ a.blog-a:hover {
   font-weight: 700;
   color:white;
   text-align: center;
- 
-  margin-top: 100px;
-  
-  
+  margin-top: 100px; 
 }
 
 .slides {
@@ -868,42 +841,54 @@ a.blog-a:hover {
   color:white;
   text-align: center;
 }
+
 .blog-head{
   margin: 0 auto;
 }
+
 .blog-head h1 {
   font-size: 40px;
   margin-bottom: 0;
 }
+
 .blog-head p {
   font-size: 24px;
   margin-top: 5px;
 }
+
 .blog-head-p {
-    padding:5px 60px;
+  padding:5px 60px;
 }
+
 .blog-head a {
   padding: 30px;
   background-color: 
 }
+
 #under-p {
   font-size:15px !important;
   border-bottom: 1px solid white;
   margin-bottom: 40px;
 }
+
+/* @MEDIA */
 @media screen and (max-width: 1000px){
   .slides{
     flex-direction: column;
   }
+
   .rslides {
     margin:0 auto !important;
     padding-top: 80px;
     max-width: 100% !important;
   }
+
   #under-p {
     margin-bottom: 80px;
   }
+
 }
+/* /@MEDIA */
 
 .rslides {
   position: relative;
@@ -915,7 +900,7 @@ a.blog-a:hover {
   margin: 0;
   text-align: center;
   background-color: #e02258;
-  }
+}
 
 .rslides li {
   -webkit-backface-visibility: hidden;
@@ -924,13 +909,13 @@ a.blog-a:hover {
   width: 100%;
   left: 0;
   top: 0;
-  }
+}
 
 .rslides li:first-child {
   position: relative;
   display: block;
   float: left;
-  }
+}
 
 .rslides img {
   display: block;
@@ -940,10 +925,7 @@ a.blog-a:hover {
   border: 0;
   max-width: 100%;
   padding-bottom: 11px;
-  }
-
-
-
+}
 
 #row2 {
   display: -webkit-box;
@@ -952,10 +934,6 @@ a.blog-a:hover {
   width: 100%;
   margin-top:30px;
   padding-bottom: 70px;
-    /* flex-direction: column;
-    */
-    /* border: 2px solid green;
-    */;
 }
 
 #row2-side-wrapper {
@@ -976,8 +954,6 @@ a.blog-a:hover {
 }
 
 #row2-a {
-    /* border: 5px solid blue;
-    */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -989,8 +965,6 @@ a.blog-a:hover {
 }
 
 #row2-b {
-    /* border: 5px solid brown;
-    */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1000,6 +974,7 @@ a.blog-a:hover {
   -ms-flex-direction: row;
   flex-direction: row;
 }
+
 /* *************************** Right-side ***************************** */
 #right-side {
   width: 60%;
@@ -1028,7 +1003,9 @@ a.blog-a:hover {
 #finish-heading {
   margin-bottom: 70px;
 }
+
 /* *************************** Video Image ***************************** */
+
 .soundcomet-image-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1040,7 +1017,6 @@ a.blog-a:hover {
 }
 
 .soundcomet-image-wrapper img {
-  
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -1124,7 +1100,9 @@ a.blog-a:hover {
   -ms-transform-origin: 51% 50%;
   transform-origin: 51% 50%;
 }
+
 /* *************************** Row3 ***************************** */
+
 .h1-div {
   text-align: center;
 }
@@ -1138,7 +1116,6 @@ a.blog-a:hover {
   margin: 0 auto;
   width: 100%;
   height: auto;
-    /* REMOVE */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1237,18 +1214,20 @@ a.blog-a:hover {
   border-radius: 10%;
   margin: 0 auto;
 }
+
 .soundcomet-image-wrapper {
   height:450px;
 }
+
 /* *************************** 
            Row 4 
 ***************************** */
+
 /* -------Cassette-------*/
 #cassette {
   width: 60px;
   fill: #E63946;
   margin-bottom: 0px;
-  
 }
 
 #left-circle-g {
@@ -1297,13 +1276,10 @@ a.blog-a:hover {
   fill: #0185cc;
 }
 /* ------End Cassette------*/
+
 .our-review {
   border: 1px solid #ccc;
-    /* border-radius: 5px;
-     */
   width: 800px;
-    /* max-width: 960px;
-    */
   margin: 0 auto;
   padding: 0;
   padding-left: 23px;
@@ -1362,7 +1338,6 @@ a.blog-a:hover {
 .our-review p {
   font-weight: 100;
   margin-bottom: 60px;
-
   padding-right: 20px;
 }
 
@@ -1535,6 +1510,7 @@ a.blog-a:hover {
   -webkit-animation: gradient-play 10s ease infinite;
   animation: gradient-play 10s ease infinite;
 }
+
 /* *************************** 
           Keyframes 
 ***************************** */
@@ -1603,6 +1579,7 @@ a.blog-a:hover {
   margin-right: 30px;
   padding: 10px;
 }
+
 /* *************************** 
             Row 5 
 ***************************** */
@@ -1797,7 +1774,6 @@ div.footer-item2 {
  max-width: 100%;
  padding: 10px; 
 }
-
 
 .red-line {
   border-bottom: 2px solid #FF6B6B;
@@ -2316,7 +2292,6 @@ body {
   right: 0;
 }
 
-
 .main {
   text-align: center;
   padding-top: 5rem;
@@ -2346,7 +2321,6 @@ body {
   margin: 0 auto;
 }
 
-
 .fl {
   float: left;
 }
@@ -2362,6 +2336,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .main .share a {
   text-decoration: none;
   text-align: center;
@@ -2392,9 +2367,8 @@ body {
   line-height: 1.5;
 }
 
-
 .jquery-comments ul.navigation .navigation-wrapper {
-    padding: 20px !important;
+  padding: 20px !important;
 }
 
 .post__card-2 {
@@ -2403,17 +2377,20 @@ body {
   max-width: 24.5rem;
   float: right;
 }
+
 .post__card_-2 {
   overflow: hidden;
   background-color: #fff;
   display: flex;
 }
+
 .post__card__image-2 {
   width: 165px;
   height: 7rem;
   background-size: cover;
   background-position: center;
 }
+
 .post__card_meta-2 {
   padding-top: 0;
   padding-right: 0.75rem;
@@ -2429,7 +2406,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
+  }
 
 .post__card_alttitle-2 {
   color: #4a5568;
@@ -2441,21 +2418,14 @@ body {
   font-size: 14px;
   text-align: left;
   padding-top: 0.75rem;
-}
+  }
+
 .text-desc{
   white-space: break-spaces;
   max-height: none;
 }
 
-
-/*.text {
-  display: block;
-  
-  overflow: hidden !important;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-*/
+/* @MEDIA */
 @media screen and (max-width: 767px) {
   nav.main-nav {
     display: none;
@@ -2464,9 +2434,11 @@ body {
   #sound-bar {
     display: none;
   }
+
   #login-box {
     padding-bottom:350px;
   }
+
   #social-media {
     width: 100%;
     margin: 0;
@@ -2487,20 +2459,19 @@ body {
     margin-top:0;
     padding-bottom: 0;
   }
+
   .head-1{
     padding: 0 30px;
   }
-
 
   .soundcloud{
     width:100%;
   }
 
-
-
   #row2-wrapper{
     padding: 0;
   }
+
   #finish-heading{
     padding: 40px;
   }
@@ -2540,27 +2511,23 @@ body {
     text-align: center;
     border-radius: 120px;
     padding:20px;
-
   }
 
   .keyboard {
-
-
     background-color: #fff;
     background-size: 400% 400%;
     border: 0;
     color: #333;
     border: 1px solid #ccc;
-
   }
+
   .keyboard:hover{
-        -webkit-transform: skewY(0);
+    -webkit-transform: skewY(0);
     -ms-transform: skewY(0);
     transform: skewY(0);
     -webkit-animation: AnimationName 5s ease infinite;
     animation: AnimationName 5s ease infinite;
     background-color: white;
-  
     border: 1px solid #ccc;
     color: #555;
     -webkit-box-shadow: 0px 0px 0px rgba(0,0,0,0);
@@ -2572,7 +2539,7 @@ body {
   }
 
   .amplifier:hover {
-   0-webkit-transform: skewY(0);
+    -webkit-transform: skewY(0);
     -ms-transform: skewY(0);
     transform: skewY(0);
     -webkit-animation: AnimationName 5s ease infinite;
@@ -2585,7 +2552,7 @@ body {
   }
 
   .knob {
-        -webkit-transform: skewY(0deg);
+    -webkit-transform: skewY(0deg);
     -ms-transform: skewY(0deg);
     transform: skewY(0deg);
     -webkit-animation: AnimationName 5s ease infinite;
@@ -2609,19 +2576,6 @@ body {
     background-color: white;
     color:#333;
   }
-
-/*  .speaker:hover {
-    -webkit-transform: skewY(-2deg);
-    -ms-transform: skewY(-2deg);
-    transform: skewY(-2deg);
-    -webkit-animation: AnimationName 5s ease infinite;
-    animation: AnimationName 5s ease infinite;
-    background-color: #ea80fa;
-    border: 0;
-    color: #fff;
-    -webkit-box-shadow: 2px 6px 2px rgba(0,0,0,.6);
-    box-shadow: 2px 6px 2px rgba(0,0,0,.6);
-  }*/
 
   #slogan {
     text-align: center;
@@ -2697,6 +2651,7 @@ body {
   .signature img {
     margin: 0;
   }
+
   #twitter, #facebook, #instagram {
     width: 40px;
     height: 40px;
@@ -2848,12 +2803,12 @@ body {
 
 
 .logout-msg {
-    background-color:red;
- 
-    text-align: center;
-    transition: 2s;
-    color: blue;
+  background-color:red;
+  text-align: center;
+  transition: 2s;
+  color: blue;
 }
+
 .logout-msg p {
     padding:12px;
     margin: 0;
@@ -2863,11 +2818,8 @@ body {
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
 
 
-
-
-
 .footer-distributed{
-   font-family: Open Sans;
+  font-family: Open Sans;
   background: black;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -3026,7 +2978,6 @@ body {
   margin-bottom: 5px;
 }
 
-/* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 880px) {
 

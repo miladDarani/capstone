@@ -1,5 +1,23 @@
 <?php
 
+
+//     ──────▄▀▄─────▄▀▄              W W W !!
+//     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+//     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+//     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// ||||||||||||||||||||||||||||||
+// |||                        |||
+// |||       Milad Darani     |||
+// |||    WDD - Capstone      |||
+// |||          2020          |||
+// |||  Instructor: S. George |||
+// |||     blog_detail.php    ||| 
+// ||| - displays the list of ||| 
+// |||         users.         |||     
+// |||                        |||
+// ||||||||||||||||||||||||||||||
+
+
 require __DIR__ . '/../../config.php';
 
 use Capstone\BlogModel;
@@ -102,7 +120,7 @@ if(empty($_SESSION['is_admin'])){
                     <a class="nav-link" href="/">Back to SoundComet</a>
                 </li>
 
-        </ul>
+            </ul>
 
             <form class="form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
 
@@ -140,12 +158,9 @@ if(empty($_SESSION['is_admin'])){
 
                     </form>
                 </p>
-
-
-
-
-               
+ 
             <table id="admin_posts" class="table table-striped table-dark">
+
                 <tr>
                     <th></th>
                     <th>Name</th>
@@ -153,7 +168,6 @@ if(empty($_SESSION['is_admin'])){
                     <th>E-Mail</th>
                 </tr>
 
-            
             <!-- PHP FOREACH LOOP -->
             <?php foreach ($all_users as $key => $value) : ?>
                 <tr>

@@ -1,4 +1,13 @@
 <?php
+                    //     ──────▄▀▄─────▄▀▄              W W W !!
+                    //     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+                    //     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+                    //     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// ||       Milad Darani - Capstone 2020 - Validator Class              ||
+// || The Primary validator for soundcomet, it is used for login page,  ||
+// || Rgister page, Admin Edit, Admin Add, Admin Update as well.        ||
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 namespace Capstone;
 use PDO;
 //4. Validation Class

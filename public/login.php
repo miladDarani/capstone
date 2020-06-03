@@ -7,8 +7,6 @@ require __DIR__ . "/../includes/header_inc.php";
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-
-    // assume you validated
     $vi = new Capstone\Validator();
     
     $vi->ValidEmail('email',$_POST['email']);
@@ -17,17 +15,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(count($errors) > 0) {
         $_SESSION['errors'] = $errors;
-      //9A. Make post sticky
         $_SESSION['post'] = $_POST;
-        
         header('Location: login.php');
         die;
     }
 
-    
-
     if(empty($errors)) {
-
         // query database for user with provided email
         
         $query = 'SELECT *
@@ -53,6 +46,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: login.php');
             die;
         }
+
+
 
         // Test if login password matches what we have saved
         if(password_verify($_POST['password'], $user['password'])) {
@@ -88,62 +83,63 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title><?=$title?></title>
 </head>
+        <!-- PHP IF STATEMENT -->
         <?php if(count($errors) > 0) : ?>
 
         <div class="flash flash-err">
-            
+
+                <!-- PHP FOREACH LOOP -->
                 <?php foreach($errors as $error) : ?>
                     <?=$error?>
                 <?php endforeach; ?>
-            
+                <!-- END FOREACH LOOP -->
         </div>
 
         <?php endif; ?>
+        <!-- END IF STATEMENT -->
+
 <div class="container">
 
-  
-  <form action="/login.php" method="post">
+    <form action="/login.php" method="post">
 
+        <div class="row main-login">
 
+        <h2 style="text-align:center">Login to your account</h2>
 
-    <div class="row main-login">
+            <div class="col">
+                <input type="hidden" name="loggedIn">
+                <input type="text" name="email" placeholder="Email" value="<?=old('email', $post)?>" /><?=err('email', $errors)?>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Login">
+            </div>
 
-      <h2 style="text-align:center">Login to your account</h2>
+        </div>
+    </form>
 
-      <div class="col">
-        <input type="hidden" name="loggedIn">
-        <input type="text" name="email" placeholder="Email" value="<?=old('email', $post)?>" /><?=err('email', $errors)?>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="submit" value="Login">
-      </div>
-
-    </div>
-  </form>
 </div>
 
 <div class="bottom-container">
-  <div class="row btn-container">
-    <div class="col btn-col">
-      <a href="#" style="color:white" class="btn">Sign up</a>
+    <div class="row btn-container">
+
+        <div class="col btn-col">
+            <a href="#" style="color:white" class="btn">Sign up</a>
+        </div>
+
+        <div class="col">
+            <a href="#" style="color:white" class="btn">Forgot password?</a>
+        </div>
+
     </div>
-    <div class="col">
-      <a href="#" style="color:white" class="btn">Forgot password?</a>
-    </div>
-  </div>
 </div>
 
-<body>
-    <script>
+
+<script>
     $(document).ready(function(){
 
         $(".flash").delay(2500).slideUp(2500);
 
     });
 </script>
-</body>
-</html>
-
-
 
 
 <!-- Footer  -->

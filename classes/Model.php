@@ -1,4 +1,14 @@
 <?php
+
+                    //     ──────▄▀▄─────▄▀▄              W W W !!
+                    //     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+                    //     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+                    //     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// ||       Milad Darani - Capstone 2020 - The Model Class              ||
+// || Every other class under Capdtone namespace is extended from this  ||
+// || You can select all of something or just one of something          ||
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 namespace Capstone;
 class Model
 {

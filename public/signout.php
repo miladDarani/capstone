@@ -4,28 +4,20 @@ require __DIR__ . "/../config.php";
 
 $title = "Signout";
 require __DIR__ . "/../includes/header_inc.php";
-unset($_SESSION["user_id"]);  // where $_SESSION["nome"] is your own variable. if you do not have one use only this as follow **session_unset();**
+unset($_SESSION["user_id"]);  
 
 
-// session_destroy();
+// session destroy
 $_SESSION = [];
-      $flash =array(
+    $flash =array(
       'class' => "success-msg",
       'message' => "You have successfully logged out"
-       );
+    );
 $_SESSION['flash'] = $flash;
 header( "Location: index.php" );
 die;
     
- 
-
-
-
-
 ?>
-
-
-
 
 <!-- Footer  -->
 <?php require __DIR__ . "/../includes/footer_inc.php"; ?>

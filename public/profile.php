@@ -19,9 +19,7 @@ if(empty($_SESSION['user_id'])) {
 }
 
 
-// logged in
-
-
+// at this point user is logged in 
 $query = 'SELECT * FROM users WHERE user_id = :user_id';
 
 $stmt = $dbh->prepare($query);
@@ -40,43 +38,24 @@ if($user['is_admin'] == 1){
 
 }
 
-
-// setcookie('Country', $user['country']);
-
-
-// if(!empty($_POST['loggedIn'])) {
-//     $flash =array(
-//     'class' => "success-msg",
-//     'message' => "Welcome " . $user['first_name'] . ", Successfully logged in."
-//     );
-//     $_SESSION['first_name'] = $user['first_name'];
-// } 
-
-
-
-
-
-
-
-
-
 ?>
 
+<!-- PHP IF STATEMENT -->
 <?php if(!empty($flash)) :?> 
 
     <div class="flash-area <?=esc($flash['class'])?>">
 
-      <span><?=esc($flash['message'])?></span>
+        <span><?=esc($flash['message'])?></span>
 
     </div>
 
 <?php endif; ?>
+<!-- END IF STATEMENT -->
+
 <div class="profile">   
     
-
     <div class="yellow-row">
         
-
         <div class="info1">
 
             <div class="profile-pic">
@@ -111,24 +90,28 @@ if($user['is_admin'] == 1){
             
             </div>
 
-                    <div class="btn-div1">
+            <div class="btn-div1">
 
-            <div>
-                <form class= "signout-form" action="signout.php" method="post">
-                    <button class="btn">Logout</button>
-                </form>
-            </div>
-            <div>
-                <?php if($user['is_admin'] == 1) : ?>
-
-                    <form action="/admin" method="post">
-                        <button  style="letter-spacing: .7px; background-color: #22e089; margin:0 20px; " class="btn admin-btn">Admin</button>
+                <div>
+                    <form class= "signout-form" action="signout.php" method="post">
+                        <button class="btn">Logout</button>
                     </form>
-                
-                <?php endif; ?>
-            </div>
+                </div>
 
-        </div><!-- btn-div1 -->
+                <div>
+
+                    <!-- PHP IF STATEMENT -->
+                    <?php if($user['is_admin'] == 1) : ?>
+
+                        <form action="/admin" method="post">
+                            <button  style="letter-spacing: .7px; background-color: #22e089; margin:0 20px; " class="btn admin-btn">Admin</button>
+                        </form>
+                    
+                    <?php endif; ?>
+                    <!-- END IF STATEMENT -->
+                </div>
+
+            </div><!-- btn-div1 -->
                 
 
             

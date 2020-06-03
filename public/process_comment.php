@@ -7,6 +7,7 @@ use Capstone\CommentsModel;
 
 $v = new Validator();
 
+// if not post , redirect
 if('POST' !== $_SERVER['REQUEST_METHOD']){
     die("Not Allowed");
 }
@@ -22,15 +23,14 @@ if(!empty($errors)){
 
 $model = new CommentsModel();
 
+// adds a comment to comment table
 $comment_id = $model->add($_POST);
 
 if($comment_id > 0){
     $flash = array(
         'class'=>'success-msg',
         'message' => "Your comment has been saved! "
-
     );
-
 
 } else {
     $flash = array(

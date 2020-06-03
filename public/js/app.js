@@ -13,10 +13,10 @@ $(document).ready(function(){
       "pager": false,           // Boolean: Show pager, true or false
       "nav": false,             // Boolean: Show navigation, true or false
       "random": false,          // Boolean: Randomize the order of the slides, true or false
-      "pause": true,           // Boolean: Pause on hover, true or false
+      "pause": true,            // Boolean: Pause on hover, true or false
       "pauseControls": true,    // Boolean: Pause when hovering controls, true or false
-      "prevText": "<",   // String: Text for the "previous" button
-      "nextText": ">",       // String: Text for the "next" button
+      "prevText": "<",          // String: Text for the "previous" button
+      "nextText": ">",          // String: Text for the "next" button
       "maxwidth": "",           // Integer: Max-width of the slideshow, in pixels
       "navContainer": "",       // Selector: Where auto generated controls should be appended to, default is after the <ul>
       "manualControls": "",     // Selector: Declare custom pager navigation
@@ -400,9 +400,7 @@ $(document).ready(function(){
 
 
 
- $(".flash-area").delay(2500).slideUp(2500);
-
-
+   $(".flash-area").delay(2500).slideUp(2500);
 
   });
 

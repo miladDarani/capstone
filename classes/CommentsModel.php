@@ -1,5 +1,13 @@
 <?php
 
+                    //     ──────▄▀▄─────▄▀▄              W W W !!
+                    //     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+                    //     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+                    //     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// ||       Milad Darani - Capstone 2020 - Comments Model Class         ||
+// || Responsible for selecting all or one comment(s), based on request ||
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 namespace Capstone;
 
 class CommentsModel extends Model

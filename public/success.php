@@ -7,37 +7,22 @@ if(empty($_SESSION['user_id'])) {
     die( "please use form to add a new user");
 }
 
-//17
 $query = "SELECT * 
 FROM users
 WHERE
 user_id = :user_id";
 
-
-//18
 $stmt = $dbh->prepare($query);
 
-
-//19
 $params = array (
 ':user_id' => intval($_SESSION['user_id'])
 );
 
-//20
 $stmt->execute($params);
 
-//21
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
-
-
-//22. only fetch assosiative array above on step 21
-//
-
 ?>   
-
-
 
     <h1>Thank you for registering with S O U N D C O M E T</h1>
 
@@ -58,12 +43,6 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
     </ul>
 
     <p><a href="register.php">Add Another User Record</a></p>
-
-
-
-
-
-
 
 <?php 
 require __DIR__ . "/../includes/footer_inc.php";

@@ -1,5 +1,13 @@
 <?php
 
+                    //     ──────▄▀▄─────▄▀▄              W W W !!
+                    //     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+                    //     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+                    //     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+// ||       Milad Darani - Capstone 2020 - User Model Class             ||
+// || Responsible for selecting all or one user, based on request       ||
+// |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 namespace Capstone;
 class UserModel extends Model
 {
