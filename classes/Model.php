@@ -3,15 +3,15 @@ namespace Capstone;
 class Model
 {
     
-     static protected $dbh;
+    static protected $dbh;
 
     static public function init(\PDO $dbh) {
         static::$dbh = $dbh;
     }
 
 
-        /**
-     * Get All
+    /**
+     * Gets All from any table 
      * @return Array
      */
     final public function all()
@@ -30,8 +30,12 @@ class Model
 
     }
 
-        /**
-     * Get one 
+
+
+
+// --------------------------------------------------------------- \\
+    /**
+     * Gets one from any table 
      * @param  Integer $author_id
      * @return Array  
      */

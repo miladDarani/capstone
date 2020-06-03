@@ -121,10 +121,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['success'])){
  
         $post->updateRecord($_POST['post_id']);
-          $flash =array(
-          'class' => "success-msg",
-          'message' => 'Record Successfully Updated'
-        );
+
          
     }
   

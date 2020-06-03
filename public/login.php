@@ -49,6 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             
             $_SESSION['errors'] = $errors;
             $_SESSION['post'] = $_POST;
+           
             header('Location: login.php');
             die;
         }
@@ -59,6 +60,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Change the session id when a user's privilege
             // level changes... up or down (login or logout)
             session_regenerate_id();
+            $flash =array(
+                'class' => "success-msg",
+                'message' => "Welcome " . $user['first_name'] . ", Successfully logged in."
+             );
+                 $_SESSION['flash'] = $flash;
+            $_SESSION['first_name'] = $user['first_name'];
             header('Location: profile.php');
             die;
         } 
@@ -104,6 +111,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       <h2 style="text-align:center">Login to your account</h2>
 
       <div class="col">
+        <input type="hidden" name="loggedIn">
         <input type="text" name="email" placeholder="Email" value="<?=old('email', $post)?>" /><?=err('email', $errors)?>
         <input type="password" name="password" placeholder="Password" required>
         <input type="submit" value="Login">
@@ -125,7 +133,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 </div>
 
 <body>
-    
+    <script>
+    $(document).ready(function(){
+
+        $(".flash").delay(2500).slideUp(2500);
+
+    });
+</script>
 </body>
 </html>
 

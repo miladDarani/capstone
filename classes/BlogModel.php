@@ -9,24 +9,36 @@ class BlogModel extends Model
 
    
 
+        /**
+         * Return all posts from blog
+         _post table
+         * @return [array] [description]
+         */
+        public function allPosts()
+            {
+                $query = 'SELECT blog_post.*,
+                authors.author_name as author
+                FROM 
+                blog_post
+                JOIN authors USING(author_id)
+                WHERE deleted = 0';
 
-     public function allPosts()
-        {
-            $query = 'SELECT blog_post.*,
-            authors.author_name as author
-            FROM 
-            blog_post
-            JOIN authors USING(author_id)
-            WHERE deleted = 0';
+                $stmt = static::$dbh->query($query);
 
-            $stmt = static::$dbh->query($query);
+                $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-            $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-            return $result;
-        }
+                return $result;
+            }  
 
 
+
+
+// --------------------------------------------------------------- \\
+        /**
+         * [onePost return only one post from blog_post]
+         * @param  [int] $id 
+         * @return [array]
+         */
         public function onePost($id)
         {
             $query = 'SELECT *
@@ -51,6 +63,15 @@ class BlogModel extends Model
 
 
 
+
+
+
+// --------------------------------------------------------------- \\
+        /**
+         * gets all matching posts using search
+         * @param  [string] 
+         * @return [array]        
+         */
         final function getAllPostsBySearch($searchterm)
         {
 
@@ -86,6 +107,14 @@ class BlogModel extends Model
 
 
 
+
+
+// --------------------------------------------------------------- \\
+        /**
+         * [updateRecord edit and update an exisitng record]
+         * @param  [int] $id 
+         * @return [array]    
+         */
         final public function updateRecord($id)
         {
            $query = '
@@ -105,10 +134,8 @@ class BlogModel extends Model
             AND deleted = 0';
 
 
-
-            //3. prepare the query
             $stmt = static::$dbh->prepare($query);
-            //4.param
+
             $params = array (
                 ':title' => $_POST['title'],
                 ':full_desc' => $_POST['full_desc'],
@@ -119,22 +146,24 @@ class BlogModel extends Model
                 ':category' => $_POST['category'],
                 ':image' => $_POST['image']
 
-
             );
-            //5.execute
-            // dd($_POST);
-            // dd($stmt);
-            // dd($params);
-            // die;
+
             $stmt->execute($params);
             
-
-
-
-     
         }
 
 
+
+
+
+
+
+// --------------------------------------------------------------- \\
+            /**
+             * [deleteRecord deleted a record]
+             * @param  int    
+             * @return [array ]     to be deleted
+             */
             final public function deleteRecord(int $id)
             {
                 $query = ' UPDATE blog_post SET deleted = 1 WHERE post_id = :post_id';
@@ -145,11 +174,6 @@ class BlogModel extends Model
                 $params = array (
                     ':post_id' => $id
                 );
-                
-
-                
-
-                
 
                 return $stmt->execute($params);
             }
@@ -158,9 +182,10 @@ class BlogModel extends Model
             
 
 
-
-            /*
-             * adds one post to blog_post
+// --------------------------------------------------------------- \\
+            /**
+             * [addPost add a post to the blog_post table]
+             * @param [array] $array
              */
             public function addPost($array){
 
@@ -188,9 +213,18 @@ class BlogModel extends Model
                  return static::$dbh->lastInsertId();
 
             }
+
+
+
+
+
+
             
-
-
+// --------------------------------------------------------------- \\
+            /**
+             * gets all images from the database
+             * @return [array] 
+             */
             public function allImages()
             {
                 $query = "SELECT DISTINCT image from blog_post 
@@ -205,6 +239,15 @@ class BlogModel extends Model
             }
 
 
+
+
+
+
+// --------------------------------------------------------------- \\
+            /**
+             * minimum # of views in a post
+             * @return [int] 
+             */
             public function minViews()
             {
                 $query = "SELECT MIN(views) FROM blog_post 
@@ -218,6 +261,15 @@ class BlogModel extends Model
             }
 
 
+
+
+
+
+// --------------------------------------------------------------- \\
+            /**
+             * maximum # of views in a post
+             * @return [int] 
+             */
             public function maxViews()
             {
                 $query = "SELECT MAX(views) FROM blog_post 
@@ -230,6 +282,13 @@ class BlogModel extends Model
                 return $views;
             }
 
+
+
+// --------------------------------------------------------------- \\
+            /**
+             * sum of views in a post
+             * @return [int] 
+             */
             public function sumViews()
             {
                 $query = "SELECT SUM(views) FROM blog_post 
@@ -242,6 +301,12 @@ class BlogModel extends Model
                 return $views;
             }
 
+
+// --------------------------------------------------------------- \\
+            /**
+             * average # of views in a post
+             * @return [int] 
+             */
             public function avgViews()
             {
                 $query = "SELECT AVG(views) FROM blog_post 
@@ -259,4 +324,4 @@ class BlogModel extends Model
 
 
 
-}
+} // END OF MODEL

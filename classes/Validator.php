@@ -297,22 +297,6 @@ class Validator
 
 //-------------------------------------------------------------------------------------\\
 
-        // public function isChecked($field, $value)
-        // {
-        //     if($value === 'on')
-        //     {
-        //         $field = 1;
-        //     }else 
-        //     {
-        //         $field = 0;
-        //     }
-
-
-
-        // }
-
-
-
 
 
 } // /-- Validator

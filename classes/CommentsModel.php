@@ -9,6 +9,10 @@ class CommentsModel extends Model
 
     protected $key = 'comment_id';
 
+    /**
+     * add to comment_rate table 
+     * @param [array] 
+     */
     public function add($array){
 
         $query = 'INSERT INTO comment_rate
@@ -30,8 +34,14 @@ class CommentsModel extends Model
 
     }
 
-         /**
-     * Get All
+
+
+
+
+
+// --------------------------------------------------------------- \\
+    /**
+     * Gets All comments on a particular post
      * @return Array
      */
     final public function postComments($id)
@@ -57,6 +67,16 @@ class CommentsModel extends Model
 
     }
 
+
+
+
+
+// --------------------------------------------------------------- \\
+        /**
+         * comments that a user has made
+         * @param  [int]
+         * @return array
+         */
         final public function userComments($id)
         {
         // Create query
@@ -81,6 +101,13 @@ class CommentsModel extends Model
         }
 
 
+
+
+// --------------------------------------------------------------- \\
+        /**
+         * all comments from table
+         * @return [array] 
+         */
         final public function allComments()
         {
             // Create query
@@ -104,4 +131,4 @@ class CommentsModel extends Model
 
 
    
-}
+} // END OF MODEL

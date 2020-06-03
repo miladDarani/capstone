@@ -8,6 +8,11 @@ class UserModel extends Model
 
     protected $key = 'user_id';
 
+    /**
+     * gets one user
+     * @param  [int] 
+     * @return [array]     
+     */
     public function oneUser($id)
         {
             $query = 'SELECT *
@@ -29,6 +34,15 @@ class UserModel extends Model
             return $result;
         }
 
+
+
+
+// ------------------------------------------------------ \\
+    /**
+     * Similar to the function above , gets one user 
+     * @param  [int] 
+     * @return [array]     
+     */
     public function ourUser($id)
     {
         $query = 'SELECT *
@@ -50,6 +64,14 @@ class UserModel extends Model
     }
 
 
+
+
+
+// ------------------------------------------------------ \\
+        /**
+         * return all users from the user table
+         * @return [array] 
+         */
         public function allUsers()
         {
             $query = 'SELECT * 

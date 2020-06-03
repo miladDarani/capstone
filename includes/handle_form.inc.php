@@ -8,8 +8,9 @@ require __DIR__ . '/../config.php';
 if($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die('Are you lost ?');
 }
-// require __DIR__ . '/../classes/Validator.php';
+
 $v = new Capstone\Validator();
+
 //validate fotr required field
 
     //--------- First Name ----------\\

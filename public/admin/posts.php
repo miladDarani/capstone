@@ -116,11 +116,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['success'])){
  
         $post->updateRecord($_POST['post_id']);
-          $flash =array(
-          'class' => "success-msg",
-          'message' => 'Record Successfully Updated'
-        );
-         
+
     }
   
 
@@ -340,7 +336,7 @@ else
                   <form action="/admin/" method="post">
                     <input type="hidden" name="delete" value="delete" />
                     <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
-                    <button onclick="return (confirm('Follow this link?'))" type="submit" class="delete btn btn-danger btn-sm" href="index.php"  ><i class="fas fa-trash"></i></button>
+                    <button onclick="return (confirm('Are you sure you want to delete?'))" type="submit" class="delete btn btn-danger btn-sm" href="index.php"  ><i class="fas fa-trash"></i></button>
                   </form>
                   
                 </td>

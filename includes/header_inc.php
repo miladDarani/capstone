@@ -8,8 +8,8 @@
 |||                        |||
 |||       Milad Darani     |||
 |||    WDD - Capstone      |||
-|||          2019          |||
-|||  Instructor: B. Scott  |||
+|||          2020          |||
+|||  Instructor: S. George |||
 |||                        |||
 ||||||||||||||||||||||||||||||
 
@@ -37,22 +37,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- SLIDER -->
     <script src="js/ResponsiveSlides/responsiveslides.js"></script>
-
-  
-
-
-   
-
-    
     <!-- Milads JS -->
     <script src="js/app.js"></script>
   
-   
-
-
-    
-    
-    
     <style>
        .break-line {
         border-top:1px solid #ccc;
@@ -162,11 +149,6 @@
 
                 <?php endif; ?>
 
-
-
-                
-                
-
                  <li><a <?php if($title == "Cart") {echo 'class="active"';} ?> href="cart.php"><i class="fas fa-cart-plus"></i></a></li>
             </ul>
         </nav>
@@ -181,17 +163,34 @@
         
         
         <div id="mobile-nav">
-            <div class="dropdown">
-        
-      </div> 
+
+            <div class="dropdown"></div> 
            
             <ul>
-             
-              <li><a href="index.php">Home</a></li>
-              <li><a href="info.php">About</a></li>
-              <li><a href="pricing.php">Pricing</a></li>
-              <li><a href="blog.php">Blog</a></li>
-              <li><a href="account.php">Account</a></li>
+                <li><a <?php if($title == "Welcome To Sound Comet") {echo 'class="active"';} ?> href="index.php">Home</a></li>
+                <li><a <?php if($title == "About") {echo 'class="active"';} ?> href="info.php">About</a></li>
+                <li><a <?php if($title == "Pricing") {echo 'class="active"';} ?> href="pricing.php">Pricing</a></li>
+                <li><a <?php if($title == "Blog") {echo 'class="active"';} ?> href="blog.php">Blog</a></li>
+                
+                <?php if(!empty($_SESSION['is_admin'])) : ?>
+
+                    <li><a href="/admin">Admin</a></li>
+
+                <?php endif; ?>
+               
+               
+
+                <?php if(!empty($_SESSION['user_id'])) : ?>
+                     <li><a <?php if($title == "Profile") {echo 'class="active"';} ?> href="profile.php">Profile</a></li>
+                     <li><a <?php  ?> href="signout.php"></form><span class="signin"><strong>LOGOUT</strong></span></a></li>
+                     
+                <?php else :?>
+                     <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>
+                     <li><a <?php if($title == "Login") {echo 'class="active sign"';} ?> href="login.php"><span class="signin"><strong>SIGN-IN</strong></span></a></li>
+
+                <?php endif; ?>
+
+                 <li><a <?php if($title == "Cart") {echo 'class="active"';} ?> href="cart.php"><i class="fas fa-cart-plus"></i></a></li>
             </ul>
           
-        </div>
+        </div> <!-- /mobile-nav -->

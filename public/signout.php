@@ -7,8 +7,13 @@ require __DIR__ . "/../includes/header_inc.php";
 unset($_SESSION["user_id"]);  // where $_SESSION["nome"] is your own variable. if you do not have one use only this as follow **session_unset();**
 
 
-session_destroy();
+// session_destroy();
 $_SESSION = [];
+      $flash =array(
+      'class' => "success-msg",
+      'message' => "You have successfully logged out"
+       );
+$_SESSION['flash'] = $flash;
 header( "Location: index.php" );
 die;
     

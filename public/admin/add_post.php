@@ -100,43 +100,51 @@ if(empty($_SESSION['is_admin'])){
 <body>
 
   <!-- Navigation -->
- <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-      <a class="navbar-brand" href="/admin/"><?=esc($title)?></a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><?=esc($title)?></a>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="navbar-collapse collapse" id="navbarsExample03" style="">
         <ul class="navbar-nav mr-auto">
 
           <li class="nav-item">
-            <a class="nav-link" href="/admin/">Posts </a>
+            <a class="nav-link" href="/admin">Dash </a>
           </li>
 
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Authors</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">Comments</a>
+          <li class="nav-item ">
+            <a class="nav-link" href="posts.php">Posts</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">Users</a>
+            <a class="nav-link" href="authors.php">Authors </a>
+          </li>
+
+          <li class="nav-item ">
+            <a class="nav-link" href="comments.php">Comments <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="users.php">Users</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/">Back to SoundComet</a>
           </li>
 
         </ul>
-            <form class=" form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
+            <form class="form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
 
 
-              <input class="form-control" type="text" id="s2" name="s2" maxlength="255" placeholder="Search Posts" value="" />
+              <input class="form-control" type="text" id="s1" name="s1" maxlength="255" placeholder="Search Posts" value="" />
 
               <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
 
             </form>
       </div>
     </nav>
+  
 
 
 
@@ -224,7 +232,7 @@ if(empty($_SESSION['is_admin'])){
 
               <div class="form-group required">
                   <label for="title"><strong>Blog Title</strong></label>
-                  <input class="form-control" type="text" name="title" value="" /> 
+                  <input class="form-control" type="text" name="title" value="<?=old('title', $post)?>" /> 
                   
               </div>
 
@@ -244,7 +252,7 @@ if(empty($_SESSION['is_admin'])){
 
               <div class="form-group required">
                   <label for="category"><strong>Category</strong></label>
-                  <input class="form-control" type="text" name="category" value="" /> 
+                  <input class="form-control" type="text" name="category" value="<?=old('category', $post)?>" /> 
                   
               </div>
               
@@ -280,7 +288,7 @@ if(empty($_SESSION['is_admin'])){
 
                   <label for="full_desc"><strong>Full Post Description</strong></label>
                   
-                  <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc"></textarea>
+                  <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc" value=""><?=old('full_desc', $post)?></textarea>
 
               </div>
 

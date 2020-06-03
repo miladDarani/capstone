@@ -41,21 +41,20 @@ if($user['is_admin'] == 1){
 }
 
 
-
 // setcookie('Country', $user['country']);
 
 
+// if(!empty($_POST['loggedIn'])) {
+//     $flash =array(
+//     'class' => "success-msg",
+//     'message' => "Welcome " . $user['first_name'] . ", Successfully logged in."
+//     );
+//     $_SESSION['first_name'] = $user['first_name'];
+// } 
 
-if(isset($_SESSION['user_id'])) {
-    $flash =array(
-    'class' => "success-msg",
-    'message' => "Welcome " . $user['first_name'] . ", Successfully logged in."
-    );
-    $_SESSION['first_name'] = $user['first_name'];
-} 
 
 
-$_SESSION['flash'] = $flash;
+
 
 
 
@@ -63,22 +62,16 @@ $_SESSION['flash'] = $flash;
 
 ?>
 
-
 <?php if(!empty($flash)) :?> 
 
-       <div class="flash-area <?=esc($flash['class']) ?> success-msg">
-   
-         <span><?=esc($flash['message'])?></span>
-   
-        </div>
+    <div class="flash-area <?=esc($flash['class'])?>">
+
+      <span><?=esc($flash['message'])?></span>
+
+    </div>
 
 <?php endif; ?>
-<div class="profile">
-    <?php 
-
-        $flash = [];
-
-    ?>
+<div class="profile">   
     
 
     <div class="yellow-row">
@@ -242,7 +235,15 @@ $_SESSION['flash'] = $flash;
         </div><!-- /info2 -->
 
     </div>
+
+
     <script>
+    $(document).ready(function(){
+
+        $(".flash-area").delay(2000).slideUp(2500);
+
+    });
+
    function openPage(pageName, elmnt, color) {
   // Hide all elements with class="tabcontent" by default */
   var i, tabcontent, tablinks;
@@ -274,14 +275,8 @@ document.getElementById("defaultOpen").click();
 
 
 
-    <div class="comments-row">
-        
-        
-    </div>
-
     
     
-</div>
 
 
 
@@ -300,12 +295,7 @@ document.getElementById("defaultOpen").click();
 
 
 
-<script>
-    $(document).ready(function(){
 
-        $(".success-msg p").delay(2000).slideUp(2500);
 
-    });
-</script>
 
 <?php require __DIR__ . "/../includes/footer_inc.php";?>

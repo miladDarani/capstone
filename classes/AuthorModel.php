@@ -1,13 +1,19 @@
 <?php
+
 namespace Capstone;
 
 class AuthorModel extends Model
 {
 
+
     protected $table = 'authors';
 
     protected $key = 'author_id';
 
+        /**
+         * [return all authors from author table]
+         * @return [string] 
+         */
         public function allAuthors()
         {
             $query = 'SELECT author_name
@@ -23,6 +29,14 @@ class AuthorModel extends Model
             return $result;
         }
 
+
+
+
+// --------------------------------------------------------------- \\
+        /**
+         * [returns distinct authors from author table]
+         * @return [string] 
+         */
         public function fullAuthors()
         {
             $query = "SELECT DISTINCT author_name,author_id from authors";
@@ -35,6 +49,15 @@ class AuthorModel extends Model
 
         }
 
+
+
+
+
+// --------------------------------------------------------------- \\
+        /**
+         * [return all authors from author table]
+         * @return [string] 
+         */
         public function authorsAll()
         {
             $query = 'SELECT * 
@@ -50,4 +73,4 @@ class AuthorModel extends Model
         }
 
    
-}
+} // END OF MODEL

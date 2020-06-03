@@ -9,7 +9,19 @@ $p = $post->allPosts();
 
 require __DIR__ . "/../includes/header_inc.php";
 
+
+
 ?>
+
+        <?php if(!empty($flash)) :?> 
+
+            <div class="flash-area <?=esc($flash['class'])?>">
+
+              <span><?=esc($flash['message'])?></span>
+
+            </div>
+
+        <?php endif; ?>
 
         <div id="row1">
 

@@ -84,6 +84,13 @@ if(!empty($_GET['post_id'])){
        );
     }
 
+    if(empty($errors)){
+          $flash =array(
+          'class' => "success-msg",
+          'message' => 'Record Successfully Updated'
+        );
+
+    }
     $_SESSION['flash'] = $flash;
 
 
@@ -231,7 +238,7 @@ if(!empty($_GET['post_id'])){
 
         
         <p>
-          <a class="btn btn-info float-left mb-5" href="/admin">Back</a> 
+          <a class="btn btn-info float-left mb-5" href="posts.php">Back</a> 
 
           <!-- <form class="mb-5 form float-right form-inline" action="index.php" method="get" autocomplete="off" novalidate>
 
