@@ -40,6 +40,11 @@ body {
 
 }
 
+@media screen and (max-width: 768px){
+    .flash-area{
+        margin-top: 50px;
+    }
+}
 .info1{
     display: flex;
     justify-content: space-between;

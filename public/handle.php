@@ -130,16 +130,15 @@ $params = array (
 
 );
 
-//15 execute query
+//execute query
 $stmt->execute($params);
 
-//16.value of the primary key of the last record on this session
+//value of the primary key of the last record on this session
 $user_id = $dbh->lastInsertId();
 $_SESSION['user_id'] = $user_id;
 if ($user_id > 0 ) {
  
     header('Location: profile.php');
-    // ?user_id=' . $user_id
     die;
 }
 
