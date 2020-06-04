@@ -71,7 +71,7 @@ if($added_post > 0){
 
     );
     $_SESSION['flash'] = $flash;
-    header('Location: /admin' );
+    header('Location: posts.php' );
     die;
 } 
 else 

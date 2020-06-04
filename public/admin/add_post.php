@@ -99,6 +99,12 @@ if(empty($_SESSION['is_admin'])){
         text-align: center;
         font-weight: 500;
     }
+    .flash-err{
+      background-color: #f8807b;
+      color: white;
+      padding: 10px;
+      margin-bottom: 20px;
+  }
 </style>
 
 
@@ -174,15 +180,16 @@ if(empty($_SESSION['is_admin'])){
 
 
 
-<?php if(!empty($errors)) :?> 
+<div class="flash flash-area flash-err">
 
-    <div class="flash-area err-msg">
-        <?php foreach ($errors as $error) : ?>
-            <span><?=$error?></span>
+        <!-- PHP FOREACH LOOP -->
+        <ul>
+        <?php foreach($errors as $error) : ?>
+            <li><?=$error?></li>
         <?php endforeach; ?>
-    </div>
-
-<?php endif; ?>
+        <!-- END FOREACH LOOP -->
+        </ul>
+</div>
 
 
 

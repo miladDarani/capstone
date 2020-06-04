@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete']) ){
 
         $post->deleteRecord($_POST['post_id']);
 
-        header('Location: index.php');
+        header('Location: posts.php');
 
         die;   
 }
@@ -79,15 +79,6 @@ if(!empty($_SESSION['delete'])){
           'message' => 'Record Successfully Deleted'
       );
 }
-
-if(!empty($_POST['success'])){
-
-      $flash =array(
-          'class' => "success-msg",
-          'message' => 'Record Successfully updated'
-      );
-}
-
 
 
 //search function
@@ -109,48 +100,76 @@ if(!empty($_GET['s2'])){
     $p = $post->getAllPostsBySearch($_GET['s2']);  
 }
 
+
+
+
+
+
+
 //REQUEST METHOOD = POST
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    
-    $v->required('title', $_POST['title']);
-    $v->min_length('title', $_POST['title'],2);
-    $v->max_length('title', $_POST['title'],255);
 
-    $v->min_length('full_desc', $_POST['full_desc'],2);
-    $v->required('full_desc', $_POST['full_desc']);
-
-    $v->required('category', $_POST['category']);
-    $v->min_length('category', $_POST['category'],2);
-
-    $v->required('image', $_POST['image']);
-    $v->min_length('image', $_POST['image'],5);
-
-    $errors = $v->errors();
-
-    //To update an entry on blog_post
+    //UPDATE RECORD
     if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['success'])){
+        //Checking for errors
+        $v->required('title', $_POST['title']);
+        $v->min_length('title', $_POST['title'],2);
+        $v->max_length('title', $_POST['title'],255);
+
+        $v->min_length('full_desc', $_POST['full_desc'],2);
+        $v->required('full_desc', $_POST['full_desc']);
+
+        $v->required('category', $_POST['category']);
+        $v->min_length('category', $_POST['category'],2);
+
+        $v->required('image', $_POST['image']);
+        $v->min_length('image', $_POST['image'],5);
+
+        $v->required('author_name', $_POST['author_name']);
+
+        $errors = $v->errors();
+
+
+        if(!empty($errors)){
+            $_SESSION['errors'] = $errors;
+            $_SESSION['post'] = $_POST;
+
+            header("Location:" . $_SERVER['HTTP_REFERER']);
+            $class='err-msg';
+            die;}
+            
         $_SESSION['success'] = $_POST['success'];
         $post->updateRecord($_POST['post_id']);
 
+
+        header('Location: posts.php ');
+        die;
     }
     
-      //To delete an entry on blog_post
-    if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete']) ){
-
+      //DELETE RECORD
+    if(!empty($_POST['delete']) ){
+        dd("here");
+        die;
         $_SESSION['delete'] = $_POST['delete'];
 
         $post->deleteRecord($_POST['post_id']);
 
-        header('Location: index.php');
+        header('Location: posts.php');
 
         die;
 }
   
-    // EXECUTE ADDPOST FUNCTION
+    // ADD RECORD
     if(!empty($_POST['add'])){
+        $_SESSION['add'] = $_POST['add'];
         $post->addPost($_POST['post_id']);
+        header('Location: posts.php ');
+        die;
     }
+
+
+
 
     if(!empty($errors)){
         $_SESSION['errors'] = $errors;
@@ -167,7 +186,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 else
 {
     $_SESSION['delete'] = "";
-    $_SESSION['success'] = "";
+    // $_SESSION['success'] = "";
 }
 
 ?><!DOCTYPE html>

@@ -223,10 +223,12 @@ elseif(empty($_GET['post_id']))
 <div class="flash flash-area flash-err">
 
         <!-- PHP FOREACH LOOP -->
+        <ul>
         <?php foreach($errors as $error) : ?>
-            <?=$error?>
+            <li><?=$error?></li>
         <?php endforeach; ?>
         <!-- END FOREACH LOOP -->
+        </ul>
 </div>
 
 <?php endif; ?>

@@ -65,8 +65,28 @@ if(empty($_SESSION['is_admin'])){
 // }
 
 
+if(!empty($_SESSION['success'])){
+        $flash =array(
+          'class' => "success-msg",
+          'message' => 'Record Successfully updated'
+        );
+        $_SESSION['success'] = "";
+}
 
-
+if(!empty($_SESSION['add'])){
+        $flash =array(
+          'class' => "success-msg",
+          'message' => 'Record Successfully added'
+        );
+        $_SESSION['add'] = "";
+}
+if(!empty($_SESSION['delete'])){
+        $flash =array(
+          'class' => "success-msg",
+          'message' => 'Record Successfully deleted'
+        );
+        $_SESSION['delete'] = "";
+}
 
 
 //search function
@@ -305,7 +325,7 @@ else
                         <form action="/admin/" method="post">
                             <input type="hidden" name="delete" value="delete" />
                             <input type="hidden" name="post_id" value="<?=esc($value['post_id'])?>" />
-                            <button onclick="return (confirm('Are you sure you want to delete?'))" type="submit" class="delete btn btn-danger btn-sm" href="index.php"  ><i class="fas fa-trash"></i>
+                            <button onclick="return (confirm('Are you sure you want to delete?'))" type="submit" class="delete btn btn-danger btn-sm" href="posts.php"  ><i class="fas fa-trash"></i>
                             </button>
                         </form>
                     </td>
