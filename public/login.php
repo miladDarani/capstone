@@ -77,12 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 } // server
 
 
-?><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title><?=$title?></title>
-</head>
+?>
         <!-- PHP IF STATEMENT -->
         <?php if(count($errors) > 0) : ?>
 
@@ -122,7 +117,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="row btn-container">
 
         <div class="col btn-col">
-            <a href="#" style="color:white" class="btn">Sign up</a>
+            <a href="register.php" style="color:white" class="btn">Sign up</a>
         </div>
 
         <div class="col">

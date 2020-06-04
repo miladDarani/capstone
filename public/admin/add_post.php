@@ -179,8 +179,8 @@ if(empty($_SESSION['is_admin'])){
 <?php endif; ?>
 
 
-
-<div class="flash flash-area flash-err">
+<?php if(!empty($errors)) :?> 
+<div class="flash-err flash-area">
 
         <!-- PHP FOREACH LOOP -->
         <ul>
@@ -190,7 +190,7 @@ if(empty($_SESSION['is_admin'])){
         <!-- END FOREACH LOOP -->
         </ul>
 </div>
-
+<?php endif; ?>
 
 
    

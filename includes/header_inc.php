@@ -18,7 +18,7 @@
 
 <head>
     <title><?=$title?></title>
-    <meta charset="utf-8" />
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  Desktop   -->
@@ -101,6 +101,7 @@
         <link rel="stylesheet" href="css/blog_list.css" type="text/css"/>
 
     <?php endif; ?>
+    
 
     <!--[if LT IE 9]>
 
@@ -118,6 +119,7 @@
 
 
 <body>
+ 
   <!--[if LTE IE 9]>
      <div id="ie_warning">This page will not display properly in IE8, Please update to a newer version!</div>
   <![endif]-->
@@ -141,7 +143,7 @@
 
                 <?php if(!empty($_SESSION['user_id'])) : ?>
                      <li><a <?php if($title == "Profile") {echo 'class="active"';} ?> href="profile.php">Profile</a></li>
-                     <li><a <?php  ?> href="signout.php"></form><span class="signin"><strong>LOGOUT</strong></span></a></li>
+                     <li><a href="signout.php"><span class="signin"><strong>LOGOUT</strong></span></a></li>
                      
                 <?php else :?>
                      <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>
@@ -149,7 +151,7 @@
 
                 <?php endif; ?>
 
-                 <li><a <?php if($title == "Cart") {echo 'class="active"';} ?> href="cart.php"><i class="fas fa-cart-plus"></i></a></li>
+                 <li><a <?php if($title == "Cart") {echo 'class="active"';} ?> href="#"><i class="fas fa-cart-plus"></i></a></li>
             </ul>
         </nav>
         
@@ -183,7 +185,7 @@
 
                 <?php if(!empty($_SESSION['user_id'])) : ?>
                      <li><a <?php if($title == "Profile") {echo 'class="active"';} ?> href="profile.php">Profile</a></li>
-                     <li><a <?php  ?> href="signout.php"></form><span class="signin"><strong>LOGOUT</strong></span></a></li>
+                     <li><a <?php  ?> href="signout.php"><span class="signin"><strong>LOGOUT</strong></span></a></li>
                      
                 <?php else :?>
                      <li><a <?php if($title == "Register") {echo 'class="active"';} ?> href="register.php">Register</a></li>
@@ -191,7 +193,7 @@
 
                 <?php endif; ?>
 
-                 <li><a <?php if($title == "Cart") {echo 'class="active"';} ?> href="cart.php"><i class="fas fa-cart-plus"></i></a></li>
+                 <li><a <?php if($title == "Cart") {echo 'class="active"';} ?> href="#"><i class="fas fa-cart-plus"></i></a></li>
             </ul>
           
         </div> <!-- /mobile-nav -->

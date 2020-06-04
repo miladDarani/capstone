@@ -80,6 +80,11 @@ if(empty($_SESSION['is_admin'])){
         {
             display: flex;
         }
+        @media screen and (max-width:890px){
+                .form {
+                    display:none;
+                }
+            }
     </style>
 
 
@@ -153,7 +158,7 @@ if(empty($_SESSION['is_admin'])){
                 <h1 class="mt-3">Authors</h1>
 
           
-                <p>
+                
                     <form class="mb-5 form float-right form-inline" action="posts.php" method="get" autocomplete="off" novalidate>
 
 
@@ -162,7 +167,7 @@ if(empty($_SESSION['is_admin'])){
                         <button  type= "submit" class="btn float-left btn-info"><i class="fas fa-search"></i></button>
 
                     </form>
-                </p>
+                
 
    
             <table id="admin_posts" class="table table-striped table-dark">
@@ -201,11 +206,11 @@ if(empty($_SESSION['is_admin'])){
 </script>
 
 
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIMB07jRM" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
     </body>
 </html>

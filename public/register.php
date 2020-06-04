@@ -18,17 +18,17 @@ require __DIR__ . "/../includes/header_inc.php";
             <div class="box1">
                 <p>  
                     <label for="first_name">First Name</label><br />
-                    <input name="first_name" type="text" placeholder="First Name *" maxlength="45"  value="<?=esc(old('first_name', $post))?>" /> <?=err('first_name', $errors)?>
+                    <input name="first_name" type="text" id="first_name" placeholder="First Name *" maxlength="45"  value="<?=esc(old('first_name', $post))?>" /> <?=err('first_name', $errors)?>
                 </p>
 
                 <p>  
                     <label for="last_name">Last Name</label><br />
-                    <input name="last_name" type="text" placeholder="Last Name *" maxlength="45"  value="<?=esc(old('last_name', $post))?>" /><?=err('last_name', $errors)?>
+                    <input name="last_name" type="text" id="last_name"  placeholder="Last Name *" maxlength="45"  value="<?=esc(old('last_name', $post))?>" /><?=err('last_name', $errors)?>
                 </p>
 
                  <p>  
                     <label for="nick_name">Nick Name</label><br />
-                    <input name="nick_name" type="text" placeholder="Nick Name *"  maxlength="45" value="<?=esc(old('nick_name', $post))?>" /><?=err('nick_name', $errors)?>
+                    <input name="nick_name" type="text" id="nick_name"  placeholder="Nick Name *"  maxlength="45" value="<?=esc(old('nick_name', $post))?>" /><?=err('nick_name', $errors)?>
                 </p>
             
                 <p>
@@ -44,12 +44,12 @@ require __DIR__ . "/../includes/header_inc.php";
 
                 <p>
                     <label for="postal_code">Postal Code</label><br />
-                    <input name="postal_code" type="text" maxlength="7" placeholder="Postal Code i.e R2J1L5 or 90210 *"  value="<?=esc(old('postal_code', $post))?>" /><?=err('postal_code', $errors)?>
+                    <input name="postal_code" type="text" id="postal_code" maxlength="7" placeholder="Postal Code i.e R2J1L5 or 90210 *"  value="<?=esc(old('postal_code', $post))?>" /><?=err('postal_code', $errors)?>
                 </p>
 
                 <p>
                   <label for="province">Province</label><br />  
-                  <input name="province" id="province" type="text" placeholder="Province or State i.e ON or NY *"  value="<?=esc(old('province', $post))?>" maxlength="50"/><?=err('province', $errors)?>
+                  <input name="province" id="province" type="text"   placeholder="Province or State i.e ON or NY *"  value="<?=esc(old('province', $post))?>" maxlength="50"/><?=err('province', $errors)?>
                 </p> 
             </div> 
        
@@ -66,7 +66,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
                 <label for="phone">Phone</label><br />
-                <input name="phone" type="text" maxlength="20" placeholder="Phone Number *"  value="<?=esc(old('phone', $post))?>" /><?=err('street', $errors)?>
+                <input name="phone" type="text" maxlength="20" id="phone" placeholder="Phone Number *"  value="<?=esc(old('phone', $post))?>" /><?=err('street', $errors)?>
             </p>
 
             <p>
@@ -94,7 +94,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
                 <label for="age">Age</label><br />
-                <input name="age" type="text" placeholder="Your Age" maxlength="3"  value="<?=esc(old('age', $post))?>" /><?=err('age', $errors)?>
+                <input name="age" type="text" placeholder="Your Age" maxlength="3" id="age"  value="<?=esc(old('age', $post))?>" /><?=err('age', $errors)?>
             </p>
 
             <div class="btn-div-sm">

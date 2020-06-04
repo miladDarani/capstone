@@ -267,8 +267,8 @@ require __DIR__ . "/../includes/header_inc.php";
 
 <div class="try-row">
     <h1 class="try-h1">Try it FREE</h1>
-    <p class="try-p">Better sound is here</p>
-    <a href="register.php"><button class="try-btn" style="padding:24px">Get Started</button></a>
+    <p style="padding-bottom:20px" class="try-p">Better sound is here</p>
+    <a href="register.php" class="try-btn" style="padding:24px; text-decoration:none; margin-top:20px">Get Started</a>
 </div>
 
 <div class="video-row">
@@ -284,18 +284,18 @@ require __DIR__ . "/../includes/header_inc.php";
         <div class="hear-it-content">
             <h2>Hear the Difference</h2>
             <p><strong>Sound Comet </strong> is a system for instantly mixing music online. With today’s computing power, along with advanced algorithms and machine learning, music can be mixed automatically following the steps that an audio engineer would take.</p>
-            <button class="try-btn3"><a href="pricing.php">SUBSCRIBE</a></button>
+            <a class="try-btn3" href="pricing.php">SUBSCRIBE</a>
         </div>
     </div>
 
     <div class="soundcloud-wrapper">
-        <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/679309221&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+        <iframe width="600" height="450" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/679309221&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
     </div>
 </div>
 <div id="row4">
     
 <!-- Slideshow HTML -->
-<div class="fg">
+
     <div class="slides">        
         <ul class="rslides" >
         <!-- PHP FOREACH LOOP -->
@@ -315,9 +315,9 @@ require __DIR__ . "/../includes/header_inc.php";
                     <span class="text"> <?=esc($post['full_desc'])?></span>
                 </p>
 
-                <button class="try-btn try-btn2" style="width:100%; margin-top:25px;">
-                    <a  class="title-for-blog" style="text-decoration:none; color:white;border-radius: 3px; " href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>">Read More</a>
-                </button>
+                <a class="try-btn try-btn2 title-for-blog" style="text-decoration:none;width:100%; padding:5px 50px; margin-top:25px;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>">
+                     Read More</a>
+               
 
             </li>
 

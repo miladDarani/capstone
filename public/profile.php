@@ -151,7 +151,7 @@ if($user['is_admin'] == 1){
 
                 <div id="Home" class="tabcontent">
                     <p class="info-label-small">CONTACT INFORMATION</p>
-                    <table cellspacing="0" cellpadding="0" id="contact-table">
+                    <table id="contact-table">
                         <tr>
                             <th>Phone: </th>
                             <td style="color:#2289e0"><?=esc($user['phone']);?></td>
@@ -218,7 +218,7 @@ if($user['is_admin'] == 1){
         </div><!-- /info2 -->
 
     </div>
-
+</div>
 
     <script>
     $(document).ready(function(){

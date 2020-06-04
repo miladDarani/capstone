@@ -26,9 +26,9 @@ if(!empty($_GET['s'])){
     <p></p>
     <ul class="blog-menu">
         <?php foreach ($categories as $category ) : ?>
-          <form action="blog_category.php"  method="get" >
-            <li><a type="submit" href="blog_category.php?category=<?=esc(implode("",$category))?>"><?=esc(implode("",$category))?></a></li>
-          </form>
+          
+            <li><a href="blog_category.php?category=<?=str_replace(' ', '%20', esc(implode("",$category)))?>"><?=esc(implode("",$category))?></a></li>
+          
         <?php endforeach; ?>
     </ul>
 
@@ -60,7 +60,7 @@ if(!empty($_GET['s'])){
               <div class="bottom-space">
 
                   <form action="blog_detail.php"  method="get" >
-                      <a type="submit" class="sub-btn try-btn" href="blog_detail.php?page=blog_detail&post_id=<?=esc($value['post_id'])?>" >Read More</a>
+                      <a class="sub-btn try-btn" href="blog_detail.php?page=blog_detail&post_id=<?=esc($value['post_id'])?>" >Read More</a>
                   </form>
              </div>
 

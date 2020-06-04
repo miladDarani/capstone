@@ -6,7 +6,7 @@
 
                 <div class="footer-left">
 
-                    <h3><span><img src="images/logo-version-white1.png"></span></h3>
+                    <h3><span><img src="images/logo-version-white1.png" alt="Logo"></span></h3>
 
                     <p class="footer-links">
                         <a href="#" class="link-1">Home</a>
@@ -37,7 +37,7 @@
 
                     <div>
                         <i class="fa fa-envelope"></i>
-                         <p><a href="mailto:milad.darani@hotmail.com">milad.darani@hotmail.com</a></p>
+                         <p><a href="mailto:milad.sheikhi@hotmail.com">milad.sheikhi@hotmail.com</a></p>
                      </div>
 
               </div>
@@ -62,12 +62,11 @@
 
             </footer>
 
- 
+
+
+<!--     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
         </section>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-
     </body>
 
 </html>

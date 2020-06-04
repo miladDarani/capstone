@@ -29,10 +29,10 @@ $links = $post->categories();
        <!-- LINKS TO OTHER CATEGORIES -->
     <ul class="blog-menu">
         <?php foreach ($links as $category ) : ?>
-          <form action="blog_category.php"  method="get" >
+
             <li <?php if($_GET['category'] == implode("",$category)) {echo 'class="active"';} ?>>
-                <a type="submit" href="blog_category.php?category=<?=esc(implode("",$category))?>"><?=esc(implode("",$category))?></a></li>
-          </form>
+                <a href="blog_category.php?category=<?=str_replace(' ','%20',esc(implode("",$category)))?>"><?=esc(implode("",$category))?></a></li>
+
         <?php endforeach; ?>
     </ul>
     <!-- SEARCH AREA -->
@@ -62,7 +62,7 @@ $links = $post->categories();
               <div class="bottom-space">
 
                   <form action="blog_detail.php"  method="get" >
-                      <a type="submit" class="sub-btn try-btn" href="blog_detail.php?page=blog_detail&post_id=<?=esc($value['post_id'])?>" >Read More</a>
+                      <a class="sub-btn try-btn" href="blog_detail.php?page=blog_detail&post_id=<?=esc($value['post_id'])?>" >Read More</a>
                   </form>
              </div>
 
