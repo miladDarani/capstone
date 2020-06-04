@@ -57,6 +57,10 @@ if(!empty($_GET['post_id']))
     $one_post = $post->onePost($_GET['post_id']);
 
 } 
+if(!empty($_GET['category'])){
+    $title = 'Blogs by Category';
+    $books = getAllBooksByGenre($_GET['category']);
+}
 elseif(empty($_GET['post_id'])) 
 {
 
@@ -67,57 +71,6 @@ elseif(empty($_GET['post_id']))
 }
 
 
-
-if(!empty(err('title', $errors))){
-
-  $flash =array(
-  'class' => "err-msg",
-  'message' => err('title', $errors)
-   );
-}
-
-if(!empty(err('full_desc', $errors))){
-  $flash =array(
-  'class' => "err-msg",
-  'message' => err('full_desc', $errors)
-   );
-}
-
-
-
-if(!empty(err('category', $errors))){
-  $flash =array(
-  'class' => "err-msg",
-  'message' => err('category', $errors)
-   );
-}
-if(!empty(err('image', $errors))){
-  $flash =array(
-  'class' => "err-msg",
-  'message' => err('image', $errors)
-   );
-}
-
-
-
-
-
-if(!empty(err('title', $errors))&&!empty(err('full_desc', $errors)) ){
-    $flash =array(
-    'class' => "err-msg",
-    'message' => "Title & Description are required and must contain 2 characters at minimum"
-     );
-}
-
-if(empty($errors)){
-      $flash =array(
-      'class' => "success-msg",
-      'message' => 'Record Successfully Updated'
-    );
-
-}
-//setting flash message
-$_SESSION['flash'] = $flash;
 
 
 
@@ -179,6 +132,23 @@ $_SESSION['flash'] = $flash;
     text-align: center;
     font-weight: 500;
   }
+  .flash{
+    width: 100%;
+    line-height: 39px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-bottom:20px;
+  }
+.flash-err{
+    background-color: #f8807b;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+.flash-success{
+  background-color: #98eb98;
+}
 </style>
 
 
@@ -247,7 +217,20 @@ $_SESSION['flash'] = $flash;
 
  <?php endif; ?>
 
+<!-- PHP IF STATEMENT -->
+<?php if(count($errors) > 0) : ?>
 
+<div class="flash flash-area flash-err">
+
+        <!-- PHP FOREACH LOOP -->
+        <?php foreach($errors as $error) : ?>
+            <?=$error?>
+        <?php endforeach; ?>
+        <!-- END FOREACH LOOP -->
+</div>
+
+<?php endif; ?>
+<!-- END IF STATEMENT -->
 
    
 </div>

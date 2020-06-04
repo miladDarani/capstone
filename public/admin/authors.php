@@ -1,5 +1,4 @@
 <?php
-<?php
 
 //     ──────▄▀▄─────▄▀▄              W W W !!
 //     ─────▄█░░▀▀▀▀▀░░█▄         E O  
@@ -15,6 +14,8 @@
 // ||| - shows list of authors|||     
 // |||                        |||
 // ||||||||||||||||||||||||||||||
+
+
 require __DIR__ . '/../../config.php';
 
 use Capstone\BlogModel;

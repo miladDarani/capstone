@@ -42,6 +42,7 @@ $aa = $a->authorsAll();
 
 $v= new Validator();
 
+
 $class='hidden';
 
 // Displays flash msg 
@@ -51,28 +52,20 @@ if(empty($_SESSION['is_admin'])){
     header('Location: /profile.php' );
     die;
 }
-//IF NO ERRORS
-if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete']) ){
+// //IF NO ERRORS
+// if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete']) ){
 
-        $_SESSION['delete'] = $_POST['delete'];
+//         $_SESSION['delete'] = $_POST['delete'];
 
-        $post->deleteRecord($_POST['post_id']);
+//         $post->deleteRecord($_POST['post_id']);
 
-        header('Location: index.php');
+//         header('Location: index.php');
 
-        die;
-}
+//         die;
+// }
 
 
-// FLASH MSG
-if(!empty($_SESSION['delete'])){
 
-      $flash =array(
-          'class' => "success-msg",
-          'message' => 'Record Successfully Deleted'
-      );
-}
-    
 
 
 
@@ -142,8 +135,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 else
 {
-   $_SESSION['delete'] = "";
+   // $_SESSION['delete'] = "";
 }
+
+
 ?><!DOCTYPE html>
 <html lang="en">
     <head>

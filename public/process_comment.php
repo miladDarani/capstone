@@ -7,6 +7,19 @@ use Capstone\CommentsModel;
 
 $v = new Validator();
 
+$v->required('comment_text', $_POST['comment_text']);
+
+$errors = $v->errors();
+
+if(count($errors) > 0) {
+
+    $_SESSION['errors'] = $errors;
+  //9A. Make post sticky
+    $_SESSION['post'] = $_POST;
+    
+    header('Location:' . $_SERVER['HTTP_REFERER']);
+    die;
+}
 // if not post , redirect
 if('POST' !== $_SERVER['REQUEST_METHOD']){
     die("Not Allowed");
@@ -41,7 +54,7 @@ if($comment_id > 0){
 }
 
 
-$_SESSION['flash'] = $flash;
+
 
 header('Location:' . $_SERVER['HTTP_REFERER']);
 die;

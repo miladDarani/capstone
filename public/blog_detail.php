@@ -38,6 +38,28 @@ if(!empty($_SESSION['user_id'])){
     </div>
 <?php endif; ?>
 
+
+
+
+<!-- PHP IF STATEMENT -->
+<?php if(count($errors) > 0) : ?>
+
+<div class="flash flash-err">
+
+        <!-- PHP FOREACH LOOP -->
+        <?php foreach($errors as $error) : ?>
+            <?=$error?>
+        <?php endforeach; ?>
+        <!-- END FOREACH LOOP -->
+</div>
+
+<?php endif; ?>
+<!-- END IF STATEMENT -->
+
+
+
+
+
 <div class="page-wrapper">
 
 
@@ -127,7 +149,7 @@ if(!empty($_SESSION['user_id'])){
                     <div class="inside-wrap">
 
                         <div class="commment-img">
-                            <img src="https://api.adorable.io/avatars/150/<?=esc($our_user[0]['first_name'])?>@adorable.png" alt="Profile Picture">
+                            <img style="margin: 0 42px;" src="https://api.adorable.io/avatars/150/<?=esc($our_user[0]['first_name'])?>@adorable.png" alt="Profile Picture">
                         </div>
 
                         <textarea name="comment_text" id="comment" rows="5"></textarea>
@@ -150,6 +172,13 @@ if(!empty($_SESSION['user_id'])){
 
 </div> <!-- Page Wrapper -->
 
+<script>
+    $(document).ready(function(){
+
+        $(".flash").delay(2500).slideUp(2500);
+
+    });
+</script>
 
 <?php 
 require __DIR__ . "/../includes/footer_inc.php";

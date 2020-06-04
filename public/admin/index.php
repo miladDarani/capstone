@@ -58,7 +58,7 @@ if(empty($_SESSION['is_admin'])){
     die;
 }
 
-//IF NO ERRORS
+//delete record
 if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete']) ){
 
         $_SESSION['delete'] = $_POST['delete'];
@@ -79,7 +79,16 @@ if(!empty($_SESSION['delete'])){
           'message' => 'Record Successfully Deleted'
       );
 }
-    
+
+if(!empty($_POST['success'])){
+
+      $flash =array(
+          'class' => "success-msg",
+          'message' => 'Record Successfully updated'
+      );
+}
+
+
 
 //search function
 if(!empty($_GET['s'])){
@@ -119,11 +128,24 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $errors = $v->errors();
 
+    //To update an entry on blog_post
     if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['success'])){
- 
+        $_SESSION['success'] = $_POST['success'];
         $post->updateRecord($_POST['post_id']);
- 
+
     }
+    
+      //To delete an entry on blog_post
+    if($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['delete']) ){
+
+        $_SESSION['delete'] = $_POST['delete'];
+
+        $post->deleteRecord($_POST['post_id']);
+
+        header('Location: index.php');
+
+        die;
+}
   
     // EXECUTE ADDPOST FUNCTION
     if(!empty($_POST['add'])){
@@ -145,6 +167,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 else
 {
     $_SESSION['delete'] = "";
+    $_SESSION['success'] = "";
 }
 
 ?><!DOCTYPE html>

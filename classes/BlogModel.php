@@ -257,6 +257,48 @@ class BlogModel extends Model
 
 
 
+            /**
+             * gets all images from the database
+             * @return [array] 
+             */
+            public function categories()
+            {
+                $query = "SELECT DISTINCT category from blog_post 
+                WHERE deleted = 0";
+
+                $stmt =  static::$dbh->query($query);
+
+                $images = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+                return $images;
+
+            }
+
+
+
+
+
+            function getAllBlogsByCategory($category)
+            {
+
+                $query = 'SELECT * 
+                            FROM 
+                            blog_post
+                            WHERE 
+                            category = :category';
+
+                $stmt = static::$dbh->prepare($query);
+
+                $params = array(
+                    ':category' => ($category)
+                );
+
+                $stmt->execute($params);
+
+                $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+                return $result;
+            }
 
 // --------------------------------------------------------------- \\
             /**

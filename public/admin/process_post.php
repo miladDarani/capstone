@@ -1,4 +1,23 @@
 <?php
+
+//     ──────▄▀▄─────▄▀▄              W W W !!
+//     ─────▄█░░▀▀▀▀▀░░█▄         E O  
+//     ─▄▄──█░░░░░░░░░░░█──▄▄   M
+//     █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█
+// ||||||||||||||||||||||||||||||
+// |||                        |||
+// |||       Milad Darani     |||
+// |||    WDD - Capstone      |||
+// |||          2020          |||
+// |||  Instructor: S. George |||
+// |||     process_post.php   ||| 
+// ||| -   validates and      |||
+// |||      executes post     |||
+// |||        request         |||     
+// |||                        |||
+// ||||||||||||||||||||||||||||||
+
+
 require __DIR__ . '/../../config.php';
 
 use Capstone\Validator;

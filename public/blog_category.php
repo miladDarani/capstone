@@ -1,4 +1,6 @@
 <?php
+
+
 require __DIR__ . "/../config.php";
 $title = "Blog";
 
@@ -9,27 +11,31 @@ use Capstone\BlogModel;
 $post = new BlogModel();
 $p = $post->allPosts();
 
-$categories = $post->categories();
-
+$categories = $post->getAllBlogsByCategory($_GET['category']);
+$links = $post->categories();
 
 ?>
-
 <div class="row-blog-header">
-    <h1>B L O G</h1>
-   
+    <h1 style="margin:10px auto 0 auto;">B L O G</h1>
+    <p style="margin-top:0; color:tomato"><?=esc($_GET['category'])?></p>
+
+       <!-- LINKS TO OTHER CATEGORIES -->
     <ul class="blog-menu">
-        <?php foreach ($categories as $category ) : ?>
+        <?php foreach ($links as $category ) : ?>
           <form action="blog_category.php"  method="get" >
-            <li><a type="submit" href="blog_category.php?category=<?=implode("",$category)?>"><?=implode("",$category)?></a></li>
+            <li <?php if($_GET['category'] == implode("",$category)) {echo 'class="active"';} ?>>
+                <a type="submit" href="blog_category.php?category=<?=esc(implode("",$category))?>"><?=esc(implode("",$category))?></a></li>
           </form>
         <?php endforeach; ?>
     </ul>
+
+
 </div>
 
 
 <div id="row_blog">
 
-  <?php foreach ($p as $key => $value) : ?>
+  <?php foreach ($categories as $key => $value) : ?>
       <div class="blog-div">
 
           <div class="blog2-title">
