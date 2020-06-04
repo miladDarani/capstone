@@ -206,7 +206,7 @@ if($user['is_admin'] == 1){
 
                             <?php endforeach; ?>
 
-        </table>
+                        </table>
                     </div>
 
                 
@@ -220,12 +220,11 @@ if($user['is_admin'] == 1){
     </div>
 </div>
 
-    <script>
-    $(document).ready(function(){
+<script>
+    $(".flash-area").delay(2500).slideUp(2500);
+</script>
+<script>
 
-        $(".flash-area").delay(2000).slideUp(2500);
-
-    });
 
    function openPage(pageName, elmnt, color) {
   // Hide all elements with class="tabcontent" by default */
@@ -254,29 +253,7 @@ if($user['is_admin'] == 1){
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-    </script>
-
-
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</script>
 
 
 

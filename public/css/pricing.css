@@ -16,9 +16,12 @@ li a span strong {
 #price-span span {
   background-color:#fff;
 }
-/*div#mobile-nav ul li a {
+#mobile-nav ul li a {
   color:#fff;
-}*/
+}
+.burger span {
+  background-color: white;
+}
 /* *************************** 
           Wrapper 
 ***************************** */

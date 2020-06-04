@@ -33,7 +33,7 @@ require __DIR__ . "/../includes/header_inc.php";
         <h1>Creators.</h1>
         <p>Worlds First Instant Mixing and Mastering Platform</p>
         <p>Try it Now for Free</p>
-        <a href="register.p" class="myButton">Subscribe</a>
+        <a href="register.php" class="myButton">Subscribe</a>
 
         <div id="social-media">
             <img id="facebook" src="images/svgs/brands/facebook.svg" alt="Facebook Logo" />
@@ -303,7 +303,7 @@ require __DIR__ . "/../includes/header_inc.php";
             <li>
 
                 <h4>
-                    <a  class="title-for-blog" style="text-decoration:none; color:white;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>"><?=esc($post['title'])?>
+                    <a  class="title-for-blog" style="text-decoration:none; color:#555;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>"><?=esc($post['title'])?>
                     </a>
                 </h4>
 
@@ -311,11 +311,11 @@ require __DIR__ . "/../includes/header_inc.php";
                     <img src="images/blog-pics/<?=esc($post['image'])?>" alt="">
                 </a>
 
-                <p>
+                <p style="border:1px solid #555; padding :10px; margin:25px auto 40px auto;">
                     <span class="text"> <?=esc($post['full_desc'])?></span>
                 </p>
 
-                <a class="try-btn try-btn2 title-for-blog" style="text-decoration:none;width:100%; padding:5px 50px; margin-top:25px;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>">
+                <a class="try-btn2 title-for-blog" style="text-decoration:none;width:100%; padding:5px 80px; margin-top:45px !important;" href="blog_detail.php?page=blog_detail&post_id=<?=esc($post['post_id'])?>">
                      Read More</a>
                
 

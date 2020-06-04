@@ -407,7 +407,8 @@ $(document).ready(function(){
     $("#mobile-nav").toggleClass("toggle-m");
   });
 
-  
+
+  $(".flash-area").delay(2500).slideUp(2500);
   
 
 
