@@ -402,6 +402,15 @@ $(document).ready(function(){
 
    $(".flash-area").delay(2500).slideUp(2500);
 
+  
+  $(".burger").click(function(){
+    $("#mobile-nav").toggleClass("toggle-m");
+  });
+
+  
+  
+
+
   });
 
 

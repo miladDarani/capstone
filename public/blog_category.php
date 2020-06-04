@@ -10,14 +10,21 @@ use Capstone\BlogModel;
 
 $post = new BlogModel();
 $p = $post->allPosts();
+$class = "hidden";
+if(!empty($_GET['s'])){
 
+    $title2 = 'You searched for ' . $_GET['s'];
+    $p = $post->getAllPostsBySearch($_GET['s']);
+    $search_result = $_GET['s'] ;
+    $class="block";  
+}
 $categories = $post->getAllBlogsByCategory($_GET['category']);
 $links = $post->categories();
 
 ?>
 <div class="row-blog-header">
     <h1 style="margin:10px auto 0 auto;">B L O G</h1>
-    <p style="margin-top:0; color:tomato"><?=esc($_GET['category'])?></p>
+    <p style="margin-top:0; color:#6baaff;text-decoration: underline;"><a style="margin-top:0; color:#6baaff" href="blog.php">Blog/</a><a style="color:#6baaff" href="#"><?=esc($_GET['category'])?></a></p>
 
        <!-- LINKS TO OTHER CATEGORIES -->
     <ul class="blog-menu">
@@ -28,7 +35,14 @@ $links = $post->categories();
           </form>
         <?php endforeach; ?>
     </ul>
+    <!-- SEARCH AREA -->
+    <form style="margin-top:30px" class="blog-search" action="blog.php" method="get" autocomplete="off" novalidate>
 
+        <input class="form-control" type="text" id="s" name="s" maxlength="255" placeholder="Search Posts" value="" />
+
+        <button  type= "submit" ><i class="fas fa-search"></i></button>
+    </form>
+    <h2 class="<?=$class?>">Seacrh Results For: <?php echo $search_result ?></h2>
 
 </div>
 
@@ -54,6 +68,7 @@ $links = $post->categories();
 
           </div>
         
+
 
       </div>
 

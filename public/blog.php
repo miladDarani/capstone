@@ -10,7 +10,14 @@ $post = new BlogModel();
 $p = $post->allPosts();
 
 $categories = $post->categories();
+$class = "hidden";
+if(!empty($_GET['s'])){
 
+    $title2 = 'You searched for ' . $_GET['s'];
+    $p = $post->getAllPostsBySearch($_GET['s']);
+    $search_result = $_GET['s'] ;
+    $class="block";  
+}
 
 ?>
 
@@ -24,7 +31,18 @@ $categories = $post->categories();
           </form>
         <?php endforeach; ?>
     </ul>
+
+
+    <!-- SEARCH AREA -->
+    <form class="blog-search" action="blog.php" method="get" autocomplete="off" novalidate>
+
+        <input class="form-control" type="text" id="s" name="s" maxlength="255" placeholder="Search Posts" value="" />
+
+        <button  type= "submit" ><i class="fas fa-search"></i></button>
+    </form>
+    <h2 class="<?=$class?>">Seacrh Results For: <?php echo $search_result ?></h2>
 </div>
+
 
 
 <div id="row_blog">

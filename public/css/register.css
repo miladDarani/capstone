@@ -36,6 +36,9 @@
             
             box-sizing: border-box;
         }
+        #mobile-nav ul li a{
+            color:white;
+        }
         #form1{
             
             flex-direction: column;
@@ -158,11 +161,21 @@
             font-size:16px;
         }
 
-
+        .burger span{
+            background-color:white;
+        }
 
         .custom-select {
             width: 84%;
             margin-bottom: 16px;
         }
-
+        
+        @media screen and (max-width:700px){
+            .container {
+                text-align: center;
+            }
+            #form1{
+                padding: 0;
+            }
+        }
        

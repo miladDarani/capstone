@@ -4,6 +4,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 
 }
 
@@ -15,14 +16,16 @@
     margin: 0 auto;
     color: white;
     text-align: center;
-    width: 88%;
     margin-top: 50px;
+    width:88%;
+
 
 }
 
 .row-blog-header h1 {
     font-size: 34px;
     font-weight: 500;
+
 }
 
 img{

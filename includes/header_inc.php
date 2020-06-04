@@ -155,14 +155,14 @@
         
        
         
-        <div class="burger">
+        <div class="burger" >
           <span></span>
           <span></span>
           <span></span>
         </div>
         
         
-        <div id="mobile-nav">
+        <div id="mobile-nav" class="toggle-m">
 
             <div class="dropdown"></div> 
            
@@ -171,6 +171,7 @@
                 <li><a <?php if($title == "About") {echo 'class="active"';} ?> href="info.php">About</a></li>
                 <li><a <?php if($title == "Pricing") {echo 'class="active"';} ?> href="pricing.php">Pricing</a></li>
                 <li><a <?php if($title == "Blog") {echo 'class="active"';} ?> href="blog.php">Blog</a></li>
+                
                 
                 <?php if(!empty($_SESSION['is_admin'])) : ?>
 

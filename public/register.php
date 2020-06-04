@@ -52,7 +52,7 @@ require __DIR__ . "/../includes/header_inc.php";
                   <input name="province" id="province" type="text" placeholder="Province or State i.e ON or NY *"  value="<?=esc(old('province', $post))?>" maxlength="50"/><?=err('province', $errors)?>
                 </p> 
             </div> 
-       )
+       
         <!-- /.box1 -->
         <div class="box2">
 

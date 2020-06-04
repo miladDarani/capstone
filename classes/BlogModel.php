@@ -97,11 +97,13 @@ class BlogModel extends Model
             JOIN authors USING(author_id)
             WHERE
             blog_post.title LIKE :searchterm1
+            AND deleted=0
             OR
             authors.author_name LIKE :searchterm2
+            AND deleted=0
             OR
             blog_post.full_desc LIKE :searchterm3
-
+            AND deleted=0
             ORDER BY blog_post.title ASC';
 
             $stmt = static::$dbh->prepare($query);
