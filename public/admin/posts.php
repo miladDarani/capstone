@@ -288,15 +288,15 @@ else
                <!-- PHP FOREACH LOOP -->
                 <?php foreach ($p as $key => $value) : ?>
                 <tr>
-                    <td><?=$value['post_id']?></td>
-                    <td><?=$value['author']?></td>
-                    <td><?=$value['title']?></td>
-                    <td><?=$value['date_posted']?></td>
+                    <td><?=esc($value['post_id'])?></td>
+                    <td><?=esc($value['author'])?></td>
+                    <td><?=esc($value['title'])?></td>
+                    <td><?=esc($value['date_posted'])?></td>
 
                     <td class="icons">
                         <!-- EDIT A POST  -->
                         <form action="blog_detail.php" method="get" >
-                        <a type="submit" class="btn btn-primary btn-sm"  href="/admin/blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>">edit</a>
+                        <a type="submit" class="btn btn-primary btn-sm"  href="/admin/blog_detail.php?page=blog_detail&post_id=<?=esc($value['post_id'])?>">edit</a>
                         &nbsp;
 
                         </form>

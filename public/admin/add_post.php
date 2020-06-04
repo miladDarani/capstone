@@ -47,7 +47,7 @@ if(empty($_SESSION['is_admin'])){
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title><?$title?></title>
+  <title><?=esc($title)?></title>
 
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -220,7 +220,7 @@ if(empty($_SESSION['is_admin'])){
                 <div class="form-group required">
 
                     <label for="title"><strong>Blog Title</strong></label>
-                    <input class="form-control" type="text" name="title" value="<?=old('title', $post)?>" /> 
+                    <input class="form-control" type="text" name="title" value="<?=esc(old('title', $post))?>" /> 
                   
                 </div>
 
@@ -238,7 +238,7 @@ if(empty($_SESSION['is_admin'])){
                 <div class="form-group required">
 
                     <label for="category"><strong>Category</strong></label>
-                    <input class="form-control" type="text" name="category" value="<?=old('category', $post)?>" /> 
+                    <input class="form-control" type="text" name="category" value="<?=esc(old('category', $post))?>" /> 
 
                 </div>
               
@@ -264,7 +264,7 @@ if(empty($_SESSION['is_admin'])){
 
                     <label for="full_desc"><strong>Full Post Description</strong></label>
                   
-                    <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc" value=""><?=old('full_desc', $post)?></textarea>
+                    <textarea id="body" rows="4" cols="50" class="form-control" name="full_desc" value=""><?=esc(old('full_desc', $post))?></textarea>
 
                 </div>
 

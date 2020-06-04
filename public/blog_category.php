@@ -41,14 +41,14 @@ $links = $post->categories();
           <div class="blog2-title">
 
               <img src="images/blog-pics/<?=$value['image']?>" alt="<?=$value['title']?>">
-              <h3 class="header-h2"><?=$value['title']?></h3><hr />
+              <h3 class="header-h2"><?=esc($value['title'])?></h3><hr />
 
-              <span class="text"> <?=$value['full_desc']?></span>
+              <span class="text"> <?=esc($value['full_desc'])?></span>
           
               <div class="bottom-space">
 
                   <form action="blog_detail.php"  method="get" >
-                      <a type="submit" class="sub-btn try-btn" href="blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>" >Read More</a>
+                      <a type="submit" class="sub-btn try-btn" href="blog_detail.php?page=blog_detail&post_id=<?=esc($value['post_id'])?>" >Read More</a>
                   </form>
              </div>
 

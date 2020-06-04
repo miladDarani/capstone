@@ -27,7 +27,7 @@ use Capstone\AuthorModel;
 use Capstone\Validator;
 
 $title = "Dashboard";
-
+$server = $_SERVER;
 $post = new BlogModel();
 $p = $post->allPosts();
 
@@ -310,6 +310,31 @@ else
     </tbody>
 </table>
 
+<table class="table table-striped table-hover table-dark " style="width:90%; margin:30px auto;">
+    <tbody>
+        <tr  style="background-color:cornflowerblue">
+            <th>Time</th>
+            <th>Request URI</th>
+            <th>Request Method</th>
+            <th>HTTP Status</th>
+        </tr>
+        <tr >
+            <td>
+
+                <?php foreach ($server as $key => $value) : ?>
+                    <tr>
+                        <td><?=date('r',$server['REQUEST_TIME'])?></td>
+                        <td><?=$server['REQUEST_URI']?></td>
+                        <td><?=$server['REQUEST_METHOD']?></td>
+                        <td><?=http_response_code()?></td>
+                    </tr>
+                <?php endforeach; ?>
+                
+            </td>
+        </tr>
+
+    </tbody>
+</table>
 <!-- JQUERY -->
 <script>
     $(document).ready(function(){

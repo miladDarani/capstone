@@ -356,7 +356,7 @@ elseif(empty($_GET['post_id']))
                   
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <a  class="btn btn-primary" href="/blog_detail.php?page=blog_detail&post_id=<?=$value['post_id']?>">Visit Blog</a>
+                        <a  class="btn btn-primary" href="/blog_detail.php?page=blog_detail&post_id=<?=esc($value['post_id'])?>">Visit Blog</a>
                     </div>
 
 

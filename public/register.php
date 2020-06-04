@@ -18,41 +18,41 @@ require __DIR__ . "/../includes/header_inc.php";
             <div class="box1">
                 <p>  
                     <label for="first_name">First Name</label><br />
-                    <input name="first_name" type="text" placeholder="First Name *" maxlength="45"  value="<?=old('first_name', $post)?>" /> <?=err('first_name', $errors)?>
+                    <input name="first_name" type="text" placeholder="First Name *" maxlength="45"  value="<?=esc(old('first_name', $post))?>" /> <?=err('first_name', $errors)?>
                 </p>
 
                 <p>  
                     <label for="last_name">Last Name</label><br />
-                    <input name="last_name" type="text" placeholder="Last Name *" maxlength="45"  value="<?=old('last_name', $post)?>" /><?=err('last_name', $errors)?>
+                    <input name="last_name" type="text" placeholder="Last Name *" maxlength="45"  value="<?=esc(old('last_name', $post))?>" /><?=err('last_name', $errors)?>
                 </p>
 
                  <p>  
                     <label for="nick_name">Nick Name</label><br />
-                    <input name="nick_name" type="text" placeholder="Nick Name *"  maxlength="45" value="<?=old('nick_name', $post)?>" /><?=err('nick_name', $errors)?>
+                    <input name="nick_name" type="text" placeholder="Nick Name *"  maxlength="45" value="<?=esc(old('nick_name', $post))?>" /><?=err('nick_name', $errors)?>
                 </p>
             
                 <p>
                     <label for="street">Street</label><br />
-                    <input name="street" id="street" type="text" placeholder="Type your street address *"  value="<?=old('street', $post)?>" maxlength="145" /><?=err('street', $errors)?>
+                    <input name="street" id="street" type="text" placeholder="Type your street address *"  value="<?=esc(old('street', $post))?>" maxlength="145" /><?=err('street', $errors)?>
                 </p>
 
 
                 <p>
                     <label for="city">City</label><br />
-                    <input name="city" id="city" type="text" placeholder="City *" maxlength="145" value="<?=old('city', $post)?>" /><?=err('city', $errors)?>
+                    <input name="city" id="city" type="text" placeholder="City *" maxlength="145" value="<?=esc(old('city', $post))?>" /><?=err('city', $errors)?>
                 </p>
 
                 <p>
                     <label for="postal_code">Postal Code</label><br />
-                    <input name="postal_code" type="text" maxlength="7" placeholder="Postal Code i.e R2J1L5 or 90210 *"  value="<?=old('postal_code', $post)?>" /><?=err('postal_code', $errors)?>
+                    <input name="postal_code" type="text" maxlength="7" placeholder="Postal Code i.e R2J1L5 or 90210 *"  value="<?=esc(old('postal_code', $post))?>" /><?=err('postal_code', $errors)?>
                 </p>
 
                 <p>
                   <label for="province">Province</label><br />  
-                  <input name="province" id="province" type="text" placeholder="Province or State i.e ON or NY *"  value="<?=old('province', $post)?>" maxlength="50"/><?=err('province', $errors)?>
+                  <input name="province" id="province" type="text" placeholder="Province or State i.e ON or NY *"  value="<?=esc(old('province', $post))?>" maxlength="50"/><?=err('province', $errors)?>
                 </p> 
             </div> 
-       
+       )
         <!-- /.box1 -->
         <div class="box2">
 
@@ -66,17 +66,17 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
                 <label for="phone">Phone</label><br />
-                <input name="phone" type="text" maxlength="20" placeholder="Phone Number *"  value="<?=old('phone', $post)?>" /><?=err('street', $errors)?>
+                <input name="phone" type="text" maxlength="20" placeholder="Phone Number *"  value="<?=esc(old('phone', $post))?>" /><?=err('street', $errors)?>
             </p>
 
             <p>
                 <label for="email">E-Mail</label><br />
-                <input name="email" id="email" type="text" maxlength="45" placeholder="Type your e-mail address *"  value="<?=old('email', $post)?>" /><?=err('email', $errors)?>
+                <input name="email" id="email" type="text" maxlength="45" placeholder="Type your e-mail address *"  value="<?=esc(old('email', $post))?>" /><?=err('email', $errors)?>
             </p>
 
             <p>
                 <label for="email2">Confirm E-Mail</label><br />
-                <input name="email2" id="email2" type="text" maxlength="45" placeholder="Type your e-mail address again *"  value="<?=old('email2', $post)?>" /><?=err('email2', $errors)?>
+                <input name="email2" id="email2" type="text" maxlength="45" placeholder="Type your e-mail address again *"  value="<?=esc(old('email2', $post))?>" /><?=err('email2', $errors)?>
             </p>
 
 
@@ -94,7 +94,7 @@ require __DIR__ . "/../includes/header_inc.php";
 
             <p>
                 <label for="age">Age</label><br />
-                <input name="age" type="text" placeholder="Your Age" maxlength="3"  value="<?=old('age', $post)?>" /><?=err('age', $errors)?>
+                <input name="age" type="text" placeholder="Your Age" maxlength="3"  value="<?=esc(old('age', $post))?>" /><?=err('age', $errors)?>
             </p>
 
             <div class="btn-div-sm">

@@ -69,24 +69,24 @@ if($user['is_admin'] == 1){
                 
                 <h2 class='name-of-user'>
 
-                    <strong><?=$user['first_name'] . ' ' . $user['last_name'] ?></strong>
+                    <strong><?=esc($user['first_name']) . ' ' . esc($user['last_name']) ?></strong>
 
                     <i class="fas marker-icon fa-map-marker-alt" style="margin-left:25px;font-size:12px; color:#ccc">
                         <span style="font-family: 'Quicksand', sans-serif; font-size:12px; color:#ccc" >
-                            <?=$user['province'] . ", " . $user['country'] ;?>      
+                            <?=esc($user['province']) . ", " . esc($user['country']) ;?>      
                         </span>
                     </i>
 
                 </h2>
 
                 <p class="nick">
-                    <?=$user['nick_name'];?>
+                    <?=esc($user['nick_name']);?>
                 </p>
 
                 <p class="info-label-small" style="margin:20px auto 0 auto;">comments</p>
                 <p class="info-number"><?=count($comments)?></p>
 
-                <p class="info-label-small" style="margin:20px auto 0 auto;" > Member Since: <?=$user['created_at'];?></p>
+                <p class="info-label-small" style="margin:20px auto 0 auto;" > Member Since: <?=esc($user['created_at']);?></p>
             
             </div>
 
@@ -154,27 +154,27 @@ if($user['is_admin'] == 1){
                     <table cellspacing="0" cellpadding="0" id="contact-table">
                         <tr>
                             <th>Phone: </th>
-                            <td style="color:#2289e0"><?=$user['phone'];?></td>
+                            <td style="color:#2289e0"><?=esc($user['phone']);?></td>
                         </tr>
                         
                         <tr>
                             <th>Address: </th>
-                            <td><?=$user['street'] . ", " . $user['city'] . ", " . $user['province'] ?><br><?=$user['postal_code'] . ", " . $user['country'] ;?></td>
+                            <td><?=esc($user['street']) . ", " . esc($user['city']) . ", " . esc($user['province']) ?><br><?=esc($user['postal_code']) . ", " . esc($user['country']) ;?></td>
                         </tr>   
                          
                         <tr>    
                             <th>E-mail: </th>
-                            <td style="color:#2289e0"><?=$user['email'];?></td>
+                            <td style="color:#2289e0"><?=esc($user['email']);?></td>
                         </tr>
 
                         <tr>
                             <th>Age: </th>
-                            <td><?=$user['age'];?></td>
+                            <td><?=esc($user['age']);?></td>
                         </tr>
 
                         <tr>
                             <th>From: </th>
-                            <td><?=$user['country'];?></td>
+                            <td><?=esc($user['country']);?></td>
                         </tr>
                     </table>
                 </div>

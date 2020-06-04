@@ -279,11 +279,19 @@ require __DIR__ . "/../includes/header_inc.php";
     </div>
 </div>
 
-<!-- <div class="soundcloud">
+<div class="soundcloud">
+    <div class="hear-it">
+        <div class="hear-it-content">
+            <h2>Hear the Difference</h2>
+            <p><strong>Sound Comet </strong> is a system for instantly mixing music online. With today’s computing power, along with advanced algorithms and machine learning, music can be mixed automatically following the steps that an audio engineer would take.</p>
+            <button class="try-btn3"><a href="pricing.php">SUBSCRIBE</a></button>
+        </div>
+    </div>
+
     <div class="soundcloud-wrapper">
         <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/679309221&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
     </div>
-</div> -->
+</div>
 <div id="row4">
     
 <!-- Slideshow HTML -->
@@ -304,7 +312,7 @@ require __DIR__ . "/../includes/header_inc.php";
                 </a>
 
                 <p>
-                    <span class="text"> <?=$post['full_desc']?></span>
+                    <span class="text"> <?=esc($post['full_desc'])?></span>
                 </p>
 
                 <button class="try-btn try-btn2" style="width:100%; margin-top:25px;">

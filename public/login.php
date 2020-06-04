@@ -108,7 +108,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             <div class="col">
                 <input type="hidden" name="loggedIn">
-                <input type="text" name="email" placeholder="Email" value="<?=old('email', $post)?>" /><?=err('email', $errors)?>
+                <input type="text" name="email" placeholder="Email" value="<?=esc(old('email', $post))?>" /><?=err('email', $errors)?>
                 <input type="password" name="password" placeholder="Password" required>
                 <input type="submit" value="Login">
             </div>

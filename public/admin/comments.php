@@ -184,7 +184,7 @@ if(empty($_SESSION['is_admin'])){
 
                             <td style="width:150px;">
 
-                                <a style="color:white; "><?=esc($comment['first_name'] . ' ' . $comment['last_name'])?>
+                                <a style="color:white; "><?=esc($comment['first_name']) . ' ' . esc($comment['last_name'])?>
                                 
                                 </a>
                             
