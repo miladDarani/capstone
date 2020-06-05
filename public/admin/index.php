@@ -25,6 +25,7 @@ use Capstone\UserModel;
 use Capstone\CommentsModel;
 use Capstone\AuthorModel;
 use Capstone\Validator;
+use Capstone\LogModel;
 
 $title = "Dashboard";
 $server = $_SERVER;
@@ -49,6 +50,16 @@ $aa = $a->authorsAll();
 $v= new Validator();
 
 $class='hidden';
+
+$log= new LogModel();
+
+$arr = ['remote_addr' => $_SERVER['REMOTE_ADDR'],
+'remote_uri' => $_SERVER['REQUEST_URI'],
+'request_method' => $_SERVER['REQUEST_METHOD']];
+
+// $log->addLog($arr);
+$my_log = $log->allLogs();
+
 
 //Displays flash msg
 if(empty($_SESSION['is_admin'])){
@@ -343,13 +354,15 @@ else
             <th>HTTP Status</th>
         </tr>
 
+                
+                <?php foreach ($my_log as $log => $value ) : ?>
 
-                <?php foreach ($server as $key => $value) : ?>
                     <tr>
-                        <td><?=date('r',$server['REQUEST_TIME'])?></td>
-                        <td><?=$server['REQUEST_URI']?></td>
-                        <td><?=$server['REQUEST_METHOD']?></td>
-                        <td><?=http_response_code()?></td>
+                        <td><?=$value['log_date']?></td>
+                        <td><?=$value['remote_uri']?></td>
+                        <td><?=$value['remote_addr']?></td>
+                        <td><?=$value['request_method']?></td>
+
                     </tr>
                 <?php endforeach; ?>
 

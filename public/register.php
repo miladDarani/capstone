@@ -4,6 +4,9 @@
 require __DIR__ . "/../config.php";
 $title = "Register";
 require __DIR__ . "/../includes/header_inc.php";
+use Capstone\LogModel;
+$log= new LogModel();
+$log->addLog($arr);
 ?>
 
 

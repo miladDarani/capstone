@@ -18,7 +18,9 @@ if(!empty($_GET['s'])){
     $search_result = $_GET['s'] ;
     $class="block";  
 }
-
+use Capstone\LogModel;
+$log= new LogModel();
+$log->addLog($arr);
 ?>
 
 <div class="row-blog-header">

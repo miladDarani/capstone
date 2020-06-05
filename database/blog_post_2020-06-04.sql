@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.26)
 # Database: blog_post
-# Generation Time: 2020-06-04 22:11:26 +0000
+# Generation Time: 2020-06-05 04:24:22 +0000
 # ************************************************************
 
 
@@ -184,6 +184,31 @@ VALUES
 	(27,'Testing some more texts\r\n',NULL,'2020-06-01 16:16:23',74,33,'2020-06-01 16:16:23');
 
 /*!40000 ALTER TABLE `comment_rate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table my_log
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `my_log`;
+
+CREATE TABLE `my_log` (
+  `log_id` int(11) NOT NULL AUTO_INCREMENT,
+  `remote_addr` varchar(255) DEFAULT NULL,
+  `remote_uri` varchar(255) DEFAULT NULL,
+  `log_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `request_method` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+
+LOCK TABLES `my_log` WRITE;
+/*!40000 ALTER TABLE `my_log` DISABLE KEYS */;
+
+INSERT INTO `my_log` (`log_id`, `remote_addr`, `remote_uri`, `log_date`, `request_method`)
+VALUES
+	(19,'::1','/admin/index.php','2020-06-04 23:10:42','GET');
+
+/*!40000 ALTER TABLE `my_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

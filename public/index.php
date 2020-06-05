@@ -2,12 +2,15 @@
 require __DIR__ . "/../config.php";
 $title = "Welcome To Sound Comet";
 use Capstone\BlogModel;
+use Capstone\LogModel;
 
 $post = new BlogModel();
 $p = $post->allPosts();
 
 require __DIR__ . "/../includes/header_inc.php";
 
+$log= new LogModel();
+$log->addLog($arr);
 ?>
 
 

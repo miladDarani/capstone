@@ -88,7 +88,7 @@ if(!empty($_SESSION['user_id'])){
                 </a>
 
             </div>
-        <img src="images/blog-pics/<?=esc($value['image'])?>">
+        <img style="max-width: 100%;" src="images/blog-pics/<?=esc($value['image'])?>">
         </div>   
     </figure>
     <br>
@@ -146,7 +146,7 @@ if(!empty($_SESSION['user_id'])){
                     <input type="hidden" name="user_id" value="<?=esc($_SESSION['user_id'])?>">
                     <input type="hidden" name="post_id" value="<?=esc($_SESSION['post_id'])?>">
 
-                    <div class="inside-wrap">
+                    <div style="padding-right:40px;" class="inside-wrap">
 
                         <div class="commment-img">
                             <img style="margin: 0 42px;" src="https://api.adorable.io/avatars/150/<?=esc($our_user[0]['first_name'])?>@adorable.png" alt="Profile Picture">

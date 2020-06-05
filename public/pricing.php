@@ -4,7 +4,9 @@ $title = "Pricing";
 
 require __DIR__ . "/../includes/header_inc.php";
 
-
+use Capstone\LogModel;
+$log= new LogModel();
+$log->addLog($arr);
 ?>
 <!--        ROW1         -->
       <div id="pricing-row1">

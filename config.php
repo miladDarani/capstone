@@ -22,18 +22,12 @@ require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/env.php';
 
 
-// define('ENV', 'PRODUCTION'); 
-// define('ENV', 'DEVELOPMENT'); 
-// start a session
-// this allows us to save data and access it on another page
-// if that page has loaded this config file.
 session_start();
 
 //output buffer
 ob_start();
 
-//6. Take errors out of SESSION and put in variable
-//6. Delete SESSION errors so its only for this one instance;
+//Delete SESSION errors so its only for this one instance;
 if(isset($_SESSION['errors'])) {
     $errors =  $_SESSION['errors'];
     $_SESSION['errors'] = []; // clear old errors from session
@@ -55,6 +49,10 @@ if(!empty($_SESSION['flash'])){
    }else {
     $flash=[];
    }
+//array for logging user info to admin dashboard
+$arr = ['remote_addr' => $_SERVER['REMOTE_ADDR'],
+'remote_uri' => $_SERVER['REQUEST_URI'],
+'request_method' => $_SERVER['REQUEST_METHOD']];
 
 
 // Connection for DATABASE in in here , hidden from GIT
